@@ -15,3 +15,6 @@ yarn-error.log
 .DS_Store
 .idea
 composer.lock
+public/mix-manifest.json
+public/css
+public/js
