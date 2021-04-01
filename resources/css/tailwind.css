@@ -75,18 +75,31 @@
         @apply font-caps font-bold lowercase no-underline tracking-wide text-2xl hover:bg-gray-200 py-1 px-2 transition duration-200 rounded-lg
     }
 
+    h3 {
+        @apply block pb-[0.625rem] uppercase leading-snug font-bold font-caps cursor-pointer border-b-2 border-transparent hover:border-black transition duration-200;
+    }
+
     ol {
         counter-reset: count;
         @apply ml-20 my-4;
     }
 
-    ol > li {
-        @apply list-none my-6;
+    ul {
+        @apply ml-20 my-4;
+    }
+
+    ol > li, ul > li {
+        @apply list-none my-4;
     }
 
     ol > li:before {
         counter-increment: count;
         content: counter(count);
-        @apply font-index text-3xl absolute -ml-16;
+        @apply font-index text-[1.625rem] absolute -ml-16 mt-1;
+    }
+
+    ul > li:before {
+        content: "•";
+        @apply text-[1.625rem] absolute -ml-16;
     }
 }

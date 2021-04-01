@@ -1,0 +1,19 @@
+<header class="h-16 max-w-6xl mx-auto mt-8 flex flex-row justify-between">
+    <div class="ml-24 mr-8 flex">
+        <a href="{{ homepage }}">
+            {{ partial:partials/logo }}
+        </a>
+    </div>
+    <div
+            class="flex flex-row text-2xl font-caps lowercase tracking-wide space-x-8 mr-16 no-underline"
+    >
+        {{ nav:collection:pages }}
+            <a
+                class="border-b-2 border-transparent hover:border-black transition duration-300"
+                href="{{ url }}"
+            >
+                {{ title }}
+            </a>
+        {{ /nav:collection:pages }}
+    </div>
+</header>

@@ -2,3 +2,7 @@ name: 'Yunus Emre Deligöz'
 super: true
 id: b8f3533e-0fcf-42b9-a3d8-c8691deaf917
 password_hash: $2y$10$RYTZNWshMF9qi4zaBE65p.cvSX7SSdO1QC0uZugjebQoXOOos7Z5q
+preferences:
+  collections:
+    posts:
+      after_save: continue_editing
