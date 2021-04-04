@@ -2,7 +2,7 @@ title: Articles
 template: articles/show
 layout: layout
 revisions: false
-route: '/articles/{slug}'
+route: '/articles/{parent_uri}/{slug}'
 date: true
 sort_dir: asc
 date_behavior:

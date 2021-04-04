@@ -1,0 +1,12 @@
+<a
+        href="#{{ heading | slugify }}"
+        id="{{ heading | slugify }}"
+>
+    <h3 class="block pb-[0.625rem] text-3xl leading-snug font-serif italic cursor-pointer border-b-2 border-transparent hover:border-black transition duration-200">
+        {{ heading }}
+    </h3>
+</a>
+
+<div class="space-y-6">
+    {{ text }}
+</div>

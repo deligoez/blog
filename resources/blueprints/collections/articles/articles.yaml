@@ -24,6 +24,8 @@ sections:
         field:
           always_show_set_button: false
           buttons:
+            - h1
+            - h2
             - h3
             - bold
             - italic
@@ -36,6 +38,11 @@ sections:
             - table
             - codeblock
             - horizontalrule
+            - underline
+            - strikethrough
+            - superscript
+            - subscript
+            - code
           save_html: false
           toolbar_mode: fixed
           link_noopener: false
@@ -66,6 +73,39 @@ sections:
                     type: assets
                     icon: assets
                     listable: hidden
+                    folder: articles
+            code:
+              display: Code
+              fields:
+                -
+                  handle: code
+                  field:
+                    restrict: false
+                    automatic_line_breaks: true
+                    automatic_links: false
+                    escape_markup: false
+                    smartypants: false
+                    antlers: true
+                    display: code
+                    type: markdown_highlight
+                    icon: code-block
+                    listable: hidden
+            heading:
+              display: Heading
+              fields:
+                -
+                  handle: heading
+                  field:
+                    restrict: false
+                    automatic_line_breaks: true
+                    automatic_links: false
+                    escape_markup: false
+                    smartypants: true
+                    antlers: false
+                    display: Heading
+                    type: markdown
+                    icon: markdown
+                    listable: hidden
   sidebar:
     display: Sidebar
     fields:
@@ -77,6 +117,8 @@ sections:
           localizable: true
           validate:
             - required
+          listable: hidden
+          generate: true
       -
         handle: date
         field:
@@ -84,12 +126,22 @@ sections:
           required: true
           validate:
             - required
+          listable: hidden
+          mode: single
+          time_enabled: false
+          time_required: false
+          earliest_date: '1900-01-01'
+          full_width: false
+          inline: false
+          columns: 1
+          rows: 1
       -
         handle: parent
         field:
           type: entries
           collections:
-            - posts
+            - articles
           max_items: 1
           listable: false
           localizable: true
+          mode: default

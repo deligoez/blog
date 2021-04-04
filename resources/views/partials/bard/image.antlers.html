@@ -1,1 +1,8 @@
-<img src="{{ image }}">
+<figure class="grid grid-cols-1 w-full px-4">
+    <img data-zoomable src="{{ image }}" alt="{{ image:alt }}"/>
+    {{ if image:alt }}
+        <figcaption class="text-xl text-center italic text-gray-500 mb-8">
+            {{ image:alt }}
+        </figcaption>
+    {{ /if }}
+</figure>

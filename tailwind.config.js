@@ -12,11 +12,14 @@ module.exports = {
                 'serif': ['Equity Text A', 'Times New Roman', 'Times', 'Georgia', 'Cambria', 'ui-serif', 'serif'],
                 'caps': ['Equity Caps A', 'serif'],
                 'index': ['concourse-t3-index', 'sans'],
+                'source': ['Dank Mono', 'monospace'],
             },
         },
     },
     variants: {
         extend: {},
     },
-    plugins: [],
+    plugins: [
+        require('@tailwindcss/typography'),
+    ],
 }
