@@ -2,10 +2,8 @@
 
 namespace App\Tags;
 
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\HtmlString;
 use Statamic\Tags\Tags;
-use Throwable;
 
 class ViteAssets extends Tags
 {

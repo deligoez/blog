@@ -1,8 +1,14 @@
 module.exports = {
     purge: [
-        './resources/**/*.antlers.html',
-        './resources/**/*.blade.php',
-        './content/**/*.md'
+        'app/**/*.php',
+        'resources/**/*.html',
+        'resources/**/*.js',
+        'resources/**/*.jsx',
+        'resources/**/*.ts',
+        'resources/**/*.tsx',
+        'resources/**/*.php',
+        'resources/**/*.vue',
+        'resources/**/*.twig',
     ],
     darkMode: false, // or 'media' or 'class'
     important: true,

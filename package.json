@@ -7,7 +7,6 @@
     "devDependencies": {
         "@tailwindcss/jit": "^0.1.18",
         "@tailwindcss/typography": "^0.4.0",
-        "alpinejs": "^2.8.2",
         "autoprefixer": "^10.1.0",
         "cross-env": "^7.0",
         "medium-zoom": "^1.0.6",
