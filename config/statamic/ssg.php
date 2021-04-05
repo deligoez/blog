@@ -39,8 +39,7 @@ return [
     */
 
     'copy' => [
-        public_path('css') => 'css',
-        public_path('js') => 'js',
+        public_path('build') => 'build',
         public_path('assets') => 'assets',
         public_path('robots.txt') => 'robots.txt',
         public_path('favicon.ico') => 'favicon.ico',
