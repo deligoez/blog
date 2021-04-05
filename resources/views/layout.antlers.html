@@ -5,15 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ title ?? site:name }}</title>
-    <link rel="stylesheet" href="{{ mix src='css/tailwind.css' }}">
+    {{ vite_assets }}
 </head>
 <body class="subpixel-antialiased font-serif mx-16 min-h-full">
-
 {{ partial:partials/header }}
 
 {{ template_content }}
-
-<script src="{{ mix src='/js/site.js' }}"></script>
 </body>
 </html>
 
