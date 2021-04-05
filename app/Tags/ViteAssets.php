@@ -33,8 +33,8 @@ class ViteAssets extends Tags
         $css = $manifest['resources/js/site.js']['css'][0];
 
         return new HtmlString(<<<HTML
-        <script type="module" src="/build/$file"></script>
-        <link rel="stylesheet" href="/build/$css">
+        <script type="module" src="/js/$file"></script>
+        <link rel="stylesheet" href="/css/$css">
     HTML
         );
     }
