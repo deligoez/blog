@@ -1,4 +1,7 @@
 title: Pages
+sites:
+  - default
+  - tr
 template: layout
 layout: layout
 revisions: false

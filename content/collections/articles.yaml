@@ -1,4 +1,7 @@
 title: Articles
+sites:
+  - default
+  - tr
 template: articles/show
 layout: layout
 revisions: false
