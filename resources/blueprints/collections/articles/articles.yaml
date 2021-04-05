@@ -10,6 +10,7 @@ sections:
           required: true
           validate:
             - required
+          localizable: true
       -
         handle: subtitle
         field:
@@ -19,6 +20,7 @@ sections:
           type: text
           icon: text
           listable: hidden
+          localizable: true
       -
         handle: content
         field:
@@ -135,6 +137,7 @@ sections:
                     type: structures
                     icon: structures
                     listable: hidden
+          localizable: true
   sidebar:
     display: Sidebar
     fields:
