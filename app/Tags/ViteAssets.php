@@ -17,17 +17,7 @@ class ViteAssets extends Tags
      */
     public function index(): HtmlString
     {
-        $devServerIsRunning = false;
-
         if (app()->environment('local')) {
-            try {
-                Http::get("http://localhost:3000");
-                $devServerIsRunning = true;
-            } catch (Throwable $throwable) {
-            }
-        }
-
-        if ($devServerIsRunning) {
             return new HtmlString(<<<HTML
             <script type="module" src="http://localhost:3000/@vite/client"></script>
             <script type="module" src="http://localhost:3000/resources/js/site.js"></script>
@@ -43,8 +33,8 @@ class ViteAssets extends Tags
         $css = $manifest['resources/js/site.js']['css'][0];
 
         return new HtmlString(<<<HTML
-        <script type="module" src="/build/{$file}"></script>
-        <link rel="stylesheet" href="/build/{$css}">
+        <script type="module" src="/build/$file"></script>
+        <link rel="stylesheet" href="/build/$css">
     HTML
         );
     }
