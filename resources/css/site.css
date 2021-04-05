@@ -120,6 +120,14 @@
     }
 
     p > code {
-        @apply py-2 px-3 rounded-xl text-[1.4rem] bg-gray-100;
+        @apply py-2 px-3 rounded-xl text-[1.4rem];
+    }
+
+    pre {
+        @apply leading-relaxed;
+    }
+
+    .hljs .highlighted {
+        @apply inline-block py-1 px-3 -mx-3 bg-gray-100;
     }
 }

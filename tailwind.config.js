@@ -1,7 +1,7 @@
 module.exports = {
     purge: [
-        'app/**/*.php',
         'resources/**/*.html',
+        'resources/**/*.css',
         'resources/**/*.js',
         'resources/**/*.jsx',
         'resources/**/*.ts',
