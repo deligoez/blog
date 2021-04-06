@@ -1,6 +1,9 @@
-data: {  }
-size: 514093
-last_modified: 1617558044
+data:
+  imageoptimizer:
+    original_size: 514093
+    current_size: 140695
+size: 140695
+last_modified: 1617740852
 width: 1367
 height: 1052
 mime_type: image/png
