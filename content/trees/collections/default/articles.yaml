@@ -9,9 +9,3 @@ tree:
     entry: 8c0f2bd1-7a5a-4235-ba51-dc28637b9dbc
   -
     entry: 7cff948d-989b-46e2-a623-5b43796f4c0e
-    children:
-      -
-        entry: ff2168b4-400f-4abc-9895-c84191ea97b4
-        children:
-          -
-            entry: d074259b-adce-4a90-b2db-f1170f15308c

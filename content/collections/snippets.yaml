@@ -1,0 +1,13 @@
+title: Snippets
+sites:
+  - default
+  - tr
+template: snippets/show
+layout: layout
+revisions: false
+route: 'snippets/{slug}'
+date: true
+sort_dir: asc
+date_behavior:
+  past: public
+  future: private
