@@ -2,7 +2,7 @@ title: Pages
 sites:
   - default
   - tr
-template: layout
+template: uses/show
 layout: layout
 revisions: false
 route: '{parent_uri}/{slug}'

@@ -1,0 +1,15 @@
+title: Uses
+sites:
+  - default
+  - tr
+template: uses/show
+layout: layout
+revisions: false
+route: 'uses/{slug}'
+date: true
+sort_dir: asc
+date_behavior:
+  past: public
+  future: private
+structure:
+  root: false
