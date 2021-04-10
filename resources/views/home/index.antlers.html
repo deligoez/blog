@@ -1,17 +1,20 @@
 <div class="max-w-5xl mx-auto mt-12 flex flex-row flex-nowrap mb-52">
-    <div class="flex flex-col text-[1.625em] mx-auto text-center italic">
-        <div class="text-5xl">
-            Hej! Hej! <span class="inline-block not-italic animate-wiggle">👋🏻</span>
-        </div>
-        <div class="text-5xl max-w-xl mt-4">
-            I'm Yunus Emre Deligöz
-        </div>
-        <div class="text-3xl max-w-xl text-gray-500 leading-relaxed mt-2">
-            Software Developer, PHP, Laravel, TDD.
+    <div class="flex flex-col text-[1.625em] mx-auto text-center italic space-y-6">
+        <div>
+            <div class="text-5xl">
+                Hej! Hej! <span class="inline-block not-italic animate-wiggle">👋🏻</span>
+            </div>
+            <div class="text-5xl max-w-xl mt-5">
+                I'm Yunus Emre Deligöz
+            </div>
+            <div class="text-3xl max-w-xl text-gray-500 leading-relaxed mt-3">
+                Software Developer, PHP, Laravel, TDD.
+            </div>
         </div>
 
+        <!-- region Articles -->
         <div>
-            <h3 class="block text-3xl leading-snug font-caps uppercase border-b-2 not-italic border-black mt-10 mb-4">
+            <h3 class="block text-3xl leading-snug tracking-widest font-caps uppercase border-b-2 not-italic border-black mt-10 mb-4">
                 <a href="/articles">Latest Articles</a>
             </h3>
 
@@ -30,7 +33,9 @@
                 {{ /collection:articles }}
             </div>
         </div>
+        <!-- endregion -->
 
+        <!-- region Snippets -->
         <div>
             <h3 class="block text-3xl leading-snug font-caps uppercase border-b-2 not-italic border-black mt-10 mb-4">
                 <a href="/articles">Latest Snippets</a>
@@ -51,5 +56,6 @@
                 {{ /collection:snippets }}
             </div>
         </div>
+        <!-- endregion -->
     </div>
 </div>
