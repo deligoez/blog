@@ -10,9 +10,9 @@ export default ({ command }) => ({
     },
     plugins: [
         {
-            name: 'blade',
+            name: 'antlers',
             handleHotUpdate({ file, server }) {
-                if (file.endsWith('.blade.php')) {
+                if (file.endsWith('.antlers.html')) {
                     server.ws.send({
                         type: 'full-reload',
                         path: '*',
