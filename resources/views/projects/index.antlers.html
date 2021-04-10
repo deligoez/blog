@@ -1,0 +1,28 @@
+<div class="max-w-5xl mx-auto mt-12 flex flex-row flex-nowrap mb-52">
+    <div class="flex-initial flex flex-col mr-16 max-w-[10em]">
+        <h1
+                class="text-3xl font-semibold text-right border-t-[3px] pt-2 border-black"
+        >
+            {{ title }}
+        </h1>
+        <h2 class="italic text-right text-2xl mt-3">
+            {{ subtitle }}
+        </h2>
+    </div>
+
+    <div class="flex flex-col text-[1.625em] mx-auto text-center space-y-6 italic">
+        {{ collection from="projects" }}
+        <div class="flex flex-col">
+            <a href="{{ url }}" class="text-7xl not-italic leading-snug ">
+                {{ emoji }}
+            </a>
+            <a href="{{ url }}" class="text-3xl leading-snug ">
+                {{ title }}
+            </a>
+            <a href="{{ url }}" class="text-gray-500 text-3xl mt-1">
+                {{ subtitle }}
+            </a>
+        </div>
+        {{ /collection }}
+    </div>
+</div>
