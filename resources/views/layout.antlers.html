@@ -4,13 +4,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ title ?? site:name }}</title>
+    <title>{{ title }} | Deligöz</title>
+
+    {{ partial:partials/favicon }}
+
     {{ vite_assets }}
 </head>
 <body class="subpixel-antialiased font-serif mx-16 min-h-full">
-{{ partial:partials/header }}
+    {{ partial:partials/header }}
 
-{{ template_content }}
+    {{ template_content }}
 </body>
 </html>
 

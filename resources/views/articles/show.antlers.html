@@ -1,4 +1,4 @@
-<div class="max-w-5xl mx-auto mt-12 flex flex-row flex-nowrap mb-52">
+<div class="max-w-5xl mx-auto mt-12 flex flex-row flex-no-wrap mb-52">
     <div class="flex-initial flex flex-col mr-16 max-w-[10em]">
         <h1
             class="text-3xl font-semibold text-right border-t-[3px] pt-2 border-black"
@@ -9,12 +9,14 @@
             {{ subtitle }}
         </h2>
 
-        <p class="italic text-right text-xl mt-3 text-gray-500">
-            {{ date iso_format="MMMM Mo ʼYY" }}
+        <p class="italic text-right text-xl leading-none mt-1 text-gray-500">
+            {{ content | flatten | join | strip_tags | read_time }} min
+        </p>
+
+        <p class="italic text-right text-xl leading-none mt-1 text-gray-500">
+            {{ date | ago }}
         </p>
     </div>
-
-    {{ children | dump}}
 
     <div class="flex-1 text-[1.625em] leading-snug space-y-6">
         {{ content }}
