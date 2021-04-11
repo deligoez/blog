@@ -13,7 +13,8 @@
         </div>
 
         <!-- region Articles -->
-        <div>
+        {{ if {collection:count in ="articles"} > 0}}
+            <div>
             <h3 class="block text-3xl leading-snug tracking-widest font-caps uppercase border-b-2 not-italic border-black mt-10 mb-4">
                 <a href="/articles">Latest Articles</a>
             </h3>
@@ -25,7 +26,7 @@
                         {{ title }}
                     </a>
                     {{ if parent:title }}
-                    <a href="{{ parent:url }}" class="text-gray-500 text-2xl" href="#">{{ parent:title }}</a>
+                        <a href="{{ parent:url }}" class="text-gray-500 text-2xl" href="#">{{ parent:title }}</a>
                     {{ /if }}
                     <div class="flex flex-row justify-center">
                         <p class="text-gray-500 text-2xl">
@@ -36,12 +37,14 @@
                 {{ /collection:articles }}
             </div>
         </div>
+        {{ /if }}
         <!-- endregion -->
 
         <!-- region Snippets -->
-        <div>
+        {{ if {collection:count in ="snippets"} > 0}}
+            <div>
             <h3 class="block text-3xl leading-snug font-caps uppercase border-b-2 not-italic border-black mt-10 mb-4">
-                <a href="/articles">Latest Snippets</a>
+                <a href="/snippers">Latest Snippets</a>
             </h3>
 
             <div class="flex flex-col text-[1.625em] mx-auto text-center italic">
@@ -59,6 +62,7 @@
                 {{ /collection:snippets }}
             </div>
         </div>
+        {{ /if }}
         <!-- endregion -->
     </div>
 </div>
