@@ -177,10 +177,3 @@ sections:
           listable: false
           localizable: true
           mode: default
-      -
-        handle: show_toc
-        field:
-          display: 'Show ToC'
-          type: toggle
-          icon: toggle
-          listable: hidden

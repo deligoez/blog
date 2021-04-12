@@ -5,7 +5,9 @@ sites:
 template: articles/show
 layout: layout
 revisions: false
-route: '/articles/{parent_uri}/{slug}'
+route:
+  default: '/articles/{parent_uri}/{slug}'
+  tr: '/makale/{parent_uri}/{slug}'
 date: true
 sort_dir: asc
 date_behavior:
@@ -13,3 +15,4 @@ date_behavior:
   future: private
 structure:
   root: false
+  max_depth: 3
