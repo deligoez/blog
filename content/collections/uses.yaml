@@ -1,11 +1,11 @@
 title: Uses
 sites:
-  - default
+  - en
   - tr
 template: uses/show
 layout: layout
 revisions: false
-route: 'uses/{slug}'
+route: '/uses/{slug}'
 date: true
 sort_dir: asc
 date_behavior:

@@ -1,13 +1,13 @@
 title: Articles
 sites:
-  - default
+  - en
   - tr
 template: articles/show
 layout: layout
 revisions: false
 route:
-  default: '/articles/{parent_uri}/{slug}'
-  tr: '/makale/{parent_uri}/{slug}'
+  en: 'articles/{slug}'
+  tr: 'makale/{slug}'
 date: true
 sort_dir: asc
 date_behavior:

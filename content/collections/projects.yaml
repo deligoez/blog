@@ -1,13 +1,13 @@
 title: Projects
 sites:
-  - default
+  - en
   - tr
 template: projects/show
 layout: layout
 revisions: false
 route:
-  default: 'projects/{slug}'
-  tr: 'proje/{slug}'
+  en: '/projects/{slug}'
+  tr: '/proje/{slug}'
 sort_dir: asc
 date_behavior:
   past: public

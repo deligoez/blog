@@ -1,11 +1,11 @@
 title: Pages
 sites:
-  - default
+  - en
   - tr
 template: uses/show
 layout: layout
 revisions: false
-route: '{parent_uri}/{slug}'
+route: '/{parent_uri}/{slug}'
 sort_dir: asc
 structure:
   root: true

@@ -15,14 +15,14 @@ return [
 
     'sites' => [
 
-        'default' => [
-            'name' => 'en',
+        'en' => [
+            'name' => 'Deligöz-EN',
             'locale' => 'en_US',
             'url' => '/',
         ],
 
         'tr' => [
-            'name' => 'tr',
+            'name' => 'Deligöz-TR',
             'locale' => 'tr_TR',
             'url' => '/tr/',
         ],

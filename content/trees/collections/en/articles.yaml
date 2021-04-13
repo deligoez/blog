@@ -7,9 +7,8 @@ tree:
         children:
           -
             entry: 248415a6-e924-41c4-8926-2c25436f8f00
-            children:
-              -
-                entry: a5d88bca-3c16-4d69-9e63-e8f5adf486b5
-                children:
-                  -
-                    entry: 8c0f2bd1-7a5a-4235-ba51-dc28637b9dbc
+  -
+    entry: a5d88bca-3c16-4d69-9e63-e8f5adf486b5
+    children:
+      -
+        entry: 8c0f2bd1-7a5a-4235-ba51-dc28637b9dbc

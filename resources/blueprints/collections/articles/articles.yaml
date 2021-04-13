@@ -108,35 +108,6 @@ sections:
                     type: markdown
                     icon: markdown
                     listable: hidden
-            toc:
-              display: ToC
-              fields:
-                -
-                  handle: entries
-                  field:
-                    mode: default
-                    collections:
-                      - articles
-                    display: Entries
-                    type: entries
-                    icon: entries
-                    listable: hidden
-                -
-                  handle: collections
-                  field:
-                    mode: default
-                    display: Collections
-                    type: collections
-                    icon: collections
-                    listable: hidden
-                -
-                  handle: structures
-                  field:
-                    mode: default
-                    display: Structures
-                    type: structures
-                    icon: structures
-                    listable: hidden
           localizable: true
   sidebar:
     display: Sidebar
