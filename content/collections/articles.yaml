@@ -5,9 +5,8 @@ sites:
 template: articles/show
 layout: layout
 revisions: false
-route:
-  en: 'articles/{slug}'
-  tr: 'makale/{slug}'
+mount: 40361042-580e-49cb-b8f2-e9430f62ba7f
+route: '{{ depth == 1 ?= mount }}/{{ parent_uri }}/{{ slug }}'
 date: true
 sort_dir: asc
 date_behavior:
