@@ -4,8 +4,9 @@ sites:
   - tr
 template: snippets/show
 layout: layout
+mount: 5e9543d7-de20-4a06-95c9-897171ecb6dc
+route: '{{ depth == 1 ?= mount }}/{{ parent_uri }}/{{ slug }}'
 revisions: false
-route: '/snippets/{slug}'
 date: true
 sort_dir: asc
 date_behavior:
