@@ -16,13 +16,13 @@ return [
     'sites' => [
 
         'en' => [
-            'name' => 'Deligöz-EN',
+            'name' => '🇺🇸 English',
             'locale' => 'en_US',
             'url' => '/',
         ],
 
         'tr' => [
-            'name' => 'Deligöz-TR',
+            'name' => '🇹🇷 Türkçe',
             'locale' => 'tr_TR',
             'url' => '/tr/',
         ],
