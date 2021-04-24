@@ -13,33 +13,18 @@
             {{ content | flatten | join | strip_tags | read_time }} min
         </p>
 
-        <p class="italic text-right text-xl leading-none mt-1 text-gray-500">
-            {{ date | ago }}
+        <p
+            x-data="{open: false}"
+            @mouseenter.passive="open = true"
+            @mouseleave.passive="open = false"
+            class="italic text-right text-xl leading-none mt-1 text-gray-500"
+        >
+            <span x-show="!open">{{ date | ago }}</span>
+            <span x-show="open">{{ date }}</span>
         </p>
     </div>
 
     <div class="flex-1 text-[1.625em] leading-snug space-y-6">
-        {{ collection:articles uri:starts_with="{parent:uri}/" }}
-            {{ title }} <br/>
-        {{ /collection:articles }}
-
-        <br/>
-        <br/>
-
-        {{ nav:collection:articles :from="segment_3" }}
-            <ul>
-                <li>{{ title }}</li>
-                {{ if children }}
-                <ul>
-                    {{ children }}
-                        <li>{{ title }}</li>
-                        {{ *recursive children* }}
-                    {{ /children }}
-                </ul>
-                {{ /if }}
-            </ul>
-        {{ /nav:collection:articles }}
-
         {{ content }}
             {{ partial src="partials/bard/{type}" }}
         {{ /content }}
