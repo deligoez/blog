@@ -1,35 +1,35 @@
-<div class="max-w-5xl mx-auto mt-12 flex flex-row flex-no-wrap mb-52">
+<div class="flex flex-row mx-auto mt-12 mb-52 max-w-5xl flex-no-wrap">
     <div class="flex flex-col text-[1.625em] mx-auto text-center italic space-y-6">
         <div>
-            <div class="text-5xl">
+            <div class="mx-auto text-5xl text-center">
                 Hej! Hej! <span class="inline-block not-italic animate-wiggle">👋🏻</span>
             </div>
-            <div class="text-5xl max-w-xl mt-5">
+            <div class="mx-auto mt-5 max-w-xl text-5xl text-center">
                 I'm Yunus Emre Deligöz
             </div>
-            <div class="text-3xl max-w-xl text-gray-500 leading-relaxed mt-3">
-                Software Developer, PHP, Laravel, TDD.
+            <div class="mx-auto mt-3 max-w-xl text-3xl leading-relaxed text-center text-gray-500">
+                Software Developer, PHP, Laravel, TDD
             </div>
         </div>
 
         <!-- region Articles -->
         {{ if {collection:count in ="articles"} > 0}}
             <div>
-            <h3 class="block text-3xl leading-snug tracking-widest font-caps uppercase border-b-2 not-italic border-black mt-10 mb-4">
+            <h3 class="block mt-10 mb-4 text-3xl not-italic tracking-widest leading-snug uppercase border-b-2 border-black font-caps">
                 <a href="/articles">Latest Articles</a>
             </h3>
 
             <div class="flex flex-col text-[1.625em] mx-auto text-center space-y-6 italic">
                 {{ collection:articles limit="4" }}
                 <div class="flex flex-col">
-                    <a href="{{ url }}" class="text-3xl leading-snug ">
+                    <a href="{{ url }}" class="text-3xl leading-snug">
                         {{ title }}
                     </a>
                     {{ if parent:title }}
-                        <a href="{{ parent:url }}" class="text-gray-500 text-2xl" href="#">{{ parent:title }}</a>
+                        <a href="{{ parent:url }}" class="text-2xl text-gray-500" href="#">{{ parent:title }}</a>
                     {{ /if }}
                     <div class="flex flex-row justify-center">
-                        <p class="text-gray-500 text-2xl">
+                        <p class="text-2xl text-gray-500">
                             {{ date | ago }}, {{ content | flatten | join | strip_tags | read_time }} min
                         </p>
                     </div>
@@ -43,18 +43,18 @@
         <!-- region Snippets -->
         {{ if {collection:count in ="snippets"} > 0}}
             <div>
-            <h3 class="block text-3xl leading-snug font-caps uppercase border-b-2 not-italic border-black mt-10 mb-4">
+            <h3 class="block mt-10 mb-4 text-3xl not-italic leading-snug uppercase border-b-2 border-black font-caps">
                 <a href="/snippers">Latest Snippets</a>
             </h3>
 
             <div class="flex flex-col text-[1.625em] mx-auto text-center italic">
                 {{ collection:snippets limit="3"}}
                 <div class="flex flex-col">
-                    <a href="{{ url }}" class="text-3xl leading-snug mt-2">
+                    <a href="{{ url }}" class="mt-2 text-3xl leading-snug">
                         {{ title }}
                     </a>
                     <div class="flex flex-row justify-center">
-                        <p class="text-gray-500 text-xl">
+                        <p class="text-xl text-gray-500">
                             {{ date iso_format="MMMM Mo ʼYY" }}
                         </p>
                     </div>
