@@ -41,9 +41,21 @@ return [
     'copy' => [
         public_path('build') => 'build',
         public_path('assets') => 'assets',
-        public_path('robots.txt') => 'robots.txt',
+
+        public_path('android-chrome-192x192.png') => 'android-chrome-192x192.png',
+        public_path('android-chrome-512x512.png') => 'android-chrome-512x512.png',
+        public_path('apple-touch-icon.png') => 'apple-touch-icon.png',
+        public_path('browserconfig.xml') => 'browserconfig.xml',
         public_path('favicon.ico') => 'favicon.ico',
-        public_path('manifest.json') => 'manifest.json',
+        public_path('favicon.svg') => 'favicon.svg',
+        public_path('favicon-16x16.png') => 'favicon-16x16.png',
+        public_path('favicon-32x32.png') => 'favicon-32x32.png',
+        public_path('mstile-150x150.png') => 'mstile-150x150.png',
+        public_path('robots.txt') => 'robots.txt',
+        public_path('safari-pinned-tab.svg') => 'safari-pinned-tab.svg',
+        public_path('site.webmanifest') => 'site.webmanifest',
+
+        storage_path('app/public/sitemap') => '',
     ],
 
     'symlinks' => [
