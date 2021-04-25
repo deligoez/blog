@@ -4,16 +4,21 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ title }} | Deligöz</title>
+
+    {{ aardvark-seo:head }}
 
     {{ partial:partials/favicon }}
 
     {{ vite_assets }}
 </head>
 <body class="subpixel-antialiased font-serif mx-16 min-h-full">
+    {{ aardvark-seo:body }}
+
     {{ partial:partials/header }}
 
     {{ template_content }}
+
+    {{ aardvark-seo:footer }}
 </body>
 </html>
 
