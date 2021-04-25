@@ -8,4 +8,4 @@ preferences:
       mode: table
   collections:
     articles:
-      after_save: create_another
+      after_save: continue_editing
