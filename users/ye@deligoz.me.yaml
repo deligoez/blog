@@ -7,7 +7,5 @@ preferences:
     assets:
       mode: table
   collections:
-    snippets:
-      after_save: continue_editing
     articles:
       after_save: create_another
