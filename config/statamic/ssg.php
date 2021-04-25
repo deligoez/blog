@@ -74,7 +74,7 @@ return [
     */
 
     'urls' => [
-        //
+        '/sitemap.xml'
     ],
 
     /*
