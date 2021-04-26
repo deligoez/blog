@@ -1,8 +1,8 @@
 <a
-        href="#{{ heading | strip_tags | slugify }}"
-        id="{{ heading | strip_tags | slugify }}"
+        href="#{{ number }}-{{ heading | strip_tags | slugify }}"
+        id="{{ number }}-{{ heading | strip_tags | slugify }}"
 >
     <h3 class="block pb-[0.625rem] text-3xl leading-snug font-serif italic cursor-pointer border-b-2 border-transparent hover:border-black transition duration-200">
-        {{ heading }}
+        <span class="font-index not-italic mr-2">{{ number }}</span> <span class="inline-block">{{ heading }}</span>
     </h3>
 </a>

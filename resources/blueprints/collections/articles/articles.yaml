@@ -4,6 +4,13 @@ sections:
     display: Main
     fields:
       -
+        handle: number
+        field:
+          display: Number
+          type: integer
+          icon: integer
+          listable: hidden
+      -
         handle: title
         field:
           type: text
@@ -96,6 +103,13 @@ sections:
               display: Heading
               fields:
                 -
+                  handle: number
+                  field:
+                    display: Number
+                    type: integer
+                    icon: integer
+                    listable: hidden
+                -
                   handle: heading
                   field:
                     restrict: false
@@ -107,6 +121,19 @@ sections:
                     display: Heading
                     type: markdown
                     icon: markdown
+                    listable: hidden
+            toc:
+              display: ToC
+              fields:
+                -
+                  handle: entries
+                  field:
+                    mode: default
+                    collections:
+                      - articles
+                    display: Entries
+                    type: entries
+                    icon: entries
                     listable: hidden
           localizable: true
   sidebar:
