@@ -16,8 +16,8 @@
         "owenvoke/blade-fontawesome": "^1.8",
         "rias/statamic-markdown-highlight": "^1.1",
         "statamic/cms": "3.1.*",
-        "statamic/ssg": "^0.4.0",
-        "withcandour/aardvark-seo": "^2.0"
+        "statamic/seo-pro": "^2.2",
+        "statamic/ssg": "^0.4.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",
@@ -71,8 +71,8 @@
             "npm run production",
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
             "@php artisan key:generate",
-            "@php artisan sitemap:generate",
-            "@php please ssg:generate"
+            "@php please ssg:generate",
+            "@php artisan sitemap:generate"
         ]
     }
 }

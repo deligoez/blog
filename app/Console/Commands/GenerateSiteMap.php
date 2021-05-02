@@ -3,9 +3,6 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Storage;
-use WithCandour\AardvarkSeo\Http\Controllers\Web\SitemapController;
-use WithCandour\AardvarkSeo\Sitemaps\Sitemap;
 
 class GenerateSiteMap extends Command
 {
@@ -21,22 +18,19 @@ class GenerateSiteMap extends Command
      *
      * @var string
      */
-    protected $description = 'Generate sitemap.xml using Aardvark SEO';
+    protected $description = 'Rename/Move sitemap.xml';
 
     /**
      * Execute the console command.
      *
      * @return int
      */
-    public function handle()
+    public function handle(): int
     {
-        $sitemapController = new SitemapController();
 
-        Storage::disk('public')->put('sitemap/sitemap.xml', $sitemapController->index()->original);
-
-        foreach (Sitemap::all() as $sitemap) {
-            Storage::disk('public')->put('sitemap/' .$sitemap->route, $sitemapController->single($sitemap->handle)->original);
-        }
+        rename(storage_path('app/static/sitemap.xml'),storage_path('app/static/sitemap'));
+        rename(storage_path('app/static/sitemap/index.html'),storage_path('app/static/sitemap.xml'));
+        rmdir(storage_path('app/static/sitemap'));
 
         return 0;
     }

@@ -54,8 +54,6 @@ return [
         public_path('robots.txt') => 'robots.txt',
         public_path('safari-pinned-tab.svg') => 'safari-pinned-tab.svg',
         public_path('site.webmanifest') => 'site.webmanifest',
-
-        storage_path('app/public/sitemap') => '/',
     ],
 
     'symlinks' => [
@@ -74,7 +72,7 @@ return [
     */
 
     'urls' => [
-        //
+        '/sitemap.xml'
     ],
 
     /*
