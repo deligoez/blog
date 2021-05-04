@@ -6,3 +6,6 @@ preferences:
   assets:
     assets:
       mode: table
+  collections:
+    articles:
+      after_save: continue_editing
