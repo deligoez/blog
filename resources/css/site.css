@@ -116,7 +116,11 @@
     }
 
     code {
-        @apply font-source italic leading-relaxed;
+        @apply font-source leading-relaxed;
+    }
+
+    .hljs-keyword, .hljs-params {
+        @apply italic;
     }
 
     p > code {
