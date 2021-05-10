@@ -1,5 +1,5 @@
 <div class="max-w-5xl mx-auto mt-12 flex flex-row flex-no-wrap mb-52">
-    <div class="flex-initial flex flex-col mr-16 max-w-[10em]">
+    <div class="hidden md:block flex-initial flex flex-col mr-16 max-w-[10em]">
         <h1
                 class="text-3xl font-semibold text-right border-t-[3px] pt-2 border-black"
         >
@@ -12,6 +12,9 @@
     </div>
 
     <div class="flex-1 text-[1.625em] leading-snug space-y-6">
+        <div class="md:hidden text-4xl font-semibold leading-snug text-center">
+            <h1>{{ title }}</h1>
+        </div>
 
         <div class="text-[1.4rem] w-full mx-auto border-2 rounded-xl border-gray-200 m-2 py-2 px-4">
             {{ highlight:css }}
