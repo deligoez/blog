@@ -41,3 +41,19 @@ sections:
           localizable: true
           validate:
             - required
+      -
+        handle: date
+        field:
+          type: date
+          required: true
+          validate:
+            - required
+  SEO:
+    display: SEO
+    fields:
+      -
+        handle: seo
+        field:
+          type: seo_pro
+          listable: false
+          display: SEO
