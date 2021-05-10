@@ -1,9 +1,12 @@
-import mediumZoom from 'medium-zoom'
-import 'alpinejs'
-import 'vite/dynamic-import-polyfill';
 import '../css/site.css';
+import 'vite/dynamic-import-polyfill';
+import 'alpinejs'
+import Zooming from 'zooming'
+import lazySizes from 'lazysizes'
 
-mediumZoom(document.querySelectorAll('[data-zoomable]'), {
-    margin: 25,
-    background: "rgba(33, 37, 48, 0.50)",
+const zooming = new Zooming({
+    customSize: '90%',
+    bgOpacity: 0.9,
 })
+
+zooming.listen('.img-zoomable')

@@ -2,6 +2,8 @@ data:
   imageoptimizer:
     original_size: 514750
     current_size: 140564
+  blurhash: 'LAP?zR9]00Or3ZwuI;s,00M|?ZoL'
+  dominant_color: '#ffffff'
 size: 140564
 last_modified: 1619381622
 width: 1367

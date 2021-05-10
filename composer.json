@@ -12,6 +12,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0",
+        "mia/statamic-image-renderer": "^1.0",
         "octoper/statamic-blade-components": "^1.0",
         "owenvoke/blade-fontawesome": "^1.8",
         "rias/statamic-markdown-highlight": "^1.1",
