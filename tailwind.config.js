@@ -1,4 +1,5 @@
 module.exports = {
+    mode: 'jit',
     purge: [
         'resources/**/*.html',
         'resources/**/*.css',
@@ -30,9 +31,6 @@ module.exports = {
                 wiggle: 'wiggle 1s ease-in-out infinite',
             }
         },
-    },
-    variants: {
-        extend: {},
     },
     plugins: [
         require('@tailwindcss/typography'),

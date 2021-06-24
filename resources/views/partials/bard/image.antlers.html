@@ -1,5 +1,6 @@
 <figure class="grid grid-cols-1 w-full px-4 pb-5">
-    {{ resp:image class="img-zoomable" }}
+    <img data-zoomable src="{{ image }}" alt="{{ image:alt }}" loading="lazy"/>
+
     {{ if image:alt }}
         <figcaption class="text-xl text-center italic text-gray-500 mb-8">
             {{ image:alt }}

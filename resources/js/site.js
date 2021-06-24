@@ -2,7 +2,6 @@ import '../css/site.css';
 import 'vite/dynamic-import-polyfill';
 import 'alpinejs'
 import Zooming from 'zooming'
-import lazySizes from 'lazysizes'
 
 const zooming = new Zooming({
     customSize: '90%',
