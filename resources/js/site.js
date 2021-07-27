@@ -1,7 +1,10 @@
 import '../css/site.css';
 import 'vite/dynamic-import-polyfill';
 import 'alpinejs'
-import mediumZoom from 'medium-zoom'
+import mediumZoom from "medium-zoom";
+import Alpine from 'alpinejs';
+
+Alpine.start();
 
 mediumZoom(document.querySelectorAll('[data-zoomable]'), {
     margin: 25,

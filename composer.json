@@ -4,7 +4,7 @@
     "keywords": ["statamic", "cms", "flat file", "laravel"],
     "type": "project",
     "require": {
-        "php": "^7.3 || ^8.0",
+        "php": "^8.0",
         "ext-json": "*",
         "4rn0/statamic-v3-image-optimizer": "^1.0",
         "fideloper/proxy": "^4.2",
@@ -14,17 +14,11 @@
         "laravel/tinker": "^2.0",
         "octoper/statamic-blade-components": "^1.0",
         "owenvoke/blade-fontawesome": "^1.8",
-        "rias/statamic-markdown-highlight": "^1.1",
-        "statamic/cms": "3.1.26",
+        "rias/statamic-markdown-highlight": "^2.0",
+        "statamic/cms": "3.1.30",
         "statamic/seo-pro": "^2.2",
         "statamic/ssg": "^0.4.0"
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/deligoez/statamic-responsive-image"
-        }
-    ],
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",
         "facade/ignition": "^2.3.6",
