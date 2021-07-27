@@ -1,11 +1,9 @@
 import '../css/site.css';
 import 'vite/dynamic-import-polyfill';
 import 'alpinejs'
-import Zooming from 'zooming'
+import mediumZoom from 'medium-zoom'
 
-const zooming = new Zooming({
-    customSize: '90%',
-    bgOpacity: 0.9,
+mediumZoom(document.querySelectorAll('[data-zoomable]'), {
+    margin: 25,
+    background: "rgba(33, 37, 48, 0.50)",
 })
-
-zooming.listen('.img-zoomable')
