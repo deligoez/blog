@@ -13,12 +13,10 @@
         "postcss": "^8.3.5",
         "tailwindcss": "^2.2.4",
         "vite": "^2.3.8",
-        "zooming": "^2.1.1"
+        "zooming": "^2.1.1",
+        "shiki": "^0.9.5"
     },
     "volta": {
         "node": "16.4.0"
-    },
-    "dependencies": {
-        "shiki": "^0.9.5"
     }
 }
