@@ -115,6 +115,12 @@
         <priority>0.5</priority>
     </url>
     <url>
+        <loc>http://blog.test/snippets/query-laravel-eloquent-model-by-a-nullable-date-range</loc>
+        <lastmod>2021-07-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
         <loc>http://blog.test/articles/from-zero-to-zero-downtime-deployments-for-laravel/creating-local-a-laravel-project-for-blindnote</loc>
         <lastmod>2021-04-25</lastmod>
         <changefreq>monthly</changefreq>
