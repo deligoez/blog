@@ -9,40 +9,47 @@
             </div>
             <div class="mx-auto mt-3 max-w-xl text-3xl leading-relaxed text-center text-gray-500">
                 <p class="flex inline-block items-center justify-center">
-                    <span class="mx-2">{{ component:fas-code class="w-8 h-8 text-gray-900" }}</span> developer
-                    <span class="mx-2">{{ component:fab-php class="w-10 h-10 text-gray-900" }}</span> php
-                    <span class="mx-2">{{ component:fab-laravel class="w-8 h-8 text-gray-900" }}</span> laravel
-                    <span class="mx-2">{{ component:fas-vial class="w-8 h-8 text-gray-900" }}</span> tdd
+                    <span class="mx-2">{{ component:fas-code class="w-8 h-8 text-gray-800" }}</span> developer
+                    <span class="mx-2">{{ component:si-php class="w-10 h-10 text-gray-800" }}</span> php
+                    <span class="mx-2">{{ component:tni-laravel class="w-8 h-8 text-gray-800" }}</span> laravel
+                    <span class="mx-2">{{ component:fileicon-flutter class="w-8 h-8 text-gray-800" }}</span> flutter
+                    <span class="mx-2">{{ component:fas-vial class="w-8 h-8 text-gray-800" }}</span> tdd
                 </p>
             </div>
             <div class="flex inline-block items-center justify-center mt-4 space-x-5">
-                <a target="_blank" href="http://github.com/deligoez">{{ component:fab-github class="w-6 h-6 text-gray-600" }}</a>
-                <a target="_blank" href="http://gitlab.com/deligoez">{{ component:fab-gitlab class="w-6 h-6 text-gray-600" }}</a>
-                <a target="_blank" href="http://twitter.com/yedeligoez">{{ component:fab-twitter class="w-6 h-6 text-gray-600" }}</a>
-                <a target="_blank" href="https://www.linkedin.com/in/deligoez/">{{ component:fab-linkedin class="w-6 h-6 text-gray-600" }}</a>
-                <a target="_blank" href="{{ obfuscate }}mailto:ye@deligoz.me{{ /obfuscate }}">{{ component:fas-envelope-open class="w-6 h-6 text-gray-600" }}</a>
+                <a target="_blank" href="http://github.com/deligoez">{{ component:fab-github class="w-6 h-6
+                    text-gray-600" }}</a>
+                <a target="_blank" href="http://gitlab.com/deligoez">{{ component:fab-gitlab class="w-6 h-6
+                    text-gray-600" }}</a>
+                <a target="_blank" href="http://twitter.com/yedeligoez">{{ component:fab-twitter class="w-6 h-6
+                    text-gray-600" }}</a>
+                <a target="_blank" href="https://www.linkedin.com/in/deligoez/">{{ component:fab-linkedin class="w-6 h-6
+                    text-gray-600" }}</a>
+                <a target="_blank" href="{{ obfuscate }}mailto:ye@deligoz.me{{ /obfuscate }}">{{
+                    component:fas-envelope-open class="w-6 h-6 text-gray-600" }}</a>
             </div>
         </div>
 
         <!-- region Articles -->
         {{ if {collection:count in ="articles"} > 0}}
-            <div>
-            <h3 class="block mt-10 mb-4 text-3xl not-italic tracking-widest leading-snug uppercase border-b-2 border-black font-caps">
+        <div>
+            <p class="block mt-10 mb-4 font-caps text-3xl not-italic tracking-widest leading-snug uppercase border-b-2 border-black">
                 <a href="/articles">Latest Articles</a>
-            </h3>
+            </p>
 
             <div class="flex flex-col text-[1.625em] mx-auto text-center space-y-6 italic">
                 {{ collection:articles limit="15" sort="date:desc" scope="article" }}
                 <div class="flex flex-col">
-                        <a href="{{ url }}" class="text-3xl leading-snug">
-                            {{ title }}
-                        </a>
-                        <div class="flex flex-row justify-center">
-                            <p class="text-2xl text-gray-500 flex inline-block items-center justify-center">
-                                {{ component:fas-calendar-alt class="w-4 h-4 text-gray-500 mx-1" }} {{ date | ago }}
-                                {{ component:fas-clock class="w-4 h-4 text-gray-500 mx-1" }} {{ content | flatten | join | strip_tags | read_time }} min
-                            </p>
-                        </div>
+                    <a href="{{ url }}" class="text-3xl leading-snug">
+                        {{ title }}
+                    </a>
+                    <div class="flex flex-row justify-center">
+                        <p class="text-2xl text-gray-500 flex inline-block items-center justify-center">
+                            {{ component:fas-calendar-alt class="w-4 h-4 text-gray-500 mx-1" }} {{ date | ago }}
+                            {{ component:fas-clock class="w-4 h-4 text-gray-500 mx-1" }} {{ content | flatten | join |
+                            strip_tags | read_time }} min
+                        </p>
+                    </div>
                 </div>
                 {{ /collection:articles }}
             </div>
@@ -52,10 +59,13 @@
 
         <!-- region Snippets -->
         {{ if {collection:count in ="snippets"} > 0}}
-            <div>
-            <h3 class="block mt-10 mb-4 text-3xl not-italic leading-snug uppercase border-b-2 border-black font-caps">
+        <div>
+            <p class="block mt-10 mb-4 font-caps text-3xl not-italic tracking-widest leading-snug uppercase border-b-2 border-black">
                 <a href="/snippers">Latest Snippets</a>
-            </h3>
+            </p>
+
+            <p class="font-caps text-3xl"
+            >test</p>
 
             <div class="flex flex-col text-[1.625em] mx-auto text-center italic">
                 {{ collection:snippets limit="3"}}

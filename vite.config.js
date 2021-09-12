@@ -12,7 +12,7 @@ export default ({ command }) => ({
         {
             name: 'antlers',
             handleHotUpdate({ file, server }) {
-                if (file.endsWith('.antlers.html')) {
+                if (file.endsWith('antlers.html')) {
                     server.ws.send({
                         type: 'full-reload',
                         path: '*',
