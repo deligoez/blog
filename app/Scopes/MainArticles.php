@@ -17,7 +17,6 @@ class MainArticles extends Scope
     {
         $query
             ->orderBy('date', 'desc')
-            ->offset(2)
             ->limit(5);
     }
 }
