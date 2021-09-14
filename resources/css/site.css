@@ -124,7 +124,12 @@
     }
 
     p > code {
-        @apply py-1 px-3 rounded-xl text-[1.25rem] bg-gray-100 border-2 border-gray-200 align-middle;
+        @apply py-1 px-3 rounded-xl text-[1.4rem] bg-gray-100 border-2 border-gray-200 align-middle;
+    }
+
+    a > code,
+    h1 > code {
+        @apply py-1 px-3 rounded-xl text-[1.5rem] bg-gray-100 border-2 border-gray-200 align-bottom;
     }
 
     pre {

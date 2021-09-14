@@ -32,8 +32,8 @@
 <meta name="msapplication-TileColor" content="#2b5797">
 <meta name="theme-color" content="#ffffff">
 
-        <script type="module" src="/build/assets/site.a525f316.js"></script>
-    <link rel="stylesheet" href="/build/assets/site.c982a52e.css">
+        <script type="module" src="/build/assets/site.120b1c42.js"></script>
+    <link rel="stylesheet" href="/build/assets/site.cdb7b0a6.css">
 </head>
 <body class="subpixel-antialiased font-serif mx-16 min-h-full">
     <header class="hidden md:flex h-16 max-w-6xl mx-auto mt-8 flex flex-row justify-between">
@@ -143,8 +143,14 @@
             
         </h2>
 
-        <p class="italic text-right text-xl leading-none mt-1 text-gray-500">
-            2 min
+        <p
+                x-data="{open: false}"
+                @mouseenter.passive="open = true"
+                @mouseleave.passive="open = false"
+                class="italic text-right text-xl leading-none mt-1 text-gray-500"
+        >
+            <span x-show="!open">2 min</span>
+            <span x-show="open">205 words</span>
         </p>
 
         <p

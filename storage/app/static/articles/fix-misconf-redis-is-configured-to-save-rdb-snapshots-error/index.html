@@ -4,16 +4,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Fix `MISCONF Redis is configured to save RDB snapshots` Error | Yunus Emre Delig&ouml;z</title>
+    <title>Fix MISCONF Redis is configured to save RDB snapshots Error | Yunus Emre Delig&ouml;z</title>
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Fix `MISCONF Redis is configured to save RDB snapshots` Error" />
+<meta property="og:title" content="Fix MISCONF Redis is configured to save RDB snapshots Error" />
 <meta property="og:url" content="http://blog.test/articles/fix-misconf-redis-is-configured-to-save-rdb-snapshots-error" />
 <meta property="og:site_name" content="Yunus Emre Delig&ouml;z" />
 <meta property="og:locale" content="en" />
 <meta property="og:locale:alternate" content="tr" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@yedeligoez" />
-<meta name="twitter:title" content="Fix `MISCONF Redis is configured to save RDB snapshots` Error" />
+<meta name="twitter:title" content="Fix MISCONF Redis is configured to save RDB snapshots Error" />
 <link href="http://blog.test/" rel="home" />
 <link href="http://blog.test/articles/fix-misconf-redis-is-configured-to-save-rdb-snapshots-error" rel="canonical" />
 <link rel="alternate" href="http://blog.test/articles/fix-misconf-redis-is-configured-to-save-rdb-snapshots-error" hreflang="en" />
@@ -32,8 +32,8 @@
 <meta name="msapplication-TileColor" content="#2b5797">
 <meta name="theme-color" content="#ffffff">
 
-        <script type="module" src="/build/assets/site.a525f316.js"></script>
-    <link rel="stylesheet" href="/build/assets/site.c982a52e.css">
+        <script type="module" src="/build/assets/site.120b1c42.js"></script>
+    <link rel="stylesheet" href="/build/assets/site.cdb7b0a6.css">
 </head>
 <body class="subpixel-antialiased font-serif mx-16 min-h-full">
     <header class="hidden md:flex h-16 max-w-6xl mx-auto mt-8 flex flex-row justify-between">
@@ -137,14 +137,20 @@
         <h1
             class="text-3xl font-semibold text-right border-t-[3px] pt-2 border-black"
         >
-            Fix `MISCONF Redis is configured to save RDB snapshots` Error
+            Fix <code>MISCONF Redis is configured to save RDB snapshots</code> Error
         </h1>
         <h2 class="italic text-right text-2xl mt-3">
             
         </h2>
 
-        <p class="italic text-right text-xl leading-none mt-1 text-gray-500">
-            1 min
+        <p
+                x-data="{open: false}"
+                @mouseenter.passive="open = true"
+                @mouseleave.passive="open = false"
+                class="italic text-right text-xl leading-none mt-1 text-gray-500"
+        >
+            <span x-show="!open">1 min</span>
+            <span x-show="open">53 words</span>
         </p>
 
         <p
@@ -154,7 +160,7 @@
             class="italic text-right text-xl leading-none mt-1 text-gray-500"
         >
             <span x-show="!open">1 month ago</span>
-            <span x-show="open">2021-07-27 00:00:00</span>
+            <span x-show="open">July 27th, 2021</span>
         </p>
     </div>
 

@@ -4,19 +4,19 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Remove the `Last login` Message from the Terminal | Yunus Emre Delig&ouml;z</title>
-<meta name="description" content="Remove the `Last login` Message from the Terminal" />
+    <title>Remove the Last login Message from the Terminal | Yunus Emre Delig&ouml;z</title>
+<meta name="description" content="Remove the Last login Message from the Terminal" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Remove the `Last login` Message from the Terminal" />
-<meta property="og:description" content="Remove the `Last login` Message from the Terminal" />
+<meta property="og:title" content="Remove the Last login Message from the Terminal" />
+<meta property="og:description" content="Remove the Last login Message from the Terminal" />
 <meta property="og:url" content="http://blog.test/articles/remove-the-last-login-message-from-the-terminal" />
 <meta property="og:site_name" content="Yunus Emre Delig&ouml;z" />
 <meta property="og:locale" content="en" />
 <meta property="og:locale:alternate" content="tr" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@yedeligoez" />
-<meta name="twitter:title" content="Remove the `Last login` Message from the Terminal" />
-<meta name="twitter:description" content="Remove the `Last login` Message from the Terminal" />
+<meta name="twitter:title" content="Remove the Last login Message from the Terminal" />
+<meta name="twitter:description" content="Remove the Last login Message from the Terminal" />
 <link href="http://blog.test/" rel="home" />
 <link href="http://blog.test/articles/remove-the-last-login-message-from-the-terminal" rel="canonical" />
 <link rel="alternate" href="http://blog.test/articles/remove-the-last-login-message-from-the-terminal" hreflang="en" />
@@ -35,8 +35,8 @@
 <meta name="msapplication-TileColor" content="#2b5797">
 <meta name="theme-color" content="#ffffff">
 
-        <script type="module" src="/build/assets/site.a525f316.js"></script>
-    <link rel="stylesheet" href="/build/assets/site.c982a52e.css">
+        <script type="module" src="/build/assets/site.120b1c42.js"></script>
+    <link rel="stylesheet" href="/build/assets/site.cdb7b0a6.css">
 </head>
 <body class="subpixel-antialiased font-serif mx-16 min-h-full">
     <header class="hidden md:flex h-16 max-w-6xl mx-auto mt-8 flex flex-row justify-between">
@@ -140,14 +140,20 @@
         <h1
             class="text-3xl font-semibold text-right border-t-[3px] pt-2 border-black"
         >
-            Remove the `Last login` Message from the Terminal
+            Remove the <code>Last login</code> Message from the Terminal
         </h1>
         <h2 class="italic text-right text-2xl mt-3">
             
         </h2>
 
-        <p class="italic text-right text-xl leading-none mt-1 text-gray-500">
-            1 min
+        <p
+                x-data="{open: false}"
+                @mouseenter.passive="open = true"
+                @mouseleave.passive="open = false"
+                class="italic text-right text-xl leading-none mt-1 text-gray-500"
+        >
+            <span x-show="!open">1 min</span>
+            <span x-show="open">150 words</span>
         </p>
 
         <p
@@ -157,7 +163,7 @@
             class="italic text-right text-xl leading-none mt-1 text-gray-500"
         >
             <span x-show="!open">4 months ago</span>
-            <span x-show="open">2021-05-04 00:00:00</span>
+            <span x-show="open">May 4th, 2021</span>
         </p>
     </div>
 
@@ -178,15 +184,17 @@
                     <div class="space-y-6">
     <p>To remove the last login message:</p><p></p>
 </div>
-                    <a
-        href="#1-switch-to-your-home-folder"
-        id="1-switch-to-your-home-folder"
->
-    <h3 class="block pb-[0.625rem] text-3xl leading-snug font-serif italic cursor-pointer border-b-2 border-transparent hover:border-black transition duration-200">
-        <span class="font-index not-italic mr-2">1</span> <span class="inline-block"><p>Switch to your home folder</p>
+                    <h3 class="block pb-[0.625rem] leading-snug font-serif italic cursor-pointer border-b-2 border-transparent hover:border-black transition duration-200">
+    <a
+            href="#1-switch-to-your-home-folder"
+            id="1-switch-to-your-home-folder"
+    >
+        <span class="font-index not-italic mr-2">1</span> <span class="inline-block text-3xl"><p>Switch to your home folder</p>
 </span>
-    </h3>
-</a>
+    </a>
+</h3>
+
+
                     <div class="text-[1.4rem] border-2 rounded-xl border-gray-200 m-2 py-2 px-4">
     
     <pre class="shiki" style="background-color: #fff"><code><span class="line"><span style="color: #005CC5">cd</span><span style="color: #24292E"> </span><span style="color: #D73A49">~</span></span>
@@ -197,15 +205,17 @@
     <img data-zoomable src="/assets/articles/remove-the-last-login-message-from-the-terminal/remove-the-last-login-message-from-the-terminal-2.png" alt="" loading="lazy"/>
 
     </figure>
-                    <a
-        href="#2-create-an-empty-hushlogin-file"
-        id="2-create-an-empty-hushlogin-file"
->
-    <h3 class="block pb-[0.625rem] text-3xl leading-snug font-serif italic cursor-pointer border-b-2 border-transparent hover:border-black transition duration-200">
-        <span class="font-index not-italic mr-2">2</span> <span class="inline-block"><p>Create an empty <code>.hushlogin</code> file</p>
+                    <h3 class="block pb-[0.625rem] leading-snug font-serif italic cursor-pointer border-b-2 border-transparent hover:border-black transition duration-200">
+    <a
+            href="#2-create-an-empty-hushlogin-file"
+            id="2-create-an-empty-hushlogin-file"
+    >
+        <span class="font-index not-italic mr-2">2</span> <span class="inline-block text-3xl"><p>Create an empty <code>.hushlogin</code> file</p>
 </span>
-    </h3>
-</a>
+    </a>
+</h3>
+
+
                     <div class="text-[1.4rem] border-2 rounded-xl border-gray-200 m-2 py-2 px-4">
     
     <pre class="shiki" style="background-color: #fff"><code><span class="line"><span style="color: #005CC5">touch</span><span style="color: #24292E"> </span><span style="color: #D73A49">.</span><span style="color: #005CC5">hushlogin</span></span>
@@ -216,15 +226,17 @@
     <img data-zoomable src="/assets/articles/remove-the-last-login-message-from-the-terminal/remove-the-last-login-message-from-the-terminal-3.png" alt="" loading="lazy"/>
 
     </figure>
-                    <a
-        href="#3-restart-or-your-terminal"
-        id="3-restart-or-your-terminal"
->
-    <h3 class="block pb-[0.625rem] text-3xl leading-snug font-serif italic cursor-pointer border-b-2 border-transparent hover:border-black transition duration-200">
-        <span class="font-index not-italic mr-2">3</span> <span class="inline-block"><p>Restart or your Terminal</p>
+                    <h3 class="block pb-[0.625rem] leading-snug font-serif italic cursor-pointer border-b-2 border-transparent hover:border-black transition duration-200">
+    <a
+            href="#3-restart-or-your-terminal"
+            id="3-restart-or-your-terminal"
+    >
+        <span class="font-index not-italic mr-2">3</span> <span class="inline-block text-3xl"><p>Restart or your Terminal</p>
 </span>
-    </h3>
-</a>
+    </a>
+</h3>
+
+
                     <figure class="grid grid-cols-1 w-full px-4 pb-5">
     <img data-zoomable src="/assets/articles/remove-the-last-login-message-from-the-terminal/remove-the-last-login-message-from-the-terminal-4.png" alt="" loading="lazy"/>
 

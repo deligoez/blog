@@ -1,13 +1,13 @@
 {
   "resources/js/site.js": {
-    "file": "assets/site.a525f316.js",
+    "file": "assets/site.120b1c42.js",
     "src": "resources/js/site.js",
     "isEntry": true,
     "imports": [
       "_vendor.315d14ef.js"
     ],
     "css": [
-      "assets/site.c982a52e.css"
+      "assets/site.cdb7b0a6.css"
     ]
   },
   "_vendor.315d14ef.js": {

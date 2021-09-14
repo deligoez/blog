@@ -4,16 +4,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Save Eloquent Collection at once using the `push()` method | Yunus Emre Delig&ouml;z</title>
+    <title>Save Eloquent Collection at once using the push() method | Yunus Emre Delig&ouml;z</title>
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Save Eloquent Collection at once using the `push()` method" />
+<meta property="og:title" content="Save Eloquent Collection at once using the push() method" />
 <meta property="og:url" content="http://blog.test/snippets/save-eloquent-collection-at-once-using-the-push-method" />
 <meta property="og:site_name" content="Yunus Emre Delig&ouml;z" />
 <meta property="og:locale" content="en" />
 <meta property="og:locale:alternate" content="tr" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@yedeligoez" />
-<meta name="twitter:title" content="Save Eloquent Collection at once using the `push()` method" />
+<meta name="twitter:title" content="Save Eloquent Collection at once using the push() method" />
 <link href="http://blog.test/" rel="home" />
 <link href="http://blog.test/snippets/save-eloquent-collection-at-once-using-the-push-method" rel="canonical" />
 <link rel="alternate" href="http://blog.test/snippets/save-eloquent-collection-at-once-using-the-push-method" hreflang="en" />
@@ -32,8 +32,8 @@
 <meta name="msapplication-TileColor" content="#2b5797">
 <meta name="theme-color" content="#ffffff">
 
-        <script type="module" src="/build/assets/site.a525f316.js"></script>
-    <link rel="stylesheet" href="/build/assets/site.c982a52e.css">
+        <script type="module" src="/build/assets/site.120b1c42.js"></script>
+    <link rel="stylesheet" href="/build/assets/site.cdb7b0a6.css">
 </head>
 <body class="subpixel-antialiased font-serif mx-16 min-h-full">
     <header class="hidden md:flex h-16 max-w-6xl mx-auto mt-8 flex flex-row justify-between">
@@ -137,7 +137,7 @@
         <h1
                 class="text-3xl font-semibold text-right border-t-[3px] pt-2 border-black"
         >
-            Save Eloquent Collection at once using the `push()` method
+            Save Eloquent Collection at once using the <code>push()</code> method
         </h1>
 
         <p class="italic text-right text-xl mt-3 text-gray-500">
@@ -147,10 +147,10 @@
 
     <div class="flex-1 text-[1.625em] leading-snug space-y-6">
         <div class="md:hidden text-4xl font-semibold leading-snug text-center">
-            <h1>Save Eloquent Collection at once using the `push()` method</h1>
+            <h1>Save Eloquent Collection at once using the <code>push()</code> method</h1>
         </div>
 
-        <div class="text-[1.4rem] w-full mx-auto border-2 rounded-xl border-gray-200 m-2 py-2 px-4">
+        <div class="text-[1rem] md:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.4rem] 2xl:text-[1.5rem] w-full mx-auto border-2 rounded-xl border-gray-200 m-2 py-2 px-4">
             <pre class="shiki" style="background-color: #fff"><code><span class="line"><span style="color: #24292E">$user </span><span style="color: #D73A49">=</span><span style="color: #24292E"> </span><span style="color: #005CC5">User</span><span style="color: #D73A49">::</span><span style="color: #6F42C1">find</span><span style="color: #24292E">(</span><span style="color: #005CC5">1</span><span style="color: #24292E">);</span></span>
 <span class="line"><span style="color: #24292E">$user</span><span style="color: #D73A49">-&gt;</span><span style="color: #24292E">name </span><span style="color: #D73A49">=</span><span style="color: #24292E"> </span><span style="color: #032F62">&#39;new name&#39;</span><span style="color: #24292E">;</span></span>
 <span class="line"><span style="color: #24292E">$user</span><span style="color: #D73A49">-&gt;</span><span style="color: #24292E">team</span><span style="color: #D73A49">-&gt;</span><span style="color: #24292E">name </span><span style="color: #D73A49">=</span><span style="color: #24292E"> $user</span><span style="color: #D73A49">-&gt;</span><span style="color: #24292E">name</span><span style="color: #D73A49">.</span><span style="color: #032F62">&#39;</span><span style="color: #005CC5">\&#39;</span><span style="color: #032F62">s team&#39;</span><span style="color: #24292E">;</span></span>

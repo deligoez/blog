@@ -32,8 +32,8 @@
 <meta name="msapplication-TileColor" content="#2b5797">
 <meta name="theme-color" content="#ffffff">
 
-        <script type="module" src="/build/assets/site.a525f316.js"></script>
-    <link rel="stylesheet" href="/build/assets/site.c982a52e.css">
+        <script type="module" src="/build/assets/site.120b1c42.js"></script>
+    <link rel="stylesheet" href="/build/assets/site.cdb7b0a6.css">
 </head>
 <body class="subpixel-antialiased font-serif mx-16 min-h-full">
     <header class="hidden md:flex h-16 max-w-6xl mx-auto mt-8 flex flex-row justify-between">
@@ -143,8 +143,14 @@
             
         </h2>
 
-        <p class="italic text-right text-xl leading-none mt-1 text-gray-500">
-            2 min
+        <p
+                x-data="{open: false}"
+                @mouseenter.passive="open = true"
+                @mouseleave.passive="open = false"
+                class="italic text-right text-xl leading-none mt-1 text-gray-500"
+        >
+            <span x-show="!open">2 min</span>
+            <span x-show="open">293 words</span>
         </p>
 
         <p
@@ -159,28 +165,32 @@
     </div>
 
     <div class="flex-1 text-[1.625em] leading-snug space-y-6">
-                    <a
-        href="#1-open-your-terminal-app"
-        id="1-open-your-terminal-app"
->
-    <h3 class="block pb-[0.625rem] text-3xl leading-snug font-serif italic cursor-pointer border-b-2 border-transparent hover:border-black transition duration-200">
-        <span class="font-index not-italic mr-2">1</span> <span class="inline-block"><p>Open your Terminal App</p>
+                    <h3 class="block pb-[0.625rem] leading-snug font-serif italic cursor-pointer border-b-2 border-transparent hover:border-black transition duration-200">
+    <a
+            href="#1-open-your-terminal-app"
+            id="1-open-your-terminal-app"
+    >
+        <span class="font-index not-italic mr-2">1</span> <span class="inline-block text-3xl"><p>Open your Terminal App</p>
 </span>
-    </h3>
-</a>
+    </a>
+</h3>
+
+
                     <figure class="grid grid-cols-1 w-full px-4 pb-5">
     <img data-zoomable src="/assets/articles/from-zero-to-zero-downtime-deployments-for-laravel/1-creating-local-a-laravel-project-for-blindnote/creating-local-a-laravel-project-for-blindnote-1.png" alt="" loading="lazy"/>
 
     </figure>
-                    <a
-        href="#2-switch-or-create-your-development-directory"
-        id="2-switch-or-create-your-development-directory"
->
-    <h3 class="block pb-[0.625rem] text-3xl leading-snug font-serif italic cursor-pointer border-b-2 border-transparent hover:border-black transition duration-200">
-        <span class="font-index not-italic mr-2">2</span> <span class="inline-block"><p>Switch or Create your Development Directory</p>
+                    <h3 class="block pb-[0.625rem] leading-snug font-serif italic cursor-pointer border-b-2 border-transparent hover:border-black transition duration-200">
+    <a
+            href="#2-switch-or-create-your-development-directory"
+            id="2-switch-or-create-your-development-directory"
+    >
+        <span class="font-index not-italic mr-2">2</span> <span class="inline-block text-3xl"><p>Switch or Create your Development Directory</p>
 </span>
-    </h3>
-</a>
+    </a>
+</h3>
+
+
                     <div class="text-[1.4rem] border-2 rounded-xl border-gray-200 m-2 py-2 px-4">
     
     <pre class="shiki" style="background-color: #fff"><code><span class="line"><span style="color: #005CC5">cd</span><span style="color: #24292E"> Developer</span></span>
@@ -191,15 +201,17 @@
     <img data-zoomable src="/assets/articles/from-zero-to-zero-downtime-deployments-for-laravel/1-creating-local-a-laravel-project-for-blindnote/creating-local-a-laravel-project-for-blindnote-2.png" alt="" loading="lazy"/>
 
     </figure>
-                    <a
-        href="#3-create-a-new-laravel-project"
-        id="3-create-a-new-laravel-project"
->
-    <h3 class="block pb-[0.625rem] text-3xl leading-snug font-serif italic cursor-pointer border-b-2 border-transparent hover:border-black transition duration-200">
-        <span class="font-index not-italic mr-2">3</span> <span class="inline-block"><p>Create a new Laravel project</p>
+                    <h3 class="block pb-[0.625rem] leading-snug font-serif italic cursor-pointer border-b-2 border-transparent hover:border-black transition duration-200">
+    <a
+            href="#3-create-a-new-laravel-project"
+            id="3-create-a-new-laravel-project"
+    >
+        <span class="font-index not-italic mr-2">3</span> <span class="inline-block text-3xl"><p>Create a new Laravel project</p>
 </span>
-    </h3>
-</a>
+    </a>
+</h3>
+
+
                     <div class="text-[1.4rem] border-2 rounded-xl border-gray-200 m-2 py-2 px-4">
     
     <pre class="shiki" style="background-color: #fff"><code><span class="line"><span style="color: #24292E">laravel new blindnote</span></span>
@@ -217,15 +229,17 @@
     <img data-zoomable src="/assets/articles/from-zero-to-zero-downtime-deployments-for-laravel/1-creating-local-a-laravel-project-for-blindnote/creating-local-a-laravel-project-for-blindnote-4.png" alt="" loading="lazy"/>
 
     </figure>
-                    <a
-        href="#4-switch-to-project-directory"
-        id="4-switch-to-project-directory"
->
-    <h3 class="block pb-[0.625rem] text-3xl leading-snug font-serif italic cursor-pointer border-b-2 border-transparent hover:border-black transition duration-200">
-        <span class="font-index not-italic mr-2">4</span> <span class="inline-block"><p>Switch to project directory</p>
+                    <h3 class="block pb-[0.625rem] leading-snug font-serif italic cursor-pointer border-b-2 border-transparent hover:border-black transition duration-200">
+    <a
+            href="#4-switch-to-project-directory"
+            id="4-switch-to-project-directory"
+    >
+        <span class="font-index not-italic mr-2">4</span> <span class="inline-block text-3xl"><p>Switch to project directory</p>
 </span>
-    </h3>
-</a>
+    </a>
+</h3>
+
+
                     <div class="text-[1.4rem] border-2 rounded-xl border-gray-200 m-2 py-2 px-4">
     
     <pre class="shiki" style="background-color: #fff"><code><span class="line"><span style="color: #005CC5">cd</span><span style="color: #24292E"> blindnote</span></span>
@@ -236,15 +250,17 @@
     <img data-zoomable src="/assets/articles/from-zero-to-zero-downtime-deployments-for-laravel/1-creating-local-a-laravel-project-for-blindnote/creating-local-a-laravel-project-for-blindnote-5.png" alt="" loading="lazy"/>
 
     </figure>
-                    <a
-        href="#5-check-project-on-browser"
-        id="5-check-project-on-browser"
->
-    <h3 class="block pb-[0.625rem] text-3xl leading-snug font-serif italic cursor-pointer border-b-2 border-transparent hover:border-black transition duration-200">
-        <span class="font-index not-italic mr-2">5</span> <span class="inline-block"><p>Check project on browser</p>
+                    <h3 class="block pb-[0.625rem] leading-snug font-serif italic cursor-pointer border-b-2 border-transparent hover:border-black transition duration-200">
+    <a
+            href="#5-check-project-on-browser"
+            id="5-check-project-on-browser"
+    >
+        <span class="font-index not-italic mr-2">5</span> <span class="inline-block text-3xl"><p>Check project on browser</p>
 </span>
-    </h3>
-</a>
+    </a>
+</h3>
+
+
                     <div class="text-[1.4rem] border-2 rounded-xl border-gray-200 m-2 py-2 px-4">
     
     <pre class="shiki" style="background-color: #fff"><code><span class="line"><span style="color: #24292E">php artisan serve</span></span>

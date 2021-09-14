@@ -8,7 +8,7 @@
                 I'm Yunus Emre Deligöz
             </div>
             <div class="mx-auto mt-3 max-w-xl text-3xl leading-relaxed text-center text-gray-500">
-                <p class="flex inline-block items-center justify-center">
+                <p class="inline-block flex justify-center items-center">
                     <span class="mx-2">{{ component:fas-code class="w-8 h-8 text-gray-800" }}</span> developer
                     <span class="mx-2">{{ component:si-php class="w-10 h-10 text-gray-800" }}</span> php
                     <span class="mx-2">{{ component:tni-laravel class="w-8 h-8 text-gray-800" }}</span> laravel
@@ -16,7 +16,7 @@
                     <span class="mx-2">{{ component:fas-vial class="w-8 h-8 text-gray-800" }}</span> tdd
                 </p>
             </div>
-            <div class="flex inline-block items-center justify-center mt-4 space-x-5">
+            <div class="inline-block flex justify-center items-center mt-4 space-x-5">
                 <a target="_blank" href="http://github.com/deligoez">{{ component:fab-github class="w-6 h-6
                     text-gray-600" }}</a>
                 <a target="_blank" href="http://gitlab.com/deligoez">{{ component:fab-gitlab class="w-6 h-6
@@ -31,22 +31,21 @@
         </div>
 
         <!-- region Articles -->
-        {{ if {collection:count in ="articles"} > 0}}
         <div>
-            <p class="block mt-10 mb-4 font-caps text-3xl not-italic tracking-widest leading-snug uppercase border-b-2 border-black">
+            <p class="block mt-10 mb-4 text-3xl not-italic tracking-widest leading-snug uppercase border-b-2 border-black font-caps">
                 <a href="/articles">Latest Articles</a>
             </p>
 
             <div class="flex flex-col text-[1.625em] mx-auto text-center space-y-6 italic">
-                {{ collection:articles limit="15" sort="date:desc" scope="article" }}
+                {{ collection:articles query_scope="main_articles" }}
                 <div class="flex flex-col">
                     <a href="{{ url }}" class="text-3xl leading-snug">
                         {{ title }}
                     </a>
                     <div class="flex flex-row justify-center">
-                        <p class="text-2xl text-gray-500 flex inline-block items-center justify-center">
-                            {{ component:fas-calendar-alt class="w-4 h-4 text-gray-500 mx-1" }} {{ date | ago }}
-                            {{ component:fas-clock class="w-4 h-4 text-gray-500 mx-1" }} {{ content | flatten | join |
+                        <p class="inline-block flex justify-center items-center text-2xl text-gray-500">
+                            {{ component:fas-calendar-alt class="mx-1 w-4 h-4 text-gray-500" }} {{ date | ago }}
+                            {{ component:fas-clock class="mx-1 w-4 h-4 text-gray-500" }} {{ content | flatten | join |
                             strip_tags | read_time }} min
                         </p>
                     </div>
@@ -54,21 +53,17 @@
                 {{ /collection:articles }}
             </div>
         </div>
-        {{ /if }}
         <!-- endregion -->
 
         <!-- region Snippets -->
-        {{ if {collection:count in ="snippets"} > 0}}
+        {{ if {collection:count in="snippets"} > 0}}
         <div>
-            <p class="block mt-10 mb-4 font-caps text-3xl not-italic tracking-widest leading-snug uppercase border-b-2 border-black">
+            <p class="pb-2 mt-10 mb-4 font-caps text-3xl not-italic tracking-widest leading-snug uppercase border-b-2 border-black">
                 <a href="/snippers">Latest Snippets</a>
             </p>
 
-            <p class="font-caps text-3xl"
-            >test</p>
-
             <div class="flex flex-col text-[1.625em] mx-auto text-center italic">
-                {{ collection:snippets limit="3"}}
+                {{ collection:snippets limit="3" sort="date"}}
                 <div class="flex flex-col">
                     <a href="{{ url }}" class="mt-2 text-3xl leading-snug">
                         {{ title }}
