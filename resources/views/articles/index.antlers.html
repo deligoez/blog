@@ -11,20 +11,17 @@
     </div>
 
     <div class="flex flex-col text-[1.625em] mx-auto text-center space-y-6 italic">
-            {{ collection:articles }}
-                <div class="flex flex-col">
-                    <a href="{{ url }}" class="text-3xl leading-snug ">
-                        {{ title }}
-                    </a>
-                    {{ if parent:title }}
-                        <a href="{{ parent:url }}" class="text-gray-500 text-2xl" href="#">{{ parent:title }}</a>
-                    {{ /if }}
-                    <div class="flex flex-row justify-center">
-                        <p class="text-gray-500 text-2xl">
-                            {{ date | ago }}, {{ content | flatten | join | strip_tags | read_time }} min
-                        </p>
-                    </div>
+        {{ main_articles limit="5" }}
+            <div class="flex flex-col">
+                <a href="{{ url }}" class="text-3xl leading-snug ">
+                    {{ title }}
+                </a>
+                <div class="flex flex-row justify-center">
+                    <p class="text-gray-500 text-2xl">
+                        {{ date | ago }}, {{ content | flatten | join | strip_tags | read_time }} min
+                    </p>
                 </div>
-            {{ /collection:articles }}
+            </div>
+        {{ /main_articles }}
     </div>
 </div>

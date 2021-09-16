@@ -37,11 +37,12 @@
             </p>
 
             <div class="flex flex-col text-[1.625em] mx-auto text-center space-y-6 italic">
-                {{ collection:articles query_scope="main_articles" }}
+                {{ main_articles limit="5" }}
                 <div class="flex flex-col">
                     <a href="{{ url }}" class="text-3xl leading-snug">
                         {{ title }}
                     </a>
+
                     <div class="flex flex-row justify-center">
                         <p class="inline-block flex justify-center items-center text-2xl text-gray-500">
                             {{ component:fas-calendar-alt class="mx-1 w-4 h-4 text-gray-500" }} {{ date | ago }}
@@ -50,7 +51,7 @@
                         </p>
                     </div>
                 </div>
-                {{ /collection:articles }}
+                {{ /main_articles }}
             </div>
         </div>
         <!-- endregion -->
@@ -63,7 +64,7 @@
             </p>
 
             <div class="flex flex-col text-[1.625em] mx-auto text-center italic">
-                {{ collection:snippets limit="3" sort="date"}}
+                {{ collection:snippets limit="5" sort="date"}}
                 <div class="flex flex-col">
                     <a href="{{ url }}" class="mt-2 text-3xl leading-snug">
                         {{ title }}
