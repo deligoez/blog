@@ -42,12 +42,10 @@
                     <a href="{{ url }}" class="text-3xl leading-snug">
                         {{ title }}
                     </a>
-
                     <div class="flex flex-row justify-center">
-                        <p class="inline-block flex justify-center items-center text-2xl text-gray-500">
-                            {{ component:fas-calendar-alt class="mx-1 w-4 h-4 text-gray-500" }} {{ date | ago }}
-                            {{ component:fas-clock class="mx-1 w-4 h-4 text-gray-500" }} {{ content | flatten | join |
-                            strip_tags | read_time }} min
+                        <p class="mt-1 inline-block flex justify-center items-center text-2xl text-gray-500 space-x-2">
+                            {{ partial:partials/info/date }}
+                            {{ partial:partials/info/words }}
                         </p>
                     </div>
                 </div>
@@ -66,12 +64,12 @@
             <div class="flex flex-col text-[1.625em] mx-auto text-center italic">
                 {{ collection:snippets limit="5" sort="date"}}
                 <div class="flex flex-col">
-                    <a href="{{ url }}" class="mt-2 text-3xl leading-snug">
+                    <a href="{{ url }}" class="mt-3 text-3xl leading-snug">
                         {{ title }}
                     </a>
-                    <div class="flex flex-row justify-center">
-                        <p class="text-xl text-gray-500">
-                            {{ date iso_format="MMMM Mo ʼYY" }}
+                    <div class="flex flex-row justify-center mt-1">
+                        <p class="inline-block flex justify-center items-center text-2xl text-gray-500">
+                            {{ partial:partials/info/date }}
                         </p>
                     </div>
                 </div>

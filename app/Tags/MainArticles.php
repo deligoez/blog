@@ -27,4 +27,3 @@ class MainArticles extends Tags
             ->filter(fn($value, $args) => $value->parent() === null);
     }
 }
-
