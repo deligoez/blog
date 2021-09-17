@@ -6,5 +6,5 @@
 >
     {{ component:fas-calendar-alt class="mx-1 w-4 h-4 text-gray-500" }}
     <span x-show="!open">{{ date | ago }}</span>
-    <span x-show="open">{{ date }}</span>
+    <span x-show="open">{{ date iso_format="MMMM Mo ʼYY" }}</span>
 </span>
