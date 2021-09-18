@@ -1,5 +1,4 @@
 import '../css/site.css';
-import 'vite/dynamic-import-polyfill';
 import 'alpinejs'
 import mediumZoom from "medium-zoom";
 import Alpine from 'alpinejs';

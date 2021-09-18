@@ -1,10 +1,10 @@
 <span
-        class="inline-block flex justify-center items-center"
+        class="flex items-center"
         x-data="{open: false}"
         @mouseenter.passive="open = true"
         @mouseleave.passive="open = false"
 >
-    {{ component:fas-calendar-alt class="mx-1 w-4 h-4 text-gray-500" }}
+    {{ component:phosphor-calendar-bold class="mx-1 w-6 h-6 text-gray-500" }}
     <span x-show="!open">{{ date | ago }}</span>
     <span x-show="open">{{ date iso_format="MMMM Mo ʼYY" }}</span>
 </span>

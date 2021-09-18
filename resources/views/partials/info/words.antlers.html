@@ -1,11 +1,10 @@
 <span
-        class="inline-block flex justify-center items-center"
+        class="inline-block flex items-center"
         x-data="{open: false}"
         @mouseenter.passive="open = true"
         @mouseleave.passive="open = false"
-        class="italic text-right text-xl leading-none mt-1 text-gray-500"
 >
-    {{ component:fas-clock class="mx-1 w-4 h-4 text-gray-500" }}
+    {{ component:phosphor-clock-bold class="mx-1 w-6 h-6 text-gray-500" }}
     <span x-show="!open">{{ content | flatten | join | strip_tags | read_time }} min</span>
     <span x-show="open">{{ content | flatten | join | strip_tags | word_count }} words</span>
 </span>

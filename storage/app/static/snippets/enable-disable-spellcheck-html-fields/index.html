@@ -32,8 +32,8 @@
 <meta name="msapplication-TileColor" content="#2b5797">
 <meta name="theme-color" content="#ffffff">
 
-        <script type="module" src="/build/assets/site.120c1e2e.js"></script>
-    <link rel="stylesheet" href="/build/assets/site.ba0800e5.css">
+        <script type="module" src="http://localhost:3000/@vite/client"></script>
+    <script type="module" src="http://localhost:3000/resources/js/site.js"></script>
 </head>
 <body class="subpixel-antialiased font-serif mx-16 min-h-full">
     <header class="hidden md:flex h-16 max-w-6xl mx-auto mt-8 flex flex-row justify-between">
@@ -140,8 +140,17 @@
             Enable/Disable Spellcheck HTML Fields
         </h1>
 
-        <p class="italic text-right text-xl mt-3 text-gray-500">
-            April 4th ʼ21
+        <p class="mt-3 text-xl italic leading-none text-gray-500 justify-center">
+            <span
+        class="flex items-center"
+        x-data="{open: false}"
+        @mouseenter.passive="open = true"
+        @mouseleave.passive="open = false"
+>
+    <svg class="mx-1 w-6 h-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M208,28H188V20a12,12,0,0,0-24,0v8H92V20a12,12,0,0,0-24,0v8H48A20.02229,20.02229,0,0,0,28,48V208a20.02229,20.02229,0,0,0,20,20H208a20.02229,20.02229,0,0,0,20-20V48A20.02229,20.02229,0,0,0,208,28Zm-4,24V76H52V52ZM52,204V100H204V204Zm76-40.00293a27.99978,27.99978,0,0,1-47.78711,19.81055,11.99993,11.99993,0,1,1,16.96045-16.98047A4,4,0,1,0,100,159.99707,11.9998,11.9998,0,0,1,90.62988,140.501l.40235-.50391H88a12,12,0,1,1,0-24h28a11.9998,11.9998,0,0,1,9.37012,19.49609l-6.36621,7.958A27.93228,27.93228,0,0,1,128,163.99707Zm48-36v52a12,12,0,0,1-24,0V151.31445a12.00194,12.00194,0,0,1-11.2002-20.917l16-12A11.99976,11.99976,0,0,1,176,127.99707Z"/></svg>
+    <span x-show="!open">4 months ago</span>
+    <span x-show="open">April 4th ʼ21</span>
+</span>
         </p>
     </div>
 
@@ -151,13 +160,16 @@
         </div>
 
         <div class="text-[1rem] md:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.4rem] 2xl:text-[1.5rem] w-full mx-auto border-2 rounded-xl border-gray-200 m-2 py-2 px-4">
-            <pre class="shiki" style="background-color: #fff"><code><span class="line"><span style="color: #24292E">&lt;</span><span style="color: #22863A">input</span><span style="color: #24292E"> </span><span style="color: #6F42C1">type</span><span style="color: #24292E">=</span><span style="color: #032F62">&quot;text&quot;</span><span style="color: #24292E"> </span><span style="color: #6F42C1">spellcheck</span><span style="color: #24292E">=</span><span style="color: #032F62">&quot;true&quot;</span><span style="color: #24292E"> /&gt;</span></span>
+            <pre class="shiki" style="background-color: #ffffff"><code><span class="line"><span style="color: #24292E">&lt;</span><span style="color: #22863A">input</span><span style="color: #24292E"> </span><span style="color: #005CC5">type</span><span style="color: #24292E">=</span><span style="color: #032F62">&quot;text&quot;</span><span style="color: #24292E"> </span><span style="color: #005CC5">spellcheck</span><span style="color: #24292E">=</span><span style="color: #032F62">&quot;true&quot;</span><span style="color: #24292E"> /&gt;</span></span>
 <span class="line"></span></code></pre>
 
         </div>
 
                 <div class="mt-2">
-            <a target="_blank" href="https://twitter.com/Prathkum/status/1367482810764840962/photo/1">Source</a>
+            <a target="_blank" href="https://twitter.com/Prathkum/status/1367482810764840962/photo/1" class="flex items-center">
+                <svg class="mr-1 w-5 h-5 text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M212.853,122.34277l-30.28418,30.28516a56.06576,56.06576,0,0,1-79.19629,0,12.0001,12.0001,0,0,1,16.9707-16.9707,32.03673,32.03673,0,0,0,45.25488,0l30.28418-30.28516a31.99969,31.99969,0,1,0-45.25488-45.25391L140.978,69.76562a11.99941,11.99941,0,1,1-16.96875-16.9707l9.64746-9.64746A55.99989,55.99989,0,1,1,212.853,122.34277Zm-97.834,63.89356-9.64648,9.64551a31.99969,31.99969,0,0,1-45.25488-45.25391l30.28418-30.28516a32.03673,32.03673,0,0,1,45.25488,0,12.0001,12.0001,0,0,0,16.9707-16.9707,56.06459,56.06459,0,0,0-79.19629,0L43.147,133.65723a55.99956,55.99956,0,0,0,79.19532,79.19531l9.64648-9.64551a11.99975,11.99975,0,1,0-16.96973-16.9707Z"/></svg>
+                Source
+            </a>
         </div>
         
     </div>
