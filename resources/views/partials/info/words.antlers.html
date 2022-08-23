@@ -5,6 +5,6 @@
         @mouseleave.passive="open = false"
 >
     {{ component:phosphor-clock-bold class="mx-1 w-6 h-6 text-gray-500" }}
-    <span x-show="!open">{{ content | flatten | join | strip_tags | read_time }} min</span>
-    <span x-show="open">{{ content | flatten | join | strip_tags | word_count }} words</span>
+    <span x-show="!open">{{ content | raw |  flatten | join | strip_tags | read_time }} min</span>
+    <span x-show="open">{{ content | raw | flatten | join | strip_tags | word_count }} words</span>
 </span>
