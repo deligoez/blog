@@ -18,7 +18,7 @@
                 </a>
                 <div class="flex flex-row justify-center">
                     <p class="text-gray-500 text-2xl">
-                        {{ date | ago }}, {{ content | flatten | join | strip_tags | read_time }} min
+                        {{ date | ago }}, {{ content | raw |  flatten | join | strip_tags | read_time }} min
                     </p>
                 </div>
             </div>
