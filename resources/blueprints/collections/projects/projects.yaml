@@ -28,6 +28,7 @@ sections:
           type: text
           icon: text
           listable: hidden
+          localizable: true
       -
         handle: link
         field:
@@ -35,6 +36,7 @@ sections:
           type: link
           icon: link
           listable: hidden
+          localizable: true
   sidebar:
     display: Sidebar
     fields:
@@ -42,7 +44,15 @@ sections:
         handle: slug
         field:
           type: slug
-          required: true
           localizable: true
           validate:
             - required
+  SEO:
+    display: SEO
+    fields:
+      -
+        handle: seo
+        field:
+          type: seo_pro
+          listable: false
+          display: SEO

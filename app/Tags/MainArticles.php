@@ -16,6 +16,7 @@ class MainArticles extends Tags
         $query = Entry::query()
                       ->where('collection', 'articles')
                       ->where('published', true)
+                      ->where('locale', $this->context->get('locale'))
                       ->orderBy('date', 'desc');
 
         if ($this->params->int('limit') !== 0) {

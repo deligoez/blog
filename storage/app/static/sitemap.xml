@@ -32,7 +32,7 @@
     </url>
     <url>
         <loc>http://blog.test/tr</loc>
-        <lastmod>2021-04-15</lastmod>
+        <lastmod>2022-08-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
@@ -73,12 +73,6 @@
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>http://blog.test/uses/brew</loc>
-        <lastmod>2021-04-25</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-    <url>
         <loc>http://blog.test/snippets/enable-disable-spellcheck-html-fields</loc>
         <lastmod>2021-07-27</lastmod>
         <changefreq>monthly</changefreq>
@@ -115,6 +109,30 @@
         <priority>0.5</priority>
     </url>
     <url>
+        <loc>http://blog.test/tr/makaleler</loc>
+        <lastmod>2022-08-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>http://blog.test/tr/kod-parcalari</loc>
+        <lastmod>2022-08-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>http://blog.test/tr/kullandiklarim</loc>
+        <lastmod>2022-08-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>http://blog.test/tr/projeler</loc>
+        <lastmod>2022-08-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
         <loc>http://blog.test/articles/from-zero-to-zero-downtime-deployments-for-laravel/creating-local-a-laravel-project-for-blindnote</loc>
         <lastmod>2021-04-25</lastmod>
         <changefreq>monthly</changefreq>
@@ -147,6 +165,36 @@
     <url>
         <loc>http://blog.test/articles/from-zero-to-zero-downtime-deployments-for-laravel/local-ssh-config</loc>
         <lastmod>2021-04-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>http://blog.test/tr/makaleler/terminalde-en-son-login-mesajini-kaldirmak</loc>
+        <lastmod>2022-08-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>http://blog.test/tr/projeler/xdebugtoggler</loc>
+        <lastmod>2022-08-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>http://blog.test/tr/projeler/blindnote</loc>
+        <lastmod>2022-08-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>http://blog.test/tr/projeler/phony</loc>
+        <lastmod>2022-08-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>http://blog.test/tr/kod-parcalari/laravel-okuma-suresi-makrosu</loc>
+        <lastmod>2022-08-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>

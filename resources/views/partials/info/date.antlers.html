@@ -5,6 +5,12 @@
         @mouseleave.passive="open = false"
 >
     {{ component:phosphor-calendar-bold class="mx-1 w-6 h-6 text-gray-500" }}
-    <span x-show="!open">{{ date iso_format="MMMM Mo ʼYY" }}</span>
+
+    {{ if locale == 'tr' }}
+        <span x-show="!open">{{ date iso_format="d MMMM 'YY" }}</span>
+    {{ elseif locale == 'en' }}
+        <span x-show="!open">{{ date iso_format="MMMM Mo ʼYY" }}</span>
+    {{ endif }}
+
     <span x-show="open">{{ date | ago }}</span>
 </span>

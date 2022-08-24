@@ -2,10 +2,15 @@
     <div class="flex flex-col text-[1.625em] mx-auto text-center italic space-y-6">
         <div>
             <div class="mx-auto text-5xl text-center">
-                Hej! Hej! <span class="inline-block not-italic animate-wiggle">👋🏻</span>
+                {{ if locale == 'tr' }} Merhaba! {{ elseif locale == 'en' }} Hej! Hej! {{ endif }}
+                <span class="inline-block not-italic animate-wiggle">👋🏻</span>
             </div>
             <div class="mx-auto mt-5 max-w-xl text-5xl text-center">
-                I'm Yunus Emre Deligöz
+                {{ if locale == 'tr' }}
+                    Ben Yunus Emre Deligöz
+                {{ elseif locale == 'en' }}
+                    I'm Yunus Emre Deligöz
+                {{ endif }}
             </div>
             <div class="mx-auto mt-3 max-w-xl text-3xl leading-relaxed text-center text-gray-500">
                 <p class="inline-block flex justify-center items-center">
@@ -28,7 +33,11 @@
         <!-- region Articles -->
         <div>
             <p class="pb-2 mt-10 mb-4 font-caps text-3xl not-italic tracking-widest leading-snug uppercase border-b-2 border-black">
-                <a href="/articles">Latest Articles</a>
+                {{ if locale == 'tr' }}
+                    <a href="/makaleler">Makaleler</a>
+                {{ elseif locale == 'en' }}
+                    <a href="/articles">Latest Articles</a>
+                {{ endif }}
             </p>
 
             <div class="flex flex-col text-[1.625em] mx-auto text-center space-y-6 italic">
@@ -53,11 +62,16 @@
         {{ if {collection:count in="snippets"} > 0}}
         <div>
             <p class="pb-2 mt-10 mb-4 font-caps text-3xl not-italic tracking-widest leading-snug uppercase border-b-2 border-black">
-                <a href="/snippers">Latest Snippets</a>
+                {{ if locale == 'tr' }}
+                    <a href="/kod-parcalari">Kod Parçaları</a>
+                {{ elseif locale == 'en' }}
+                    <a href="/snippers">Latest Snippets</a>
+                {{ endif }}
+
             </p>
 
             <div class="flex flex-col text-[1.625em] mx-auto text-center italic">
-                {{ collection:snippets limit="5" sort="date:desc"}}
+                {{ collection:snippets limit="5" sort="date:desc" }}
                 <div class="flex flex-col">
                     <a href="{{ url }}" class="mt-3 text-3xl leading-snug">
                         {{ title }}

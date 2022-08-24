@@ -15,6 +15,11 @@
                 {{ title }}
             </a>
         {{ /nav:collection:pages }}
+        {{ locales self="false"}}
+        <a class="border-b-2 border-transparent hover:border-black transition duration-300 {{ site:handle === handle ?= 'active' }}" href="{{ url }}">
+            {{ locale:name }}
+        </a>
+        {{ /locales }}
     </div>
 </header>
 
@@ -35,5 +40,6 @@
             {{ title }}
         </a>
         {{ /nav:collection:pages }}
+
     </div>
 </header>

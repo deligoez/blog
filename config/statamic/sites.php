@@ -16,15 +16,15 @@ return [
     'sites' => [
 
         'en' => [
-            'name' => '🇺🇸 English',
+            'name' => '/EN',
             'locale' => 'en_US',
             'url' => '/',
         ],
 
         'tr' => [
-            'name' => '🇹🇷 Türkçe',
+            'name' => '/TR',
             'locale' => 'tr_TR',
-            'url' => '/tr/',
+            'url' => '/tr',
         ],
 
     ],
