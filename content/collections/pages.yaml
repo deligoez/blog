@@ -2,7 +2,7 @@ title: Pages
 sites:
   - en
   - tr
-template: uses/show
+template: pages/show
 layout: layout
 revisions: false
 route: '{{ parent_uri }}/{{ slug }}'
