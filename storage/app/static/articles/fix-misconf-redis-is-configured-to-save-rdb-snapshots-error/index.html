@@ -166,18 +166,20 @@
                     <div class="space-y-6">
     <p>To fix <code>MISCONF Redis is configured to save RDB snapshots, but is currently not able to persist on disk. Commands that may modify the data set are disabled. Please check Redis logs for details about the error</code> error:</p>
 </div>
-                    <div class="text-[1.4rem] border-2 rounded-xl border-gray-200 m-2 py-2 px-4">
+                    <div class="text-xl border-2 rounded-xl border-gray-200 m-2 py-2 px-4">
     
     <pre class="shiki" style="background-color: #ffffff"><code><span class="line"><span style="color: #24292F">redis-cli</span></span>
 <span class="line"></span></code></pre>
 
 </div>
-                    <div class="text-[1.4rem] border-2 rounded-xl border-gray-200 m-2 py-2 px-4">
+
+                    <div class="text-xl border-2 rounded-xl border-gray-200 m-2 py-2 px-4">
     
     <pre class="shiki" style="background-color: #ffffff"><code><span class="line"><span style="color: #24292F">config </span><span style="color: #0550AE">set</span><span style="color: #24292F"> stop-writes-on-bgsave-error no</span></span>
 <span class="line"></span></code></pre>
 
 </div>
+
                     <div class="space-y-6">
     <p></p>
 </div>

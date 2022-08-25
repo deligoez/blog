@@ -31,12 +31,6 @@
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>http://blog.test/articles/codersrank-2020-stats</loc>
-        <lastmod>2021-04-26</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-    <url>
         <loc>http://blog.test/articles/remove-the-last-login-message-from-the-terminal</loc>
         <lastmod>2021-09-14</lastmod>
         <changefreq>monthly</changefreq>
@@ -45,6 +39,18 @@
     <url>
         <loc>http://blog.test/articles/fix-misconf-redis-is-configured-to-save-rdb-snapshots-error</loc>
         <lastmod>2021-09-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>http://blog.test/articles/codersrank-2020-stats</loc>
+        <lastmod>2022-08-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>http://blog.test/articles/validating-multipart-form-data-with-laravel-validation-rules-with-proper-json-data-types</loc>
+        <lastmod>2022-08-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
@@ -121,44 +127,20 @@
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>http://blog.test/articles/from-zero-to-zero-downtime-deployments-for-laravel/creating-local-a-laravel-project-for-blindnote</loc>
-        <lastmod>2021-04-25</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>http://blog.test/articles/from-zero-to-zero-downtime-deployments-for-laravel/creating-a-private-github-repository</loc>
-        <lastmod>2021-04-25</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>http://blog.test/articles/from-zero-to-zero-downtime-deployments-for-laravel/pushing-to-github</loc>
-        <lastmod>2021-04-25</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>http://blog.test/articles/from-zero-to-zero-downtime-deployments-for-laravel/creating-a-local-ssh-key</loc>
-        <lastmod>2021-04-25</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>http://blog.test/articles/from-zero-to-zero-downtime-deployments-for-laravel/creating-a-server-on-hetzner-cloud</loc>
-        <lastmod>2021-04-25</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>http://blog.test/articles/from-zero-to-zero-downtime-deployments-for-laravel/local-ssh-config</loc>
-        <lastmod>2021-04-25</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
-    </url>
-    <url>
         <loc>http://blog.test/tr/makaleler/terminalde-en-son-login-mesajini-kaldirmak</loc>
         <lastmod>2022-08-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>http://blog.test/tr/makaleler/codersrank-2020-kodlama-istatistiklerim</loc>
+        <lastmod>2022-08-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>http://blog.test/tr/makaleler/laravelde-multipartform-data-isteklerini-dogru-json-veri-tipleri-ile-dogrulama</loc>
+        <lastmod>2022-08-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
