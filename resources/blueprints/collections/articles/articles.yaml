@@ -143,7 +143,6 @@ sections:
         handle: slug
         field:
           type: slug
-          required: true
           localizable: true
           validate:
             - required
@@ -165,6 +164,7 @@ sections:
           inline: false
           columns: 1
           rows: 1
+          localizable: true
       -
         handle: parent
         field:
@@ -175,3 +175,12 @@ sections:
           listable: false
           localizable: true
           mode: default
+  SEO:
+    display: SEO
+    fields:
+      -
+        handle: seo
+        field:
+          type: seo_pro
+          listable: false
+          display: SEO
