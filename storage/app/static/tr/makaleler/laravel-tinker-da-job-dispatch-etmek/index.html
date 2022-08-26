@@ -4,23 +4,20 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Terminal&#039;de en son login mesajını kaldırmak | Yunus Emre Delig&ouml;z</title>
-<meta name="description" content="Terminal&#039;de en son login mesajını kaldırmak" />
+    <title>Laravel Tinker&#039;da Job Dispatch Etmek | Yunus Emre Delig&ouml;z</title>
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Terminal&#039;de en son login mesajını kaldırmak" />
-<meta property="og:description" content="Terminal&#039;de en son login mesajını kaldırmak" />
-<meta property="og:url" content="http://blog.test/tr/makaleler/terminalde-en-son-login-mesajini-kaldirmak" />
+<meta property="og:title" content="Laravel Tinker&#039;da Job Dispatch Etmek" />
+<meta property="og:url" content="http://blog.test/tr/makaleler/laravel-tinker-da-job-dispatch-etmek" />
 <meta property="og:site_name" content="Yunus Emre Delig&ouml;z" />
 <meta property="og:locale" content="tr_TR" />
 <meta property="og:locale:alternate" content="en_US" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@yedeligoez" />
-<meta name="twitter:title" content="Terminal&#039;de en son login mesajını kaldırmak" />
-<meta name="twitter:description" content="Terminal&#039;de en son login mesajını kaldırmak" />
+<meta name="twitter:title" content="Laravel Tinker&#039;da Job Dispatch Etmek" />
 <link href="http://blog.test/" rel="home" />
-<link href="http://blog.test/tr/makaleler/terminalde-en-son-login-mesajini-kaldirmak" rel="canonical" />
-<link rel="alternate" href="http://blog.test/tr/makaleler/terminalde-en-son-login-mesajini-kaldirmak" hreflang="tr" />
-<link rel="alternate" href="http://blog.test/articles/remove-the-last-login-message-from-the-terminal" hreflang="en" />
+<link href="http://blog.test/tr/makaleler/laravel-tinker-da-job-dispatch-etmek" rel="canonical" />
+<link rel="alternate" href="http://blog.test/tr/makaleler/laravel-tinker-da-job-dispatch-etmek" hreflang="tr" />
+<link rel="alternate" href="http://blog.test/articles/dispatch-jobs-in-laravel-tinker-aka-why-tinker-does-not-dispatch-jobs" hreflang="en" />
 <link type="text/plain" rel="author" href="http://blog.test/humans.txt" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=1">
@@ -78,7 +75,7 @@
                 Projeler
             </a>
         
-                <a class="border-b-2 border-transparent hover:border-black transition duration-300 " href="/articles/remove-the-last-login-message-from-the-terminal">
+                <a class="border-b-2 border-transparent hover:border-black transition duration-300 " href="/articles/dispatch-jobs-in-laravel-tinker-aka-why-tinker-does-not-dispatch-jobs">
             /EN
         </a>
         
@@ -134,10 +131,10 @@
         <h1
             class="text-3xl font-semibold text-right border-t-[3px] pt-2 border-black"
         >
-            Terminal'de en son login mesajını kaldırmak
+            Laravel Tinker'da Job Dispatch Etmek
         </h1>
         <h2 class="mt-3 text-2xl italic text-right">
-            
+            Laravel Tinker neden job'ları dispatch etmiyor?
         </h2>
 
         <p class="mt-1 text-xl italic leading-none text-gray-500 justify-center">
@@ -149,9 +146,9 @@
 >
     <svg class="mx-1 w-6 h-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M208,28H188V20a12,12,0,0,0-24,0v8H92V20a12,12,0,0,0-24,0v8H48A20.1,20.1,0,0,0,28,48V208a20.1,20.1,0,0,0,20,20H208a20.1,20.1,0,0,0,20-20V48A20.1,20.1,0,0,0,208,28Zm-4,24V76H52V52ZM52,204V100H204V204Zm76-40a28.1,28.1,0,0,1-28,28,27.8,27.8,0,0,1-19.8-8.2,12,12,0,0,1,17-17A3.7,3.7,0,0,0,100,168a4,4,0,0,0,0-8,12,12,0,0,1-9.4-19.5l.4-.5H88a12,12,0,0,1,0-24h28a12,12,0,0,1,9.4,19.5l-6.4,8A27.9,27.9,0,0,1,128,164Zm48-36v52a12,12,0,0,1-24,0V151.3a12,12,0,0,1-11.2-20.9l16-12A12,12,0,0,1,176,128Z"/></svg>
 
-            <span x-show="!open">2 Mayıs '21</span>
+            <span x-show="!open">5 Ağustos '22</span>
     
-    <span x-show="open">1 yıl önce</span>
+    <span x-show="open">9 saat önce</span>
 </span>
 
         </p>
@@ -164,8 +161,8 @@
         @mouseleave.passive="open = false"
 >
     <svg class="mx-1 w-6 h-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,20A108,108,0,1,0,236,128,108.1,108.1,0,0,0,128,20Zm0,192a84,84,0,1,1,84-84A84.1,84.1,0,0,1,128,212Zm68-84a12,12,0,0,1-12,12H128a12,12,0,0,1-12-12V72a12,12,0,0,1,24,0v44h44A12,12,0,0,1,196,128Z"/></svg>
-    <span x-show="!open">1  dk </span>
-    <span x-show="open">155  kelime </span>
+    <span x-show="!open">2  dk </span>
+    <span x-show="open">340  kelime </span>
 </span>
 
         </p>
@@ -173,83 +170,117 @@
 
     <div class="flex-1 text-[1.625em] leading-snug space-y-6">
                     <div class="space-y-6">
-    <p>MacOS&#039;da veya bir çok linux dağıtımında bir Terminal penceresi açtığınızda sizi bir son oturum açma bilgisi karşılar:</p>
+    <p>Bu makale ben (Yunus Emre Deligöz) ve <a target="_blank" href="https://medium.com/@tkaratug">Turan Karatuğ</a> tarafından yazılmıştır. İngilizce dilinde ve ayrıca Medium üzerinde okunabilir. </p>
+</div>
+                    <h3 class="block pb-[0.625rem] leading-snug font-serif italic cursor-pointer border-b-2 border-transparent hover:border-black transition duration-200">
+    <a
+            href="#-uzun-lafin-kisasi"
+            id="-uzun-lafin-kisasi"
+    >
+        <span class="font-index not-italic mr-2"></span> <span class="inline-block font-semibold text-3xl"><p>Uzun Lafın Kısası</p>
+</span>
+    </a>
+</h3>
+
+
+                    <div class="space-y-6">
+    <p>Dispatch komutundan hemen sonra, sadece, <code>;1</code> eklemeniz yeterli.</p>
 </div>
                     <div class="text-xl border-2 rounded-xl border-gray-200 m-2 py-2 px-4">
     
-    <pre class="shiki" style="background-color: #ffffff"><code><span class="line"><span style="color: #24292F">Last login: Sun Mar 28 20:57:37 on ttys001</span></span>
+    <pre class="shiki" style="background-color: #ffffff"><code><span class="line"><span style="color: #0550AE">SendEmailJob</span><span style="color: #CF222E">::</span><span style="color: #8250DF">dispatch</span><span style="color: #24292F">();</span><span style="color: #0550AE">1</span><span style="color: #24292F">;</span></span>
+<span class="line"></span></code></pre>
+
+</div>
+
+                    <h3 class="block pb-[0.625rem] leading-snug font-serif italic cursor-pointer border-b-2 border-transparent hover:border-black transition duration-200">
+    <a
+            href="#-laravel-tinker-uzerinden-joblari-dispatch-etmek"
+            id="-laravel-tinker-uzerinden-joblari-dispatch-etmek"
+    >
+        <span class="font-index not-italic mr-2"></span> <span class="inline-block font-semibold text-3xl"><p>Laravel Tinker üzerinden Job’ları Dispatch Etmek</p>
+</span>
+    </a>
+</h3>
+
+
+                    <div class="space-y-6">
+    <p>Laravel Artisan Tinker üzerinde kuyruğa bir Job göndermek istiyorsanız, Tinker&#039;ı açıp şöyle yazarsınız:</p>
+</div>
+                    <div class="text-xl border-2 rounded-xl border-gray-200 m-2 py-2 px-4">
+    
+    <pre class="shiki" style="background-color: #ffffff"><code><span class="line"><span style="color: #0550AE">SendEmailJob</span><span style="color: #CF222E">::</span><span style="color: #8250DF">dispatch</span><span style="color: #24292F">();</span></span>
 <span class="line"></span></code></pre>
 
 </div>
 
                     <figure class="grid grid-cols-1 w-full px-4 pb-5">
-    <img data-zoomable src="/assets/articles/remove-the-last-login-message-from-the-terminal/remove-the-last-login-message-from-the-terminal-1.png" alt="" loading="lazy"/>
+    <img data-zoomable src="/assets/articles/dispatch-jobs-in-laravel-tinker-aka-why-tinker-does-not-dispatch-jobs/cleanshot-2022-08-26-at-00.14.48@2x.png" alt="" loading="lazy"/>
 
     </figure>
                     <div class="space-y-6">
-    <p>Bu son oturum açma mesajını silmek için:</p>
+    <p>Ve Job&#039;un aslında kuyruğa gönderilmediğini farkedersiniz. Komutu yeniden çalıştırırsanız aynı yanıtı görürsünüz ancak Job kuyruğa yalnızca bir kez gönderilmiştir.</p>
 </div>
+                    <figure class="grid grid-cols-1 w-full px-4 pb-5">
+    <img data-zoomable src="/assets/articles/dispatch-jobs-in-laravel-tinker-aka-why-tinker-does-not-dispatch-jobs/cleanshot-2022-08-26-at-00.15.16@2x.png" alt="" loading="lazy"/>
+
+    </figure>
                     <h3 class="block pb-[0.625rem] leading-snug font-serif italic cursor-pointer border-b-2 border-transparent hover:border-black transition duration-200">
     <a
-            href="#1-kullanicinizin-home-klasorune-gecin"
-            id="1-kullanicinizin-home-klasorune-gecin"
+            href="#-laravel-tinker-jobu-neden-ilk-seferde-dispatch-etmedi"
+            id="-laravel-tinker-jobu-neden-ilk-seferde-dispatch-etmedi"
     >
-        <span class="font-index not-italic mr-2">1</span> <span class="inline-block font-semibold text-3xl"><p>Kullanıcınızın <code>home</code> klasorüne geçin</p>
+        <span class="font-index not-italic mr-2"></span> <span class="inline-block font-semibold text-3xl"><p>Laravel Tinker Job’u neden ilk seferde dispatch etmedi?</p>
 </span>
     </a>
 </h3>
 
 
+                    <div class="space-y-6">
+    <p>Buradaki sorun Laravel Tinker&#039;in oluşturulan <code>PendingDispatch</code> nesnelerini kullanıcının sonraki komutlarda kullanması için bellekte tutmasıdır. <code>PendingDispatch</code> nesnesi yok edildiğinde Job dispatch edilir.</p><p>Bu konudaki <a target="_blank" href="https://github.com/laravel/tinker/issues/28">tartışmalar</a> için <a target="_blank" href="https://github.com/laravel/tinker">Laravel Tinker Repo&#039;suna</a> göz atabilirsiniz.</p>
+</div>
+                    <h3 class="block pb-[0.625rem] leading-snug font-serif italic cursor-pointer border-b-2 border-transparent hover:border-black transition duration-200">
+    <a
+            href="#-cozum"
+            id="-cozum"
+    >
+        <span class="font-index not-italic mr-2"></span> <span class="inline-block font-semibold text-3xl"><p>Çözüm</p>
+</span>
+    </a>
+</h3>
+
+
+                    <div class="space-y-6">
+    <p>Bu problemi en doğru şekilde çözmek için Job&#039;u Laravel&#039;in <code>Dispatcher</code> sınıfı üzerinden gönderebilirsiniz:</p>
+</div>
                     <div class="text-xl border-2 rounded-xl border-gray-200 m-2 py-2 px-4">
     
-    <pre class="shiki" style="background-color: #ffffff"><code><span class="line"><span style="color: #0550AE">cd</span><span style="color: #24292F"> </span><span style="color: #CF222E">~</span></span>
+    <pre class="shiki" style="background-color: #ffffff"><code><span class="line"><span style="color: #8250DF">app</span><span style="color: #24292F">(</span><span style="color: #0550AE">\Illuminate\Contracts\Bus\Dispatcher</span><span style="color: #CF222E">::class</span><span style="color: #24292F">)</span></span>
+<span class="line"><span style="color: #24292F">  </span><span style="color: #CF222E">-&gt;</span><span style="color: #8250DF">dispatch</span><span style="color: #24292F">(</span><span style="color: #CF222E">new</span><span style="color: #24292F"> </span><span style="color: #0550AE">SendEmailJob</span><span style="color: #24292F">());</span></span>
 <span class="line"></span></code></pre>
 
 </div>
 
                     <figure class="grid grid-cols-1 w-full px-4 pb-5">
-    <img data-zoomable src="/assets/articles/remove-the-last-login-message-from-the-terminal/remove-the-last-login-message-from-the-terminal-2.png" alt="" loading="lazy"/>
-
-    </figure>
-                    <h3 class="block pb-[0.625rem] leading-snug font-serif italic cursor-pointer border-b-2 border-transparent hover:border-black transition duration-200">
-    <a
-            href="#2-hushlogin-adinda-bos-bir-dosya-olusturun"
-            id="2-hushlogin-adinda-bos-bir-dosya-olusturun"
-    >
-        <span class="font-index not-italic mr-2">2</span> <span class="inline-block font-semibold text-3xl"><p><code>.hushlogin</code> adında boş bir dosya oluşturun</p>
-</span>
-    </a>
-</h3>
-
-
-                    <div class="text-xl border-2 rounded-xl border-gray-200 m-2 py-2 px-4">
-    
-    <pre class="shiki" style="background-color: #ffffff"><code><span class="line"><span style="color: #0550AE">touch</span><span style="color: #24292F"> </span><span style="color: #CF222E">.</span><span style="color: #0550AE">hushlogin</span></span>
-<span class="line"></span></code></pre>
-
-</div>
-
-                    <figure class="grid grid-cols-1 w-full px-4 pb-5">
-    <img data-zoomable src="/assets/articles/remove-the-last-login-message-from-the-terminal/remove-the-last-login-message-from-the-terminal-3.png" alt="" loading="lazy"/>
-
-    </figure>
-                    <h3 class="block pb-[0.625rem] leading-snug font-serif italic cursor-pointer border-b-2 border-transparent hover:border-black transition duration-200">
-    <a
-            href="#3-terminalinizi-yeniden-baslatin"
-            id="3-terminalinizi-yeniden-baslatin"
-    >
-        <span class="font-index not-italic mr-2">3</span> <span class="inline-block font-semibold text-3xl"><p>Terminalinizi yeniden başlatın</p>
-</span>
-    </a>
-</h3>
-
-
-                    <figure class="grid grid-cols-1 w-full px-4 pb-5">
-    <img data-zoomable src="/assets/articles/remove-the-last-login-message-from-the-terminal/remove-the-last-login-message-from-the-terminal-4.png" alt="" loading="lazy"/>
+    <img data-zoomable src="/assets/articles/dispatch-jobs-in-laravel-tinker-aka-why-tinker-does-not-dispatch-jobs/cleanshot-2022-08-26-at-00.09.55@2x.png" alt="" loading="lazy"/>
 
     </figure>
                     <div class="space-y-6">
-    <p></p>
+    <p>Hızlıca çözmek içinse:</p>
+</div>
+                    <div class="text-xl border-2 rounded-xl border-gray-200 m-2 py-2 px-4">
+    
+    <pre class="shiki" style="background-color: #ffffff"><code><span class="line"><span style="color: #0550AE">SendEmailJob</span><span style="color: #CF222E">::</span><span style="color: #8250DF">dispatch</span><span style="color: #24292F">();</span><span style="color: #0550AE">1</span></span>
+<span class="line"></span></code></pre>
+
+</div>
+
+                    <figure class="grid grid-cols-1 w-full px-4 pb-5">
+    <img data-zoomable src="/assets/articles/dispatch-jobs-in-laravel-tinker-aka-why-tinker-does-not-dispatch-jobs/cleanshot-2022-08-26-at-00.10.53@2x.png" alt="" loading="lazy"/>
+
+    </figure>
+                    <div class="space-y-6">
+    <p>Komutun sonuna <code>;1</code> eklediğinizde, Tinker <code>PendingDispatch</code> nesnelerini bellekte tutmayacak ve bu da Job&#039;ların hemen dispatch edilmesini sağlayacaktır.</p>
 </div>
         
     </div>
