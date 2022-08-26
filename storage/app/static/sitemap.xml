@@ -55,7 +55,7 @@
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>http://blog.test/articles/dispatch-jobs-in-laravel-tinker-aka-why-tinker-does-not-dispatch-jobs</loc>
+        <loc>http://blog.test/articles/dispatch-jobs-in-laravel-tinker</loc>
         <lastmod>2022-08-26</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
