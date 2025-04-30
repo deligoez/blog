@@ -10,6 +10,7 @@ sections:
           type: integer
           icon: integer
           listable: hidden
+          localizable: false
       -
         handle: title
         field:
@@ -83,6 +84,7 @@ sections:
                     icon: assets
                     listable: hidden
                     folder: articles
+                    localizable: false
             code:
               display: Code
               fields:
@@ -96,9 +98,14 @@ sections:
                     smartypants: false
                     antlers: true
                     display: code
-                    type: markdown_highlight
+                    type: markdown
                     icon: code-block
                     listable: hidden
+                    localizable: false
+                    instructions_position: above
+                    visibility: visible
+                    always_save: false
+                    parser: phiki
             heading:
               display: Heading
               fields:
@@ -109,6 +116,7 @@ sections:
                     type: integer
                     icon: integer
                     listable: hidden
+                    localizable: false
                 -
                   handle: heading
                   field:
@@ -122,6 +130,7 @@ sections:
                     type: markdown
                     icon: markdown
                     listable: hidden
+                    localizable: false
             toc:
               display: ToC
               fields:
@@ -135,7 +144,15 @@ sections:
                     type: entries
                     icon: entries
                     listable: hidden
+                    localizable: false
           localizable: true
+          instructions_position: above
+          visibility: visible
+          always_save: false
+          collapse: false
+          previews: true
+          antlers: false
+          remove_empty_nodes: false
   sidebar:
     display: Sidebar
     fields:
@@ -184,3 +201,4 @@ sections:
           type: seo_pro
           listable: false
           display: SEO
+          localizable: false

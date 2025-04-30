@@ -16,13 +16,12 @@
         "laravel/tinker": "^2.10.1",
         "octoper/statamic-blade-components": "^2.0.0",
         "owenvoke/blade-fontawesome": "^v2.0.0",
-        "rias/statamic-markdown-highlight": "^v2.0",
+        "phiki/phiki": "^1.1",
         "statamic/cms": "^v3.3",
         "statamic/seo-pro": "^3.1",
         "statamic/ssg": "^1.2.0"
     },
     "require-dev": {
-        "barryvdh/laravel-debugbar": "^v3.7",
         "fakerphp/faker": "^v1.20",
         "mockery/mockery": "^1.5",
         "nunomaduro/collision": "^v6.2",
