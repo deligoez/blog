@@ -4,7 +4,7 @@
     "keywords": ["statamic", "cms", "flat file", "laravel"],
     "type": "project",
     "require": {
-        "php": "^7.4",
+        "php": "^8.0",
         "ext-json": "*",
         "4rn0/statamic-v3-image-optimizer": "^1.0",
         "codeat3/blade-file-icons": "^1.5",
