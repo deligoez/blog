@@ -1,11 +1,7 @@
-data:
-  imageoptimizer:
-    original_size: 558006
-    current_size: 155476
-  blurhash: LAO|Ij9t00Td3svzJAt600Os--ic
-  dominant_color: '#fbfbfb'
+data: {  }
 size: 155476
 last_modified: 1619382709
 width: 1367
 height: 1052
 mime_type: image/png
+duration: null
