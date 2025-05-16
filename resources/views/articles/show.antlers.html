@@ -1,24 +1,24 @@
 <div class="flex flex-row mx-auto mt-12 mb-52 max-w-5xl flex-no-wrap">
-    <div class="flex-initial flex flex-col mr-16 max-w-[10em]">
+    <div class="w-[12em] shrink-0 flex flex-col mr-16">
         <h1
-            class="text-3xl font-semibold text-right border-t-[3px] pt-2 border-black"
+            class="w-full text-3xl font-semibold text-right border-t-[3px] pt-2 border-black"
         >
             {{ title }}
         </h1>
-        <h2 class="mt-3 text-2xl italic text-right">
+        <h2 class="w-full mt-3 text-2xl italic text-right">
             {{ subtitle }}
         </h2>
 
-        <p class="mt-1 text-xl italic leading-none text-gray-500 justify-center">
+        <p class="!w-full mt-4 text-xl italic leading-none text-gray-500 text-right">
             {{ partial:partials/info/date }}
         </p>
 
-        <p class="mt-2 text-xl italic leading-none text-gray-500 justify-center">
+        <p class="!w-full mt-2 text-xl italic leading-none text-gray-500 text-right">
             {{ partial:partials/info/words }}
         </p>
     </div>
 
-    <div class="flex-1 text-[1.625em] leading-snug space-y-6">
+    <div class="!w-full flex-1 text-[1.625em] leading-snug space-y-6">
         {{ content }}
             {{ partial src="partials/bard/{type}" }}
         {{ /content }}
