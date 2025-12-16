@@ -41,7 +41,7 @@
     }
 
     p > a {
-        @apply font-caps font-bold lowercase no-underline tracking-wide hover:bg-gray-200 py-1 px-2 transition duration-200 rounded-lg;
+        @apply font-caps font-bold text-[1.55rem] align-bottom no-underline tracking-wide hover:bg-gray-200 py-1 px-2 transition duration-200 rounded-lg;
     }
 
     ol {
