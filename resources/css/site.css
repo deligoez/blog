@@ -69,7 +69,7 @@
     a > code,
     h1 > code,
     h2 > code {
-        @apply py-0.5 px-2 rounded bg-gray-100 text-[0.55em];
+        @apply py-0.5 px-2 rounded bg-gray-200 text-[0.80em];
     }
 
     /* Pre blocks */
