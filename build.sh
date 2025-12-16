@@ -35,7 +35,7 @@ echo "==> Building assets..."
 npm run production
 
 echo "==> Generating static site..."
-php please ssg:generate
+php please ssg:generate --no-interaction
 
 echo "==> Build complete!"
 ls -la storage/app/static/ | head -10
