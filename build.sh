@@ -16,6 +16,16 @@ echo "APP_DEBUG=false" >> .env
 
 php artisan key:generate
 
+echo "==> Creating required directories..."
+mkdir -p storage/app/static
+mkdir -p storage/framework/cache
+mkdir -p storage/framework/sessions
+mkdir -p storage/framework/views
+mkdir -p bootstrap/cache
+
+echo "==> Setting permissions..."
+chmod -R 775 storage bootstrap/cache
+
 echo "==> Clearing caches..."
 php artisan config:clear
 php artisan cache:clear
