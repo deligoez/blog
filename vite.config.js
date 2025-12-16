@@ -5,7 +5,10 @@ export default {
     plugins: [
         laravel({
             input: ['resources/js/site.js'],
-            refresh: true,
+            refresh: [
+                'resources/views/**',
+                'resources/css/**',
+            ],
         }),
         tailwindcss(),
     ],

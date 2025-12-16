@@ -24,9 +24,22 @@
         0%, 100% { transform: rotate(-3deg); }
         50% { transform: rotate(3deg); }
     }
+
+    /* Fluid Max Widths - scales with viewport */
+    --container-article: clamp(40rem, 85vw, 80rem);
+    --container-content: clamp(32rem, 65vw, 56rem);
+
+    /* Fluid Sidebar Width */
+    --sidebar-width: clamp(10rem, 15vw, 14rem);
+    --sidebar-gap: clamp(1.5rem, 3vw, 4rem);
 }
 
 @layer base {
+    /* Remove paragraph wrapper from markdown in titles */
+    .title-markdown > p {
+        display: contents;
+    }
+
     p > a {
         @apply font-caps font-bold lowercase no-underline tracking-wide hover:bg-gray-200 py-1 px-2 transition duration-200 rounded-lg;
     }
@@ -57,7 +70,7 @@
 
     /* Code blocks - Iosevka font */
     code {
-        @apply font-mono text-[0.9em] leading-relaxed;
+        @apply font-mono leading-relaxed;
     }
 
     /* Inline code */
@@ -72,12 +85,90 @@
         @apply py-0.5 px-2 rounded bg-gray-200 text-[0.80em];
     }
 
-    /* Pre blocks */
+    /* Pre blocks (code blocks) */
     pre {
         @apply leading-relaxed;
     }
 
     pre code {
-        @apply text-[0.85em];
+        /* Fixed size for code blocks - adjust this value to make code smaller/larger */
+        font-size: clamp(0.8rem, 0.7rem + 0.25vw, 0.95rem);
+    }
+
+    .article-content pre code {
+        /* Override for article content - adjust this value */
+        font-size: clamp(1.25rem, 0.8rem + 0.3vw, 1.1rem);
+    }
+}
+
+@layer components {
+    /* Article Layout Container */
+    .article-container {
+        max-width: var(--container-article);
+        margin-inline: auto;
+    }
+
+    /* Sidebar styles */
+    .article-sidebar {
+        width: var(--sidebar-width);
+        flex-shrink: 0;
+        margin-right: var(--sidebar-gap);
+    }
+
+    /* Content area */
+    .article-content {
+        flex: 1;
+        max-width: var(--container-content);
+        /* Fluid typography: scales from 1.125rem at 640px to 1.625rem at 1536px */
+        font-size: clamp(1.125rem, 0.875rem + 0.75vw, 1.625rem);
+        line-height: 1.5;
+    }
+
+    /* Fluid heading sizes */
+    .fluid-title {
+        font-size: clamp(1.5rem, 1rem + 1.5vw, 2rem);
+        line-height: 1.2;
+    }
+
+    .fluid-subtitle {
+        font-size: clamp(1.25rem, 0.875rem + 1vw, 1.5rem);
+        line-height: 1.3;
+    }
+
+    .fluid-meta {
+        font-size: clamp(1rem, 0.75rem + 0.5vw, 1.25rem);
+    }
+
+    /* Mobile article header - larger sizes for top placement */
+    .fluid-mobile-title {
+        font-size: clamp(1.875rem, 1.25rem + 2vw, 2.5rem);
+        line-height: 1.15;
+    }
+
+    .fluid-mobile-subtitle {
+        font-size: clamp(1.375rem, 1rem + 1.25vw, 1.75rem);
+        line-height: 1.25;
+    }
+
+    /* Home page specific */
+    .home-container {
+        max-width: clamp(40rem, 75vw, 64rem);
+        margin-inline: auto;
+    }
+
+    .fluid-hero {
+        font-size: clamp(1.75rem, 1rem + 2.5vw, 3rem);
+    }
+
+    .fluid-name {
+        font-size: clamp(1.5rem, 0.875rem + 2vw, 3rem);
+    }
+
+    .fluid-section-title {
+        font-size: clamp(1.25rem, 0.75rem + 1.5vw, 1.875rem);
+    }
+
+    .fluid-article-title {
+        font-size: clamp(1.25rem, 0.875rem + 1.25vw, 1.875rem);
     }
 }
