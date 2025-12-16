@@ -99,6 +99,32 @@
         /* Override for article content - adjust this value */
         font-size: clamp(1.25rem, 0.8rem + 0.3vw, 1.1rem);
     }
+
+    /* Native markdown headings in article content - match custom heading set style */
+    .article-content h1,
+    .article-content h2,
+    .article-content h3,
+    .article-content h4 {
+        @apply font-caps;
+        @apply block pb-2.5 leading-snug font-serif  cursor-pointer;
+        @apply border-b-2 border-transparent hover:border-black transition duration-200;
+    }
+
+    .article-content h1 {
+        @apply font-semibold text-3xl mt-8;
+    }
+
+    .article-content h2 {
+        @apply font-semibold text-2xl mt-6;
+    }
+
+    .article-content h3 {
+        @apply font-semibold text-xl mt-4;
+    }
+
+    .article-content h4 {
+        @apply font-semibold text-lg mt-3;
+    }
 }
 
 @layer components {
