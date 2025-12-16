@@ -1,58 +1,65 @@
 title: Projects
-sections:
+tabs:
   main:
     display: Main
-    fields:
+    sections:
       -
-        handle: emoji
-        field:
-          input_type: text
-          antlers: false
-          display: Emoji
-          type: text
-          icon: text
-          listable: hidden
-      -
-        handle: title
-        field:
-          type: text
-          required: true
-          validate:
-            - required
-      -
-        handle: subtitle
-        field:
-          input_type: text
-          antlers: false
-          display: Subtitle
-          type: text
-          icon: text
-          listable: hidden
-          localizable: true
-      -
-        handle: link
-        field:
-          display: Link
-          type: link
-          icon: link
-          listable: hidden
-          localizable: true
+        fields:
+          -
+            handle: emoji
+            field:
+              input_type: text
+              antlers: false
+              display: Emoji
+              type: text
+              icon: text
+              listable: hidden
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: subtitle
+            field:
+              input_type: text
+              antlers: false
+              display: Subtitle
+              type: text
+              icon: text
+              listable: hidden
+              localizable: true
+          -
+            handle: link
+            field:
+              display: Link
+              type: link
+              icon: link
+              listable: hidden
+              localizable: true
   sidebar:
     display: Sidebar
-    fields:
+    sections:
       -
-        handle: slug
-        field:
-          type: slug
-          localizable: true
-          validate:
-            - required
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate:
+                - required
+                - 'new \Statamic\Rules\UniqueEntryValue({collection}, {id}, {site})'
   SEO:
     display: SEO
-    fields:
+    sections:
       -
-        handle: seo
-        field:
-          type: seo_pro
-          listable: false
-          display: SEO
+        fields:
+          -
+            handle: seo
+            field:
+              type: seo_pro
+              listable: false
+              display: SEO
