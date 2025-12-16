@@ -1,0 +1,8 @@
+en:
+  name: /EN
+  locale: en_US
+  url: /
+tr:
+  name: /TR
+  locale: tr_TR
+  url: /tr

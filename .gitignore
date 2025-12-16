@@ -18,4 +18,5 @@ composer.lock
 public/mix-manifest.json
 public/css
 public/js
-public/build
+public/build!
+/storage/app/static/

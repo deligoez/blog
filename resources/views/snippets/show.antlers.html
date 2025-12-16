@@ -1,4 +1,4 @@
-<div class="max-w-5xl mx-auto mt-12 flex flex-row flex-no-wrap mb-52">
+<div class="max-w-5xl mx-auto mt-12 flex flex-row flex-nowrap mb-52">
     <div class="hidden md:block flex-initial flex flex-col mr-16 max-w-[10em]">
         <h1
                 class="text-3xl font-semibold text-right border-t-[3px] pt-2 border-black"
@@ -23,7 +23,7 @@
         {{ if source_link }}
         <div class="mt-2">
             <a target="_blank" href="{{ source_link }}" class="flex items-center">
-                {{ component:phosphor-link-bold class="mr-1 w-5 h-5 text-gray-500" }}
+                <x-phosphor-link-bold class="mr-1 w-5 h-5 text-gray-500" />
                 Source
             </a>
         </div>

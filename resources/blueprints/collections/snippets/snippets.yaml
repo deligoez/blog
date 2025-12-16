@@ -1,66 +1,74 @@
 title: Snippets
-sections:
+tabs:
   main:
     display: Main
-    fields:
+    sections:
       -
-        handle: title
-        field:
-          type: text
-          required: true
-          validate:
-            - required
-          localizable: true
-      -
-        handle: code
-        field:
-          restrict: false
-          automatic_line_breaks: false
-          automatic_links: false
-          escape_markup: false
-          smartypants: false
-          antlers: false
-          display: code
-          type: markdown
-          icon: markdown
-          localizable: false
-          listable: hidden
-          instructions_position: above
-          visibility: visible
-          always_save: false
-      -
-        handle: source_link
-        field:
-          display: 'Source Link'
-          type: link
-          icon: link
-          listable: hidden
-          localizable: false
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+              localizable: true
+          -
+            handle: code
+            field:
+              restrict: false
+              automatic_line_breaks: false
+              automatic_links: false
+              escape_markup: false
+              smartypants: false
+              antlers: false
+              display: code
+              type: markdown
+              icon: markdown
+              localizable: false
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              always_save: false
+          -
+            handle: source_link
+            field:
+              display: 'Source Link'
+              type: link
+              icon: link
+              listable: hidden
+              localizable: false
   sidebar:
     display: Sidebar
-    fields:
+    sections:
       -
-        handle: slug
-        field:
-          type: slug
-          localizable: true
-          validate:
-            - required
-      -
-        handle: date
-        field:
-          type: date
-          required: true
-          validate:
-            - required
-          localizable: false
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate:
+                - required
+                - 'new \Statamic\Rules\UniqueEntryValue({collection}, {id}, {site})'
+          -
+            handle: date
+            field:
+              type: date
+              required: true
+              default: now
+              validate:
+                - required
+              localizable: false
   SEO:
     display: SEO
-    fields:
+    sections:
       -
-        handle: seo
-        field:
-          type: seo_pro
-          listable: false
-          display: SEO
-          localizable: false
+        fields:
+          -
+            handle: seo
+            field:
+              type: seo_pro
+              listable: false
+              display: SEO
+              localizable: false
