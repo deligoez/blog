@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Statamic\Facades\Markdown;
+use Statamic\Statamic;
 use Statamic\Fieldtypes\Bard\Augmentor;
 use Tiptap\Nodes\CodeBlockHighlight;
+use App\Tags\OgGenerator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,6 +28,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->configureRateLimiting();
+
+        // Override vendor's OgGenerator tag with our custom one that includes twitter:image
+        Statamic::booted(function () {
+            OgGenerator::register();
+        });
 
         // Server-side syntax highlighting for Bard codeBlock nodes (Tiptap)
         Augmentor::replaceExtension('codeBlock', new CodeBlockHighlight());
