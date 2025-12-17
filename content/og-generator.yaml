@@ -1,0 +1,14 @@
+background_option: image
+bg_image: deligoz-og-template.png
+bg_color: '#fafafa'
+font: equityacapsregular.ttf
+font_size: 150
+text_color: '#000000'
+width: 1920
+height: 1080
+top: 250
+left: 150
+wrap: 19
+collections:
+  - articles
+  - snippets

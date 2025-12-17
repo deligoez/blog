@@ -8,6 +8,14 @@
 
     {{ partial:partials/favicon }}
 
+    {{ if og_generator_image }}
+    <meta property="og:image" content="{{ og_generator_image:permalink }}" />
+    {{ else }}
+    {{ asset url="/assets/ogimage-default.jpg" }}
+    <meta property="og:image" content="{{ permalink }}" />
+    {{ /asset }}
+    {{ /if }}
+
     {{ vite src="resources/js/site.js" }}
 </head>
 <body class="subpixel-antialiased font-serif mx-4 md:mx-8 lg:mx-16 min-h-full">

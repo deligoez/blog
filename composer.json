@@ -16,6 +16,7 @@
         "statamic/cms": "^5.70",
         "statamic/seo-pro": "^6.11",
         "statamic/ssg": "^3.1",
+        "state/og-generator": "^1.0",
         "stillat/antlers-components": "^2.6"
     },
     "require-dev": {
