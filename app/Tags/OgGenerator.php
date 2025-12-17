@@ -12,7 +12,7 @@ class OgGenerator extends Tags
     public function image()
     {
         $title = $this->context->get('title');
-        $filename = $this->context->get('slug') . '.png';
+        $filename = $this->context->get('slug') . '.jpg';
 
         if(!$title || !$filename) {
             return "";
@@ -28,7 +28,7 @@ class OgGenerator extends Tags
     public function ogImage()
     {
         $title = $this->context->get('title');
-        $filename = $this->context->get('slug') . '.png';
+        $filename = $this->context->get('slug') . '.jpg';
 
         if(!$title || !$filename) {
             return "";
@@ -41,7 +41,7 @@ class OgGenerator extends Tags
         return "<meta property='og:image' content='{$url}' />\n" .
                "<meta property='og:image:width' content='1920' />\n" .
                "<meta property='og:image:height' content='1080' />\n" .
-               "<meta property='og:image:type' content='image/png' />\n" .
+               "<meta property='og:image:type' content='image/jpeg' />\n" .
                "<meta name='twitter:image' content='{$url}' />";
     }
 
@@ -51,6 +51,8 @@ class OgGenerator extends Tags
             return;
         }
 
-        Image::fromSettings(Settings::load())->text($title)->save("assets/{$filename}");
+        // Note: OgGeneratorImage.save() converts .png to .jpg internally
+        $pngFilename = preg_replace('/\.jpg$/i', '.png', $filename);
+        Image::fromSettings(Settings::load())->text($title)->save("assets/{$pngFilename}");
     }
 }

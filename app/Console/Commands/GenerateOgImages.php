@@ -25,8 +25,8 @@ class GenerateOgImages extends Command
         foreach ($entries as $entry) {
             $title = $entry->get('title');
             $slug = $entry->slug();
-            $filename = "assets/{$slug}.png";
-            $filepath = public_path($filename);
+            $filename = "assets/{$slug}.png"; // Will be saved as .jpg by OgGeneratorImage
+            $jpgFilepath = public_path("assets/{$slug}.jpg");
 
             if (!$title) {
                 $this->line("Skipping {$slug} - no title");
@@ -34,8 +34,8 @@ class GenerateOgImages extends Command
                 continue;
             }
 
-            if (file_exists($filepath) && !$force) {
-                $this->line("Skipping {$slug}.png - already exists");
+            if (file_exists($jpgFilepath) && !$force) {
+                $this->line("Skipping {$slug}.jpg - already exists");
                 $skipped++;
                 continue;
             }
@@ -45,10 +45,10 @@ class GenerateOgImages extends Command
                     ->text($title)
                     ->save($filename);
 
-                $this->info("Generated: {$slug}.png");
+                $this->info("Generated: {$slug}.jpg");
                 $generated++;
             } catch (\Exception $e) {
-                $this->error("Failed to generate {$slug}.png: " . $e->getMessage());
+                $this->error("Failed to generate {$slug}.jpg: " . $e->getMessage());
             }
         }
 

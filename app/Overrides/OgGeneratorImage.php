@@ -91,7 +91,9 @@ class OgGeneratorImage
     {
         $this->build();
 
-        $this->img->save(public_path($path));
+        // Save as JPG to remove alpha channel (social media platforms don't support PNG with transparency)
+        $jpgPath = preg_replace('/\.png$/i', '.jpg', $path);
+        $this->img->encode('jpg', 90)->save(public_path($jpgPath));
     }
 
     public function build()
