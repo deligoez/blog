@@ -111,19 +111,19 @@
     }
 
     .article-content h1 {
-        @apply font-semibold text-3xl mt-8;
+        @apply font-semibold text-3xl mt-10;
     }
 
     .article-content h2 {
-        @apply font-semibold text-2xl mt-6;
+        @apply font-semibold text-2xl mt-8;
     }
 
     .article-content h3 {
-        @apply font-semibold text-xl mt-4;
+        @apply font-semibold text-xl mt-6;
     }
 
     .article-content h4 {
-        @apply font-semibold text-lg mt-3;
+        @apply font-semibold text-lg mt-4;
     }
 }
 
