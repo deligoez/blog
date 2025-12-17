@@ -1,5 +1,5 @@
 {{ toc_auto :levels="levels" }}
-<div class="toc-auto my-6">
+<div id="toc" class="toc-auto my-6">
     <p class="font-caps uppercase font-semibold text-2xl mb-2 pb-1 border-b border-gray-300">Table of Contents</p>
     {{ if items }}
     <ul class="toc-list">
@@ -12,6 +12,29 @@
         </li>
         {{ /items }}
     </ul>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var slugMap = {
+            {{ items }}{{ unless first }},{{ /unless }}
+            "{{ text | entities }}": "{{ slug }}"
+            {{ /items }}
+        };
+        var tocIcon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" class="w-6 h-6 inline-block"><path d="M212,224a12,12,0,0,1-12,12A108.12,108.12,0,0,1,92,128V61L64.49,88.49a12,12,0,0,1-17-17l48-48a12,12,0,0,1,17,0l48,48a12,12,0,0,1-17,17L116,61v67a84.09,84.09,0,0,0,84,84A12,12,0,0,1,212,224Z"/></svg>';
+        document.querySelectorAll('.article-content h1, .article-content h2, .article-content h3, .article-content h4, .article-content h5, .article-content h6').forEach(function(h) {
+            var text = h.textContent.trim();
+            if (slugMap[text] && !h.id) {
+                h.id = slugMap[text];
+                h.classList.add('scroll-mt-4');
+                var link = document.createElement('a');
+                link.href = '#toc';
+                link.className = 'ml-2 text-gray-400 hover:text-gray-600 transition';
+                link.title = 'Back to Table of Contents';
+                link.innerHTML = tocIcon;
+                h.appendChild(link);
+            }
+        });
+    });
+    </script>
     {{ else }}
     <p class="text-gray-400 italic">No headings found</p>
     {{ /if }}
