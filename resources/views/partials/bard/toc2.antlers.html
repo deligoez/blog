@@ -1,0 +1,11 @@
+<div class="toc-compact my-6">
+    <p class="font-caps font-semibold text-lg mb-2 pb-1 border-b border-gray-300">Table of Contents</p>
+    <ul class="toc-list">
+        {{ items }}
+            <li class="{{ if level == 2 }}ml-6{{ /if }}">
+                <span class="text-gray-400 mr-1">{{ if level == 2 }}&ndash;{{ else }}&bull;{{ /if }}</span>
+                {{ title }}
+            </li>
+        {{ /items }}
+    </ul>
+</div>

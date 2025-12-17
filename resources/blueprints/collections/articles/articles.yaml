@@ -146,6 +146,54 @@ tabs:
                         icon: entries
                         listable: hidden
                         localizable: false
+                toc2:
+                  display: ToC2
+                  fields:
+                    -
+                      handle: items
+                      field:
+                        type: replicator
+                        display: Items
+                        sets:
+                          item:
+                            display: Item
+                            fields:
+                              -
+                                handle: title
+                                field:
+                                  type: text
+                                  display: Title
+                                  required: true
+                              -
+                                handle: level
+                                field:
+                                  type: select
+                                  display: Level
+                                  options:
+                                    1: 'H1 (Main)'
+                                    2: 'H2 (Sub)'
+                                  default: 1
+                toc-auto:
+                  display: 'ToC (Auto)'
+                  instructions: 'Automatically generates table of contents from selected heading levels.'
+                  fields:
+                    -
+                      handle: levels
+                      field:
+                        type: checkboxes
+                        display: 'Heading Levels'
+                        instructions: 'Select which heading levels to include in the TOC'
+                        options:
+                          1: 'H1'
+                          2: 'H2'
+                          3: 'H3'
+                          4: 'H4'
+                          5: 'H5'
+                          6: 'H6'
+                        default:
+                          - '1'
+                          - '2'
+                        inline: true
               localizable: true
               instructions_position: above
               visibility: visible

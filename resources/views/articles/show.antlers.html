@@ -34,7 +34,18 @@
     <!-- Content -->
     <div class="article-content space-y-4 md:space-y-6">
         {{ content }}
-            {{ partial src="partials/bard/{type}" }}
+            {{ if type == 'heading' }}
+                {{# Native bard heading with auto ID for TOC links #}}
+                {{ content scope="item" }}
+                    <h{{ attrs:level }} id="{{ item:text | slugify }}" class="scroll-mt-4">{{ item:text }}</h{{ attrs:level }}>
+                {{ /content }}
+            {{ elseif type == 'set' }}
+                {{# Custom bard sets #}}
+                {{ partial src="partials/bard/{values:type}" }}
+            {{ else }}
+                {{# Other native bard types #}}
+                {{ partial src="partials/bard/{type}" }}
+            {{ /if }}
         {{ /content }}
     </div>
 </div>

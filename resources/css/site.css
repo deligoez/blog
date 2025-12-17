@@ -128,6 +128,26 @@
 }
 
 @layer components {
+    /* Table of Contents - Compact Style */
+    .toc-compact .toc-list,
+    .toc-auto .toc-list {
+        @apply ml-0 my-2 italic;
+    }
+
+    .toc-compact .toc-list li,
+    .toc-auto .toc-list li {
+        @apply list-none my-0.5 leading-snug;
+    }
+
+    .toc-compact .toc-list li:before,
+    .toc-auto .toc-list li:before {
+        content: none;
+    }
+
+    .toc-auto .toc-list a {
+        @apply no-underline;
+    }
+
     /* Article Layout Container */
     .article-container {
         max-width: var(--container-article);

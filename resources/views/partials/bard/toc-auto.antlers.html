@@ -1,0 +1,19 @@
+{{ toc_auto :levels="levels" }}
+<div class="toc-auto my-6">
+    <p class="font-caps uppercase font-semibold text-2xl mb-2 pb-1 border-b border-gray-300">Table of Contents</p>
+    {{ if items }}
+    <ul class="toc-list">
+        {{ items }}
+        <li class="{{ if indent }}ml-6{{ /if }}">
+            <a href="#{{ slug }}" class="hover:text-gray-600 transition">
+                <span class="text-gray-400 mr-1">{{ if indent }}&ndash;{{ else }}&bull;{{ /if }}</span>
+                {{ text }}
+            </a>
+        </li>
+        {{ /items }}
+    </ul>
+    {{ else }}
+    <p class="text-gray-400 italic">No headings found</p>
+    {{ /if }}
+</div>
+{{ /toc_auto }}
