@@ -5,6 +5,7 @@ published: false
 title: 'CodersRank 2020 Kodlama İstatistiklerim'
 updated_by: b8f3533e-0fcf-42b9-a3d8-c8691deaf917
 updated_at: 1765917190
+og_generator_image: codersrank-2020-kodlama-istatistiklerim.jpg
 content:
   -
     type: paragraph
