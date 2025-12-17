@@ -8,13 +8,7 @@
 
     {{ partial:partials/favicon }}
 
-    {{ if og_generator_image }}
-    <meta property="og:image" content="{{ og_generator_image:permalink }}" />
-    {{ else }}
-    {{ asset url="/assets/ogimage-default.jpg" }}
-    <meta property="og:image" content="{{ permalink }}" />
-    {{ /asset }}
-    {{ /if }}
+    {{ og_generator:og_image }}
 
     {{ vite src="resources/js/site.js" }}
 </head>
