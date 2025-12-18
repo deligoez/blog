@@ -41,16 +41,17 @@
     }
 
     p > a {
-        @apply font-caps font-bold text-[1.55rem] align-bottom no-underline tracking-wide hover:bg-gray-200 py-1 px-2 transition duration-200 rounded-lg;
+        @apply font-caps font-bold text-[1.55rem] no-underline tracking-wide hover:bg-gray-200 py-1 px-2 transition duration-200 rounded-lg;
+        vertical-align: 0em;
     }
 
     ol {
         counter-reset: count;
-        @apply ml-20 my-4;
+        @apply ml-12 my-4;
     }
 
     ul {
-        @apply ml-20 my-4;
+        @apply ml-12 my-4;
     }
 
     ol > li, ul > li {
@@ -60,12 +61,194 @@
     ol > li:before {
         counter-increment: count;
         content: counter(count);
-        @apply font-index text-[1.625rem] absolute -ml-16 mt-1;
+        @apply font-index text-[1.625rem] absolute -ml-8 mt-1;
     }
 
     ul > li:before {
         content: "•";
-        @apply text-[1.625rem] absolute -ml-16;
+        @apply text-[1.625rem] absolute -ml-8;
+    }
+
+    /* Blockquote - Article quotes/citations */
+    .article-content blockquote {
+        @apply relative my-10 py-4 px-10 italic max-w-[85%];
+        font-size: 1.1em;
+    }
+
+    .article-content blockquote::before {
+        content: "\201C";
+        @apply absolute -left-2 -top-6 text-6xl text-gray-300 leading-none font-serif;
+    }
+
+    .article-content blockquote::after {
+        content: "\201D";
+        @apply absolute right-4 -bottom-6 text-6xl text-gray-300 leading-none font-serif;
+    }
+
+    .article-content blockquote p {
+        @apply text-gray-600 relative z-10;
+    }
+
+    /* Thought - Inner monologue / thought bubble */
+    .thought {
+        @apply my-8 flex;
+    }
+
+    .thought-left {
+        @apply justify-start;
+    }
+
+    .thought-right {
+        @apply justify-end;
+    }
+
+    .thought-bubble {
+        @apply relative bg-gray-100 py-4 px-6 rounded-3xl max-w-[80%];
+    }
+
+    /* Left bubble tail */
+    .thought-bubble-left::before {
+        content: "";
+        @apply absolute -bottom-2 left-8 w-4 h-4 bg-gray-100 rounded-full;
+    }
+
+    .thought-bubble-left::after {
+        content: "";
+        @apply absolute -bottom-5 left-5 w-2.5 h-2.5 bg-gray-100 rounded-full;
+    }
+
+    /* Right bubble tail */
+    .thought-bubble-right::before {
+        content: "";
+        @apply absolute -bottom-2 right-8 w-4 h-4 bg-gray-100 rounded-full;
+    }
+
+    .thought-bubble-right::after {
+        content: "";
+        @apply absolute -bottom-5 right-5 w-2.5 h-2.5 bg-gray-100 rounded-full;
+    }
+
+    .thought-content {
+        @apply italic text-gray-500;
+    }
+
+    .thought-bubble-left .thought-content {
+        @apply text-left;
+    }
+
+    .thought-bubble-right .thought-content {
+        @apply text-right;
+    }
+
+    /* Horizontal Rule - Subtle wavy divider */
+    .article-content hr {
+        @apply my-12 border-0 h-6 bg-transparent;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10' preserveAspectRatio='none'%3E%3Cpath d='M0 5 Q 12.5 0, 25 5 T 50 5 T 75 5 T 100 5' stroke='%23d1d5db' stroke-width='1' fill='none'/%3E%3C/svg%3E");
+        background-repeat: repeat-x;
+        background-position: center;
+        background-size: 100px 10px;
+    }
+
+    /* Sidenote - Tufte-style margin notes */
+    .sidenote {
+        @apply leading-relaxed my-4 py-3 px-4 rounded-lg border-l-2;
+        font-size: 1em;
+    }
+
+    .sidenote-icon {
+        @apply w-5 h-5 inline-block mr-2 align-text-bottom flex-shrink-0;
+    }
+
+    .sidenote-content {
+        @apply italic;
+    }
+
+    /* Sidenote styles - minimal with colored icons */
+    .sidenote-note {
+        @apply text-gray-500 bg-gray-50 border-gray-300;
+    }
+
+    .sidenote-info {
+        @apply bg-transparent text-blue-400 border-current;
+    }
+
+    .sidenote-tip {
+        @apply bg-transparent text-emerald-400 border-current;
+    }
+
+    .sidenote-warning {
+        @apply bg-transparent text-amber-500 border-current;
+    }
+
+    .sidenote-danger {
+        @apply bg-transparent text-red-400 border-current;
+    }
+
+    .sidenote-info .sidenote-icon {
+        @apply text-blue-400;
+    }
+
+    .sidenote-tip .sidenote-icon {
+        @apply text-emerald-400;
+    }
+
+    .sidenote-warning .sidenote-icon {
+        @apply text-amber-500;
+    }
+
+    .sidenote-danger .sidenote-icon {
+        @apply text-red-400;
+    }
+
+    /* Wide screens: position sidenotes in the margin */
+    @media (min-width: 1440px) {
+        .article-content {
+            @apply relative;
+        }
+
+        .sidenote {
+            @apply absolute w-56 my-0 leading-snug;
+            font-size: 0.9em;
+        }
+
+        /* Note style: minimal in margin */
+        .sidenote-note {
+            @apply bg-transparent py-0 px-3 border-0 rounded-none;
+        }
+
+        /* Styled sidenotes: keep compact styling in margin */
+        .sidenote-info,
+        .sidenote-tip,
+        .sidenote-warning,
+        .sidenote-danger {
+            @apply py-2 px-3 rounded-md;
+        }
+
+        .sidenote-right {
+            right: -15rem;
+            @apply border-l-2 border-r-0;
+        }
+
+        .sidenote-left {
+            left: -15rem;
+            @apply text-right border-r-2 border-l-0;
+        }
+    }
+
+    /* Extra wide screens: larger sidenotes */
+    @media (min-width: 1680px) {
+        .sidenote {
+            @apply w-60;
+            font-size: 0.95em;
+        }
+
+        .sidenote-right {
+            right: -17rem;
+        }
+
+        .sidenote-left {
+            left: -17rem;
+        }
     }
 
     /* Code blocks - Iosevka font */
@@ -92,12 +275,12 @@
 
     pre code {
         /* Fixed size for code blocks - adjust this value to make code smaller/larger */
-        font-size: clamp(0.8rem, 0.7rem + 0.25vw, 0.95rem);
+        font-size: clamp(0.9rem, 0.8rem + 0.25vw, 1.05rem);
     }
 
     .article-content pre code {
-        /* Override for article content - adjust this value */
-        font-size: clamp(1.25rem, 0.8rem + 0.3vw, 1.1rem);
+        /* Override for article content - scales from 0.95rem on mobile to 1.5rem on desktop */
+        font-size: clamp(0.95rem, 0.55rem + 0.75vw, 1.5rem);
     }
 
     /* Native markdown headings in article content - match custom heading set style */
@@ -106,24 +289,34 @@
     .article-content h3,
     .article-content h4 {
         @apply font-caps;
-        @apply block pb-2.5 leading-snug font-serif  cursor-pointer;
+        @apply block pb-2.5 leading-snug font-serif cursor-pointer;
         @apply border-b-2 border-transparent hover:border-black transition duration-200;
     }
 
+    /* Heading anchor links - inherit heading style */
+    .article-content h1 > a,
+    .article-content h2 > a,
+    .article-content h3 > a,
+    .article-content h4 > a {
+        @apply text-inherit no-underline hover:no-underline;
+        font-size: inherit;
+        font-weight: inherit;
+    }
+
     .article-content h1 {
-        @apply font-semibold text-3xl mt-10;
+        @apply font-semibold text-4xl mt-10;
     }
 
     .article-content h2 {
-        @apply font-semibold text-2xl mt-8;
+        @apply font-semibold text-3xl mt-8;
     }
 
     .article-content h3 {
-        @apply font-semibold text-xl mt-6;
+        @apply font-semibold text-2xl mt-6;
     }
 
     .article-content h4 {
-        @apply font-semibold text-lg mt-4;
+        @apply font-semibold text-xl mt-4;
     }
 }
 
@@ -165,9 +358,25 @@
     .article-content {
         flex: 1;
         max-width: var(--container-content);
-        /* Fluid typography: scales from 1.125rem at 640px to 1.625rem at 1536px */
-        font-size: clamp(1.125rem, 0.875rem + 0.75vw, 1.625rem);
+        /* Fluid typography: scales from 1.125rem at 640px to 1.5rem at 1536px */
+        font-size: clamp(1.125rem, 0.9rem + 0.5vw, 1.5rem);
         line-height: 1.5;
+    }
+
+    /* Wide screens: leave room for sidenotes on the right */
+    @media (min-width: 1440px) {
+        .article-container {
+            margin-left: 2rem;
+            margin-right: auto;
+            padding-right: 14rem;
+        }
+    }
+
+    @media (min-width: 1680px) {
+        .article-container {
+            margin-left: 3rem;
+            padding-right: 16rem;
+        }
     }
 
     /* Fluid heading sizes */

@@ -34,6 +34,9 @@ class AppServiceProvider extends ServiceProvider
             OgGenerator::register();
         });
 
+        // Register custom Bard button for typographic quotes
+        Statamic::script('app', 'cp');
+
         // Server-side syntax highlighting for Bard codeBlock nodes (Tiptap)
         Augmentor::replaceExtension('codeBlock', new CodeBlockHighlight());
 

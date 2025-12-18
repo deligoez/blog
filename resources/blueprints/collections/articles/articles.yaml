@@ -10,8 +10,6 @@ tabs:
             field:
               display: Number
               type: integer
-              icon: integer
-              listable: hidden
               localizable: false
           -
             handle: title
@@ -24,21 +22,19 @@ tabs:
           -
             handle: subtitle
             field:
-              input_type: text
-              antlers: false
               display: Subtitle
               type: text
-              icon: text
-              listable: hidden
               localizable: true
           -
             handle: content
             field:
-              always_show_set_button: false
               buttons:
                 - h1
                 - h2
                 - h3
+                - h4
+                - h5
+                - h6
                 - bold
                 - italic
                 - unorderedlist
@@ -55,153 +51,181 @@ tabs:
                 - superscript
                 - subscript
                 - code
-              save_html: false
-              toolbar_mode: fixed
-              link_noopener: false
-              link_noreferrer: false
-              target_blank: false
+                - small
+                - alignleft
+                - aligncenter
+                - alignright
+                - alignjustify
+                - typographic_quotes
               reading_time: true
-              fullscreen: true
-              allow_source: true
-              enable_input_rules: true
-              enable_paste_rules: true
               display: Content
               type: bard
-              icon: bard
-              listable: hidden
-              sets:
-                image:
-                  display: Image
-                  fields:
-                    -
-                      handle: image
-                      field:
-                        mode: grid
-                        container: assets
-                        restrict: false
-                        allow_uploads: true
-                        max_files: 1
-                        display: image
-                        type: assets
-                        icon: assets
-                        listable: hidden
-                        folder: articles
-                        localizable: false
-                code:
-                  display: Code
-                  fields:
-                    -
-                      handle: code
-                      field:
-                        restrict: false
-                        automatic_line_breaks: true
-                        automatic_links: false
-                        escape_markup: false
-                        smartypants: false
-                        antlers: true
-                        display: code
-                        type: markdown
-                        icon: code-block
-                        listable: hidden
-                        localizable: false
-                        instructions_position: above
-                        visibility: visible
-                        always_save: false
-                heading:
-                  display: Heading
-                  fields:
-                    -
-                      handle: number
-                      field:
-                        display: Number
-                        type: integer
-                        icon: integer
-                        listable: hidden
-                        localizable: false
-                    -
-                      handle: heading
-                      field:
-                        restrict: false
-                        automatic_line_breaks: true
-                        automatic_links: false
-                        escape_markup: false
-                        smartypants: true
-                        antlers: false
-                        display: Heading
-                        type: markdown
-                        icon: markdown
-                        listable: hidden
-                        localizable: false
-                toc:
-                  display: ToC
-                  fields:
-                    -
-                      handle: entries
-                      field:
-                        mode: default
-                        collections:
-                          - articles
-                        display: Entries
-                        type: entries
-                        icon: entries
-                        listable: hidden
-                        localizable: false
-                toc2:
-                  display: ToC2
-                  fields:
-                    -
-                      handle: items
-                      field:
-                        type: replicator
-                        display: Items
-                        sets:
-                          item:
-                            display: Item
-                            fields:
-                              -
-                                handle: title
-                                field:
-                                  type: text
-                                  display: Title
-                                  required: true
-                              -
-                                handle: level
-                                field:
-                                  type: select
-                                  display: Level
-                                  options:
-                                    1: 'H1 (Main)'
-                                    2: 'H2 (Sub)'
-                                  default: 1
-                toc-auto:
-                  display: 'ToC (Auto)'
-                  instructions: 'Automatically generates table of contents from selected heading levels.'
-                  fields:
-                    -
-                      handle: levels
-                      field:
-                        type: checkboxes
-                        display: 'Heading Levels'
-                        instructions: 'Select which heading levels to include in the TOC'
-                        options:
-                          1: 'H1'
-                          2: 'H2'
-                          3: 'H3'
-                          4: 'H4'
-                          5: 'H5'
-                          6: 'H6'
-                        default:
-                          - '1'
-                          - '2'
-                        inline: true
               localizable: true
-              instructions_position: above
-              visibility: visible
               always_save: false
-              collapse: false
-              previews: true
-              antlers: false
               remove_empty_nodes: false
+              sets:
+                main:
+                  display: Main
+                  sets:
+                    image:
+                      display: Image
+                      fields:
+                        -
+                          handle: image
+                          field:
+                            mode: grid
+                            container: assets
+                            max_files: 1
+                            display: image
+                            type: assets
+                            folder: articles
+                            localizable: false
+                    code:
+                      display: Code
+                      fields:
+                        -
+                          handle: code
+                          field:
+                            antlers: true
+                            display: code
+                            type: markdown
+                            localizable: false
+                            always_save: false
+                    heading:
+                      display: Heading
+                      fields:
+                        -
+                          handle: number
+                          field:
+                            display: Number
+                            type: integer
+                            localizable: false
+                        -
+                          handle: heading
+                          field:
+                            smartypants: true
+                            display: Heading
+                            type: markdown
+                            localizable: false
+                    toc:
+                      display: ToC
+                      fields:
+                        -
+                          handle: entries
+                          field:
+                            collections:
+                              - articles
+                            display: Entries
+                            type: entries
+                            localizable: false
+                    toc2:
+                      display: ToC2
+                      fields:
+                        -
+                          handle: items
+                          field:
+                            type: replicator
+                            display: Items
+                            localizable: false
+                            sets:
+                              item:
+                                display: Item
+                                fields:
+                                  -
+                                    handle: title
+                                    field:
+                                      type: text
+                                      display: Title
+                                      required: true
+                                  -
+                                    handle: level
+                                    field:
+                                      type: select
+                                      display: Level
+                                      options:
+                                        1: 'H1 (Main)'
+                                        2: 'H2 (Sub)'
+                                      default: 1
+                    toc-auto:
+                      display: 'ToC (Auto)'
+                      instructions: 'Automatically generates table of contents from selected heading levels.'
+                      fields:
+                        -
+                          handle: levels
+                          field:
+                            type: checkboxes
+                            display: 'Heading Levels'
+                            instructions: 'Select which heading levels to include in the TOC'
+                            options:
+                              1: H1
+                              2: H2
+                              3: H3
+                              4: H4
+                              5: H5
+                              6: H6
+                            default:
+                              - '1'
+                              - '2'
+                            inline: true
+                            localizable: false
+                    sidenote:
+                      display: Sidenote
+                      instructions: 'Tufte-style sidenote that appears in the margin on wide screens.'
+                      fields:
+                        -
+                          handle: content
+                          field:
+                            type: textarea
+                            display: Content
+                            instructions: 'The sidenote content'
+                            localizable: false
+                        -
+                          handle: style
+                          field:
+                            type: button_group
+                            display: Style
+                            instructions: 'Visual style of the sidenote'
+                            options:
+                              note: Note
+                              info: Info
+                              tip: Tip
+                              warning: Warning
+                              danger: Danger
+                            default: note
+                            localizable: false
+                        -
+                          handle: position
+                          field:
+                            type: button_group
+                            display: Position
+                            instructions: 'Which side should the sidenote appear on?'
+                            options:
+                              left: Left
+                              right: Right
+                            default: right
+                            localizable: false
+                    thought:
+                      display: Thought
+                      instructions: 'Inner monologue or thought bubble - your internal voice speaking to the reader.'
+                      fields:
+                        -
+                          handle: content
+                          field:
+                            type: textarea
+                            display: Content
+                            instructions: 'Your inner thought'
+                            localizable: false
+                        -
+                          handle: position
+                          field:
+                            type: button_group
+                            display: Position
+                            instructions: 'Which side should the thought bubble appear on?'
+                            options:
+                              left: Left
+                              right: Right
+                            default: left
+                            localizable: false
   sidebar:
     display: Sidebar
     sections:
@@ -215,8 +239,6 @@ tabs:
               validate:
                 - required
                 - 'new \Statamic\Rules\UniqueEntryValue({collection}, {id}, {site})'
-              listable: hidden
-              generate: true
           -
             handle: date
             field:
@@ -225,15 +247,8 @@ tabs:
               default: now
               validate:
                 - required
-              listable: hidden
-              mode: single
-              time_enabled: false
               time_required: false
               earliest_date: '1900-01-01'
-              full_width: false
-              inline: false
-              columns: 1
-              rows: 1
               localizable: true
           -
             handle: parent
@@ -244,7 +259,6 @@ tabs:
               max_items: 1
               listable: false
               localizable: true
-              mode: default
   SEO:
     display: SEO
     sections:

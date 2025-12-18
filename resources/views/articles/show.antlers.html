@@ -8,8 +8,8 @@
             {{ subtitle | markdown }}
         </h2>
         <div class="flex justify-center items-center mt-4 space-x-4 fluid-meta italic text-gray-500">
-            <span>{{ partial:partials/info/date }}</span>
-            <span>{{ partial:partials/info/words }}</span>
+            <span>{{ partial:partials/info/date icon_last="true" }}</span>
+            <span>{{ partial:partials/info/words icon_last="true" }}</span>
         </div>
     </div>
 
@@ -23,11 +23,11 @@
         </h2>
 
         <p class="w-full mt-4 fluid-meta italic leading-none text-gray-500 text-right">
-            {{ partial:partials/info/date }}
+            {{ partial:partials/info/date icon_last="true" }}
         </p>
 
         <p class="w-full mt-2 fluid-meta italic leading-none text-gray-500 text-right">
-            {{ partial:partials/info/words }}
+            {{ partial:partials/info/words icon_last="true" }}
         </p>
     </div>
 
@@ -37,7 +37,9 @@
             {{ if type == 'heading' }}
                 {{# Native bard heading with auto ID for TOC links #}}
                 {{ content scope="item" }}
-                    <h{{ attrs:level }} id="{{ item:text | slugify }}" class="scroll-mt-4">{{ item:text }}</h{{ attrs:level }}>
+                    <h{{ attrs:level }} id="{{ item:text | slugify }}" class="scroll-mt-4">
+                        <a href="#{{ item:text | slugify }}" class="no-underline hover:no-underline">{{ item:text }}</a>
+                    </h{{ attrs:level }}>
                 {{ /content }}
             {{ elseif type == 'set' }}
                 {{# Custom bard sets #}}

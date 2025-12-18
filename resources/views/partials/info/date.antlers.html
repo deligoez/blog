@@ -1,10 +1,12 @@
 <span
-        class="flex items-center"
+        class="inline-flex items-center {{ if icon_last }}justify-end{{ endif }}"
         x-data="{open: false}"
         @mouseenter.passive="open = true"
         @mouseleave.passive="open = false"
 >
-    <x-phosphor-calendar-bold class="mx-1 w-6 h-6 text-gray-500" />
+    {{ unless icon_last }}
+        <x-phosphor-calendar-bold class="mr-1 w-6 h-6 text-gray-500" />
+    {{ /unless }}
 
     {{ if locale == 'tr' }}
         <span x-show="!open">{{ date iso_format="d MMMM 'YY" }}</span>
@@ -13,4 +15,8 @@
     {{ endif }}
 
     <span x-show="open">{{ date | ago }}</span>
+
+    {{ if icon_last }}
+        <x-phosphor-calendar-bold class="ml-1 w-6 h-6 text-gray-500" />
+    {{ /if }}
 </span>
