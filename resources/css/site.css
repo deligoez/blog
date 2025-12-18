@@ -10,6 +10,14 @@
 
 @import "tailwindcss";
 
+/* Enable class-based dark mode for Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Hide elements until Alpine.js initializes */
+[x-cloak] {
+    display: none !important;
+}
+
 @theme {
     /* Custom Font Families */
     --font-serif: 'Equity Text A', 'Times New Roman', Times, Georgia, Cambria, ui-serif, serif;
@@ -41,7 +49,7 @@
     }
 
     p > a {
-        @apply font-caps font-bold text-[1.55rem] no-underline tracking-wide hover:bg-gray-200 py-1 px-2 transition duration-200 rounded-lg;
+        @apply font-caps font-bold text-[1.55rem] no-underline tracking-wide hover:bg-gray-200 dark:hover:bg-gray-700 py-1 px-2 transition duration-200 rounded-lg;
         vertical-align: 0em;
     }
 
@@ -77,16 +85,16 @@
 
     .article-content blockquote::before {
         content: "\201C";
-        @apply absolute -left-2 -top-6 text-6xl text-gray-300 leading-none font-serif;
+        @apply absolute -left-2 -top-6 text-6xl text-gray-300 dark:text-gray-600 leading-none font-serif;
     }
 
     .article-content blockquote::after {
         content: "\201D";
-        @apply absolute right-4 -bottom-6 text-6xl text-gray-300 leading-none font-serif;
+        @apply absolute right-4 -bottom-6 text-6xl text-gray-300 dark:text-gray-600 leading-none font-serif;
     }
 
     .article-content blockquote p {
-        @apply text-gray-600 relative z-10;
+        @apply text-gray-600 dark:text-gray-300 relative z-10;
     }
 
     /* Thought - Inner monologue / thought bubble */
@@ -103,33 +111,33 @@
     }
 
     .thought-bubble {
-        @apply relative bg-gray-100 py-4 px-6 rounded-3xl max-w-[80%];
+        @apply relative bg-gray-100 dark:bg-gray-800 py-4 px-6 rounded-3xl max-w-[80%];
     }
 
     /* Left bubble tail */
     .thought-bubble-left::before {
         content: "";
-        @apply absolute -bottom-2 left-8 w-4 h-4 bg-gray-100 rounded-full;
+        @apply absolute -bottom-2 left-8 w-4 h-4 bg-gray-100 dark:bg-gray-800 rounded-full;
     }
 
     .thought-bubble-left::after {
         content: "";
-        @apply absolute -bottom-5 left-5 w-2.5 h-2.5 bg-gray-100 rounded-full;
+        @apply absolute -bottom-5 left-5 w-2.5 h-2.5 bg-gray-100 dark:bg-gray-800 rounded-full;
     }
 
     /* Right bubble tail */
     .thought-bubble-right::before {
         content: "";
-        @apply absolute -bottom-2 right-8 w-4 h-4 bg-gray-100 rounded-full;
+        @apply absolute -bottom-2 right-8 w-4 h-4 bg-gray-100 dark:bg-gray-800 rounded-full;
     }
 
     .thought-bubble-right::after {
         content: "";
-        @apply absolute -bottom-5 right-5 w-2.5 h-2.5 bg-gray-100 rounded-full;
+        @apply absolute -bottom-5 right-5 w-2.5 h-2.5 bg-gray-100 dark:bg-gray-800 rounded-full;
     }
 
     .thought-content {
-        @apply italic text-gray-500;
+        @apply italic text-gray-500 dark:text-gray-400;
     }
 
     .thought-bubble-left .thought-content {
@@ -149,6 +157,10 @@
         background-size: 100px 10px;
     }
 
+    .dark .article-content hr {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10' preserveAspectRatio='none'%3E%3Cpath d='M0 5 Q 12.5 0, 25 5 T 50 5 T 75 5 T 100 5' stroke='%234b5563' stroke-width='1' fill='none'/%3E%3C/svg%3E");
+    }
+
     /* Sidenote - Tufte-style margin notes */
     .sidenote {
         @apply leading-relaxed my-4 py-3 px-4 rounded-lg border-l-2;
@@ -165,23 +177,23 @@
 
     /* Sidenote styles - minimal with colored icons */
     .sidenote-note {
-        @apply text-gray-500 bg-gray-50 border-gray-300;
+        @apply text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-600;
     }
 
     .sidenote-info {
-        @apply bg-transparent text-blue-400 border-current;
+        @apply bg-transparent text-blue-400 dark:text-blue-300 border-current;
     }
 
     .sidenote-tip {
-        @apply bg-transparent text-emerald-400 border-current;
+        @apply bg-transparent text-emerald-400 dark:text-emerald-300 border-current;
     }
 
     .sidenote-warning {
-        @apply bg-transparent text-amber-500 border-current;
+        @apply bg-transparent text-amber-500 dark:text-amber-400 border-current;
     }
 
     .sidenote-danger {
-        @apply bg-transparent text-red-400 border-current;
+        @apply bg-transparent text-red-400 dark:text-red-300 border-current;
     }
 
     .sidenote-info .sidenote-icon {
@@ -259,13 +271,13 @@
     /* Inline code */
     p > code,
     li > code {
-        @apply py-0.5 px-2 rounded bg-gray-100 text-[0.85em];
+        @apply py-0.5 px-2 rounded bg-gray-100 dark:bg-gray-800 text-[0.85em];
     }
 
     a > code,
     h1 > code,
     h2 > code {
-        @apply py-0.5 px-2 rounded bg-gray-200 text-[0.80em];
+        @apply py-0.5 px-2 rounded bg-gray-200 dark:bg-gray-700 text-[0.80em];
     }
 
     /* Pre blocks (code blocks) */
@@ -290,7 +302,7 @@
     .article-content h4 {
         @apply font-caps;
         @apply block pb-2.5 leading-snug font-serif cursor-pointer;
-        @apply border-b-2 border-transparent hover:border-black transition duration-200;
+        @apply border-b-2 border-transparent hover:border-black dark:hover:border-white transition duration-200;
     }
 
     /* Heading anchor links - inherit heading style */

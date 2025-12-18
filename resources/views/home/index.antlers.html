@@ -12,26 +12,26 @@
                     I'm Yunus Emre Deligöz
                 {{ endif }}
             </div>
-            <div class="mx-auto mt-2 md:mt-3 max-w-xl fluid-subtitle leading-relaxed text-center text-gray-500">
+            <div class="mx-auto mt-2 md:mt-3 max-w-xl fluid-subtitle leading-relaxed text-center text-gray-500 dark:text-gray-400">
                 <p class="flex flex-wrap justify-center items-center gap-3">
-                    <span><x-phosphor-code-bold class="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-gray-800" /></span> developer
-                    <span><x-si-php class="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-gray-800" /></span> php
-                    <span><x-tni-laravel class="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-gray-800" /></span> laravel
-                    <span><x-phosphor-bug-bold class="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-gray-800" /></span> tdd
-                    <span><x-phosphor-test-tube-bold class="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-gray-800" /></span> bdd
+                    <span><x-phosphor-code-bold class="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-gray-800 dark:text-gray-200" /></span> developer
+                    <span><x-si-php class="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-gray-800 dark:text-gray-200" /></span> php
+                    <span><x-tni-laravel class="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-gray-800 dark:text-gray-200" /></span> laravel
+                    <span><x-phosphor-bug-bold class="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-gray-800 dark:text-gray-200" /></span> tdd
+                    <span><x-phosphor-test-tube-bold class="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-gray-800 dark:text-gray-200" /></span> bdd
                 </p>
             </div>
             <div class="flex justify-center items-center mt-3 md:mt-4 space-x-4 md:space-x-5">
-                <a target="_blank" href="http://github.com/deligoez"><x-phosphor-github-logo-bold class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-gray-600" /></a>
-                <a target="_blank" href="http://twitter.com/yedeligoez"><x-phosphor-twitter-logo-bold class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-gray-600" /></a>
-                <a target="_blank" href="https://www.linkedin.com/in/deligoez/"><x-phosphor-linkedin-logo-bold class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-gray-600" /></a>
-                <a target="_blank" href="{{ obfuscate }}mailto:ye@deligoz.me{{ /obfuscate }}"><x-phosphor-envelope-bold class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-gray-600" /></a>
+                <a target="_blank" href="http://github.com/deligoez"><x-phosphor-github-logo-bold class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-gray-600 dark:text-gray-400" /></a>
+                <a target="_blank" href="http://twitter.com/yedeligoez"><x-phosphor-twitter-logo-bold class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-gray-600 dark:text-gray-400" /></a>
+                <a target="_blank" href="https://www.linkedin.com/in/deligoez/"><x-phosphor-linkedin-logo-bold class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-gray-600 dark:text-gray-400" /></a>
+                <a target="_blank" href="{{ obfuscate }}mailto:ye@deligoz.me{{ /obfuscate }}"><x-phosphor-envelope-bold class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-gray-600 dark:text-gray-400" /></a>
             </div>
         </div>
 
         <!-- region Articles -->
         <div>
-            <p class="pb-2 mt-6 md:mt-10 mb-3 md:mb-4 font-caps fluid-section-title not-italic tracking-widest leading-snug uppercase border-b-2 border-black">
+            <p class="pb-2 mt-6 md:mt-10 mb-3 md:mb-4 font-caps fluid-section-title not-italic tracking-widest leading-snug uppercase border-b-2 border-black dark:border-white">
                 {{ if locale == 'tr' }}
                     <a href="/makaleler">Makaleler</a>
                 {{ elseif locale == 'en' }}
@@ -46,7 +46,7 @@
                         {{ title | markdown }}
                     </a>
                     <div class="flex flex-row justify-center">
-                        <p class="mt-1 flex flex-wrap justify-center items-center fluid-meta text-gray-500 space-x-2">
+                        <p class="mt-1 flex flex-wrap justify-center items-center fluid-meta text-gray-500 dark:text-gray-400 space-x-2">
                             {{ partial:partials/info/date }}
                             {{ partial:partials/info/words }}
                         </p>
@@ -60,7 +60,7 @@
         <!-- region Snippets -->
         {{ if {collection:count in="snippets"} > 0}}
         <div>
-            <p class="pb-2 mt-6 md:mt-10 mb-3 md:mb-4 font-caps fluid-section-title not-italic tracking-widest leading-snug uppercase border-b-2 border-black">
+            <p class="pb-2 mt-6 md:mt-10 mb-3 md:mb-4 font-caps fluid-section-title not-italic tracking-widest leading-snug uppercase border-b-2 border-black dark:border-white">
                 {{ if locale == 'tr' }}
                     <a href="/kod-parcalari">Kod Parçaları</a>
                 {{ elseif locale == 'en' }}
@@ -76,7 +76,7 @@
                         {{ title | markdown }}
                     </a>
                     <div class="flex flex-row justify-center mt-1">
-                        <p class="flex flex-wrap justify-center items-center fluid-meta text-gray-500">
+                        <p class="flex flex-wrap justify-center items-center fluid-meta text-gray-500 dark:text-gray-400">
                             {{ partial:partials/info/date }}
                         </p>
                     </div>

@@ -1,7 +1,29 @@
 import '../css/site.css';
-import 'alpinejs'
 import mediumZoom from "medium-zoom";
 import Alpine from 'alpinejs';
+
+window.Alpine = Alpine;
+
+// Dark Mode Alpine Component
+Alpine.data('darkMode', () => ({
+    dark: false,
+    init() {
+        // Check localStorage or system preference
+        this.dark = localStorage.theme === 'dark' ||
+            (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+        // Watch for system preference changes (only if no manual preference set)
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!('theme' in localStorage)) {
+                this.dark = e.matches;
+            }
+        });
+    },
+    toggle() {
+        this.dark = !this.dark;
+        localStorage.theme = this.dark ? 'dark' : 'light';
+    }
+}));
 
 Alpine.start();
 

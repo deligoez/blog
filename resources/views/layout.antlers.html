@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ site:short_locale }}">
+<html lang="{{ site:short_locale }}" x-data="darkMode()" x-bind:class="{ 'dark': dark }">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,9 +11,16 @@
     {{ og_generator:og_image }}
     <meta property="og:logo" content="{{ config:app:url }}/android-chrome-512x512.png" />
 
+    <script>
+        // Prevent FOUC - apply dark mode before render
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        }
+    </script>
+
     {{ vite src="resources/js/site.js" }}
 </head>
-<body class="subpixel-antialiased font-serif mx-4 md:mx-8 lg:mx-16 min-h-full">
+<body class="subpixel-antialiased font-serif mx-4 md:mx-8 lg:mx-16 min-h-full bg-white dark:bg-gray-900 text-black dark:text-gray-100 transition-colors duration-200">
     {{ partial:partials/header }}
 
     {{ template_content }}

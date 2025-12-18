@@ -5,21 +5,33 @@
         </a>
     </div>
     <div
-            class="flex flex-row text-xl lg:text-2xl font-caps lowercase tracking-wide space-x-4 lg:space-x-8 mr-4 lg:mr-16 no-underline"
+            class="flex flex-row items-center text-xl lg:text-2xl font-caps lowercase tracking-wide space-x-4 lg:space-x-8 mr-4 lg:mr-16 no-underline"
     >
         {{ nav:collection:pages }}
             <a
-                class="border-b-2 border-transparent hover:border-black transition duration-300"
+                class="border-b-2 border-transparent hover:border-black dark:hover:border-white transition duration-300"
                 href="{{ url }}"
             >
                 {{ title }}
             </a>
         {{ /nav:collection:pages }}
         {{ locales self="false"}}
-        <a class="border-b-2 border-transparent hover:border-black transition duration-300 {{ site:handle === handle ?= 'active' }}" href="{{ url }}">
+        <a class="border-b-2 border-transparent hover:border-black dark:hover:border-white transition duration-300 {{ site:handle === handle ?= 'active' }}" href="{{ url }}">
             {{ locale:name }}
         </a>
         {{ /locales }}
+        <button
+            @click="toggle()"
+            class="border-b-2 border-transparent hover:border-black dark:hover:border-white transition duration-300 focus:outline-none"
+            aria-label="Toggle dark mode"
+        >
+            <span x-show="dark" x-cloak>
+                <x-phosphor-sun-bold class="w-6 h-6" />
+            </span>
+            <span x-show="!dark">
+                <x-phosphor-moon-bold class="w-6 h-6" />
+            </span>
+        </button>
     </div>
 </header>
 
@@ -34,12 +46,23 @@
     >
         {{ nav:collection:pages }}
         <a
-                class="border-b-2 border-transparent hover:border-black transition duration-300"
+                class="border-b-2 border-transparent hover:border-black dark:hover:border-white transition duration-300"
                 href="{{ url }}"
         >
             {{ title }}
         </a>
         {{ /nav:collection:pages }}
-
+        <button
+            @click="toggle()"
+            class="border-b-2 border-transparent hover:border-black dark:hover:border-white transition duration-300 focus:outline-none"
+            aria-label="Toggle dark mode"
+        >
+            <span x-show="dark" x-cloak>
+                <x-phosphor-sun-bold class="w-5 h-5" />
+            </span>
+            <span x-show="!dark">
+                <x-phosphor-moon-bold class="w-5 h-5" />
+            </span>
+        </button>
     </div>
 </header>

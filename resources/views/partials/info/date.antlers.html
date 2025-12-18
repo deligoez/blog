@@ -5,7 +5,7 @@
         @mouseleave.passive="open = false"
 >
     {{ unless icon_last }}
-        <x-phosphor-calendar-bold class="mr-1 w-6 h-6 text-gray-500" />
+        <x-phosphor-calendar-bold class="mr-1 w-6 h-6 text-gray-500 dark:text-gray-400" />
     {{ /unless }}
 
     {{ if locale == 'tr' }}
@@ -17,6 +17,6 @@
     <span x-show="open">{{ date | ago }}</span>
 
     {{ if icon_last }}
-        <x-phosphor-calendar-bold class="ml-1 w-6 h-6 text-gray-500" />
+        <x-phosphor-calendar-bold class="ml-1 w-6 h-6 text-gray-500 dark:text-gray-400" />
     {{ /if }}
 </span>
