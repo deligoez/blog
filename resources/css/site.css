@@ -163,6 +163,42 @@
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10' preserveAspectRatio='none'%3E%3Cpath d='M0 5 Q 12.5 0, 25 5 T 50 5 T 75 5 T 100 5' stroke='%234b5563' stroke-width='1' fill='none'/%3E%3C/svg%3E");
     }
 
+    /* Tables - Minimal, relaxed design with inner borders */
+    .article-content table {
+        @apply w-full my-8 text-left;
+        border-collapse: collapse;
+    }
+
+    .article-content th {
+        @apply font-caps font-semibold text-gray-700 dark:text-gray-200 py-3 px-4;
+        font-size: 0.9em;
+        letter-spacing: 0.02em;
+    }
+
+    .article-content td {
+        @apply py-3 px-4 text-gray-600 dark:text-gray-300;
+    }
+
+    .article-content td:first-child {
+        @apply font-medium text-gray-800 dark:text-gray-100;
+    }
+
+    /* Inner borders only - between columns */
+    .article-content th:not(:last-child),
+    .article-content td:not(:last-child) {
+        @apply border-r border-gray-200 dark:border-gray-700;
+    }
+
+    /* Inner borders only - between rows (not after header, not after last row) */
+    .article-content tbody tr:not(:last-child) td {
+        @apply border-b border-gray-200 dark:border-gray-700;
+    }
+
+    /* Header bottom border - slightly stronger */
+    .article-content thead th {
+        @apply border-b border-gray-300 dark:border-gray-600;
+    }
+
     /* Sidenote - Tufte-style margin notes */
     .sidenote {
         @apply leading-relaxed my-4 py-3 px-4 rounded-lg border-l-2;
@@ -221,8 +257,10 @@
         }
 
         .sidenote {
-            @apply absolute w-56 my-0 leading-snug;
-            font-size: 0.9em;
+            @apply absolute my-0 leading-snug;
+            /* Fluid width: scales from 12rem to 36rem based on viewport */
+            width: clamp(12rem, 15vw, 36rem);
+            font-size: clamp(0.85em, 0.75em + 0.2vw, 1.05em);
         }
 
         /* Note style: minimal in margin */
@@ -239,29 +277,14 @@
         }
 
         .sidenote-right {
-            right: -15rem;
+            /* Position scales with width to maintain edge gap */
+            right: clamp(-38rem, -16vw, -13rem);
             @apply border-l-2 border-r-0;
         }
 
         .sidenote-left {
-            left: -15rem;
+            left: clamp(-38rem, -16vw, -13rem);
             @apply text-right border-r-2 border-l-0;
-        }
-    }
-
-    /* Extra wide screens: larger sidenotes */
-    @media (min-width: 1680px) {
-        .sidenote {
-            @apply w-60;
-            font-size: 0.95em;
-        }
-
-        .sidenote-right {
-            right: -17rem;
-        }
-
-        .sidenote-left {
-            left: -17rem;
         }
     }
 
@@ -369,13 +392,15 @@
         @apply ml-0 my-0;
     }
 
-    .toc-sidebar-item {
-        @apply list-none leading-tight;
+    .toc-sidebar-list > li {
+        @apply list-none;
         font-size: clamp(0.9rem, 0.75rem + 0.35vw, 1.15rem);
-        margin-bottom: 0.1rem;
+        line-height: 1.2;
+        margin: 0 0 clamp(0.2rem, 0.4vh, 1rem) 0 !important;
+        padding: 0;
     }
 
-    .toc-sidebar-item:before {
+    .toc-sidebar-list > li:before {
         content: none;
     }
 
@@ -385,17 +410,23 @@
         font-weight: normal;
     }
 
-    /* Indentation for heading levels (right-aligned, so padding on right) */
-    .toc-sidebar-level-2 {
-        @apply pr-2;
+    /* H1 items get a bullet on the right */
+    .toc-sidebar-level-1 a::after {
+        content: "›";
+        @apply ml-2 text-gray-400 dark:text-gray-500;
     }
 
-    .toc-sidebar-level-3 {
+    /* Indentation for heading levels (right-aligned, so padding on right) */
+    .toc-sidebar-level-2 {
         @apply pr-4;
     }
 
-    .toc-sidebar-level-4 {
+    .toc-sidebar-level-3 {
         @apply pr-6;
+    }
+
+    .toc-sidebar-level-4 {
+        @apply pr-8;
     }
 
     /* Hide TOC on screens smaller than wide breakpoint */
@@ -435,16 +466,10 @@
     /* Wide screens: leave room for sidenotes on the right */
     @media (min-width: 1440px) {
         .article-container {
-            margin-left: 2rem;
+            margin-left: clamp(2rem, 1vw + 1rem, 3rem);
             margin-right: auto;
-            padding-right: 14rem;
-        }
-    }
-
-    @media (min-width: 1680px) {
-        .article-container {
-            margin-left: 3rem;
-            padding-right: 16rem;
+            /* Padding scales with sidenote width */
+            padding-right: clamp(13rem, 16vw, 38rem);
         }
     }
 

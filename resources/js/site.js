@@ -71,3 +71,57 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// Prevent sidenotes from overlapping
+function adjustSidenotes() {
+    // Only run on wide screens where sidenotes are in the margin
+    if (window.innerWidth < 1440) return;
+
+    const articleContent = document.querySelector('.article-content');
+    if (!articleContent) return;
+
+    const minGap = 16; // Minimum gap between sidenotes in pixels
+
+    // Process right sidenotes
+    const rightSidenotes = Array.from(articleContent.querySelectorAll('.sidenote-right'));
+    adjustSidenoteGroup(rightSidenotes, minGap);
+
+    // Process left sidenotes
+    const leftSidenotes = Array.from(articleContent.querySelectorAll('.sidenote-left'));
+    adjustSidenoteGroup(leftSidenotes, minGap);
+}
+
+function adjustSidenoteGroup(sidenotes, minGap) {
+    if (sidenotes.length < 2) return;
+
+    // Reset all transforms first
+    sidenotes.forEach(note => {
+        note.style.transform = '';
+    });
+
+    // Sort by their natural position (top offset)
+    sidenotes.sort((a, b) => a.offsetTop - b.offsetTop);
+
+    // Track the bottom of each sidenote after adjustment
+    let lastBottom = -Infinity;
+
+    sidenotes.forEach(note => {
+        const noteTop = note.offsetTop;
+        const noteHeight = note.offsetHeight;
+
+        // Check if this sidenote overlaps with the previous one
+        if (noteTop < lastBottom + minGap) {
+            const offset = lastBottom + minGap - noteTop;
+            note.style.transform = `translateY(${offset}px)`;
+            lastBottom = noteTop + offset + noteHeight;
+        } else {
+            lastBottom = noteTop + noteHeight;
+        }
+    });
+}
+
+// Run on load and resize
+document.addEventListener('DOMContentLoaded', adjustSidenotes);
+window.addEventListener('resize', adjustSidenotes);
+// Also run after images load (which might affect positions)
+window.addEventListener('load', adjustSidenotes);
