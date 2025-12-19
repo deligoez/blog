@@ -1,12 +1,27 @@
-<div class="max-w-5xl mx-auto mt-12 flex flex-row flex-nowrap mb-52">
-    <div class="flex-initial flex flex-col mr-16 max-w-[10em]">
-        <h1
-                class="text-3xl font-semibold text-right border-t-[3px] pt-2 border-black"
-        >
-            {{ title }}
+<div class="article-container flex flex-col md:flex-row mt-8 md:mt-12 mb-32 md:mb-52">
+    <!-- Mobile Header -->
+    <div class="md:hidden mb-8">
+        <h1 class="fluid-title font-semibold text-center border-t-[3px] pt-2 border-black dark:border-white title-markdown">
+            {{ title | markdown }}
         </h1>
-        <h2 class="italic text-right text-2xl mt-3">
-            {{ subtitle }}
+        <h2 class="italic text-center fluid-subtitle mt-2 text-gray-600 dark:text-gray-300 title-markdown">
+            {{ subtitle | markdown }}
+        </h2>
+    </div>
+
+    <!-- Desktop Sidebar -->
+    <div class="hidden md:flex article-sidebar flex-col">
+        <!-- Logo above title -->
+        <div class="flex justify-end">
+            <a href="{{ homepage }}" class="article-sidebar-logo">
+                {{ partial:partials/logo }}
+            </a>
+        </div>
+        <h1 class="fluid-title font-semibold text-right border-t-[3px] pt-2 border-black dark:border-white title-markdown">
+            {{ title | markdown }}
+        </h1>
+        <h2 class="italic text-right fluid-subtitle mt-3 dark:text-gray-300 title-markdown">
+            {{ subtitle | markdown }}
         </h2>
     </div>
 

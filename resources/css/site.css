@@ -380,11 +380,11 @@
 
     /* Sidebar TOC - Table of Contents */
     .toc-sidebar {
-        @apply mt-6 pt-4 border-t border-gray-200 dark:border-gray-700 text-right;
+        @apply mt-6 pt-4 border-t border-gray-200 dark:border-gray-700;
     }
 
     .toc-sidebar-title {
-        @apply font-caps uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-2;
+        @apply font-caps uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-2 text-right pr-6;
         font-size: clamp(0.875rem, 0.7rem + 0.4vw, 1.125rem);
     }
 
@@ -393,7 +393,7 @@
     }
 
     .toc-sidebar-list > li {
-        @apply list-none;
+        @apply list-none relative;
         font-size: clamp(0.9rem, 0.75rem + 0.35vw, 1.15rem);
         line-height: 1.2;
         margin: 0 0 clamp(0.2rem, 0.4vh, 1rem) 0 !important;
@@ -405,28 +405,29 @@
     }
 
     .toc-sidebar-item a {
-        @apply text-gray-500 dark:text-gray-400 no-underline hover:text-black dark:hover:text-white transition-colors duration-200;
+        @apply text-gray-500 dark:text-gray-400 no-underline hover:text-black dark:hover:text-white transition-colors duration-200 block text-right;
         font-size: inherit;
         font-weight: normal;
+        padding-right: 1.25rem;
     }
 
-    /* H1 items get a bullet on the right */
-    .toc-sidebar-level-1 a::after {
+    /* H1 items get a bullet on the right - fixed position */
+    .toc-sidebar-level-1::after {
         content: "›";
-        @apply ml-2 text-gray-400 dark:text-gray-500;
+        @apply absolute right-0 top-0 text-gray-400 dark:text-gray-500;
     }
 
     /* Indentation for heading levels (right-aligned, so padding on right) */
-    .toc-sidebar-level-2 {
-        @apply pr-4;
+    .toc-sidebar-level-2 a {
+        @apply pr-5;
     }
 
-    .toc-sidebar-level-3 {
-        @apply pr-6;
+    .toc-sidebar-level-3 a {
+        @apply pr-7;
     }
 
-    .toc-sidebar-level-4 {
-        @apply pr-8;
+    .toc-sidebar-level-4 a {
+        @apply pr-9;
     }
 
     /* Hide TOC on screens smaller than wide breakpoint */
@@ -442,6 +443,13 @@
         margin-inline: auto;
     }
 
+    /* Header aligned with article content - for show/listing pages */
+    .header-content-aligned {
+        max-width: var(--container-article);
+        /* Left padding matches sidebar width + gap, so nav starts at content edge */
+        padding-left: calc(var(--sidebar-width) + var(--sidebar-gap));
+    }
+
     /* Sidebar styles */
     .article-sidebar {
         width: var(--sidebar-width);
@@ -451,7 +459,24 @@
         position: sticky;
         top: 2rem;
         max-height: calc(100vh - 4rem);
+        overflow: visible; /* Allow logo to extend above */
+    }
+
+    /* TOC section scrollable */
+    .toc-sidebar {
+        max-height: calc(100vh - 20rem);
         overflow-y: auto;
+    }
+
+    /* Sidebar logo - positioned to align with header nav */
+    .article-sidebar-logo {
+        margin-top: -6rem; /* Pull logo up to align with nav */
+        margin-bottom: 1.5rem; /* Space between logo and title */
+    }
+
+    .article-sidebar-logo svg {
+        height: clamp(2.5rem, 4vw, 3.5rem);
+        width: auto;
     }
 
     /* Content area */

@@ -1,12 +1,7 @@
-<header class="hidden md:flex h-16 max-w-6xl mx-auto mt-8 flex-row justify-between">
-    <div class="ml-8 lg:ml-24 mr-4 lg:mr-8 flex">
-        <a href="{{ homepage }}">
-            {{ partial:partials/logo }}
-        </a>
-    </div>
-    <div
-            class="flex flex-row items-center text-xl lg:text-2xl font-caps lowercase tracking-wide space-x-4 lg:space-x-8 mr-4 lg:mr-16 no-underline"
-    >
+{{ if collection:handle == 'articles' || collection:handle == 'snippets' || collection:handle == 'projects' || segment_1 == 'articles' || segment_1 == 'snippets' || segment_1 == 'projects' || segment_1 == 'makaleler' || segment_1 == 'kod-parcalari' || segment_1 == 'projeler' }}
+{{# Show/Listing pages: Nav aligned with content left edge #}}
+<header class="hidden md:flex header-content-aligned mx-auto mt-8">
+    <div class="flex flex-row items-center text-xl lg:text-2xl font-caps lowercase tracking-wide space-x-4 lg:space-x-8 no-underline">
         {{ nav:collection:pages }}
             <a
                 class="border-b-2 border-transparent hover:border-black dark:hover:border-white transition duration-300"
@@ -34,6 +29,41 @@
         </button>
     </div>
 </header>
+{{ else }}
+{{# Homepage and other pages: Centered layout #}}
+<header class="hidden md:flex max-w-6xl mx-auto mt-8 flex-col items-center">
+    <a href="{{ homepage }}" class="mb-2">
+        {{ partial:partials/logo }}
+    </a>
+    <div class="flex flex-row items-center text-xl lg:text-2xl font-caps lowercase tracking-wide space-x-4 lg:space-x-8 no-underline">
+        {{ nav:collection:pages }}
+            <a
+                class="border-b-2 border-transparent hover:border-black dark:hover:border-white transition duration-300"
+                href="{{ url }}"
+            >
+                {{ title }}
+            </a>
+        {{ /nav:collection:pages }}
+        {{ locales self="false"}}
+        <a class="border-b-2 border-transparent hover:border-black dark:hover:border-white transition duration-300 {{ site:handle === handle ?= 'active' }}" href="{{ url }}">
+            {{ locale:name }}
+        </a>
+        {{ /locales }}
+        <button
+            @click="toggle()"
+            class="border-b-2 border-transparent hover:border-black dark:hover:border-white transition duration-300 focus:outline-none"
+            aria-label="Toggle dark mode"
+        >
+            <span x-show="dark" x-cloak>
+                <x-phosphor-sun-bold class="w-6 h-6" />
+            </span>
+            <span x-show="!dark">
+                <x-phosphor-moon-bold class="w-6 h-6" />
+            </span>
+        </button>
+    </div>
+</header>
+{{ /if }}
 
 <header class="md:hidden max-w-6xl mx-auto mt-6 mb-8 flex flex-col">
     <div class="text-center mx-auto mb-4">

@@ -11,11 +11,17 @@
 
     <!-- Desktop Sidebar -->
     <div class="hidden md:flex article-sidebar flex-col">
-        <h1 class="fluid-title font-semibold text-right border-t-[3px] pt-2 border-black title-markdown">
+        <!-- Logo above article title -->
+        <div class="flex justify-end">
+            <a href="{{ homepage }}" class="article-sidebar-logo">
+                {{ partial:partials/logo }}
+            </a>
+        </div>
+        <h1 class="fluid-title font-semibold text-right border-t-[3px] pt-2 border-black dark:border-white title-markdown">
             {{ title | markdown }}
         </h1>
 
-        <p class="mt-3 fluid-meta italic leading-none text-gray-500 text-right">
+        <p class="mt-3 fluid-meta italic leading-none text-gray-500 dark:text-gray-400 text-right">
             {{ partial:partials/info/date }}
         </p>
     </div>

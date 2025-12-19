@@ -11,10 +11,16 @@
 
     <!-- Desktop Sidebar -->
     <div class="hidden md:flex article-sidebar flex-col">
-        <h1 class="fluid-title font-semibold text-right border-t-[3px] pt-2 border-black title-markdown">
+        <!-- Logo above title -->
+        <div class="flex justify-end">
+            <a href="{{ homepage }}" class="article-sidebar-logo">
+                {{ partial:partials/logo }}
+            </a>
+        </div>
+        <h1 class="fluid-title font-semibold text-right border-t-[3px] pt-2 border-black dark:border-white title-markdown">
             {{ title | markdown }}
         </h1>
-        <h2 class="italic text-right fluid-subtitle mt-3 title-markdown">
+        <h2 class="italic text-right fluid-subtitle mt-3 dark:text-gray-300 title-markdown">
             {{ subtitle | markdown }}
         </h2>
     </div>
