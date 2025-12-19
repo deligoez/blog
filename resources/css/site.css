@@ -446,8 +446,17 @@
     /* Header aligned with article content - for show/listing pages */
     .header-content-aligned {
         max-width: var(--container-article);
+        margin-inline: auto; /* Center by default */
         /* Left padding matches sidebar width + gap, so nav starts at content edge */
         padding-left: calc(var(--sidebar-width) + var(--sidebar-gap));
+    }
+
+    /* Wide screens: match article-container's left alignment */
+    @media (min-width: 1440px) {
+        .header-content-aligned {
+            margin-left: clamp(2rem, 1vw + 1rem, 3rem);
+            margin-right: auto;
+        }
     }
 
     /* Sidebar styles */
