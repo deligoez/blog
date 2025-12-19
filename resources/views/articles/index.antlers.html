@@ -26,15 +26,16 @@
     </div>
 
     <!-- Articles List -->
-    <div class="article-content flex flex-col text-center space-y-4 md:space-y-6 italic">
+    <div class="article-content flex flex-col text-center md:text-left space-y-4 md:space-y-6 italic">
         {{ main_articles limit="100" }}
             <div class="flex flex-col">
                 <a href="{{ url }}" class="fluid-title leading-snug title-markdown">
                     {{ title | markdown }}
                 </a>
-                <div class="flex flex-row justify-center">
-                    <p class="text-gray-500 fluid-meta">
-                        {{ date | ago }}, {{ content | raw |  flatten | join | strip_tags | read_time }} min
+                <div class="flex flex-row justify-center md:justify-start">
+                    <p class="flex flex-wrap justify-center md:justify-start items-center fluid-meta text-gray-500 dark:text-gray-400 space-x-2">
+                        {{ partial:partials/info/date }}
+                        {{ partial:partials/info/words }}
                     </p>
                 </div>
             </div>

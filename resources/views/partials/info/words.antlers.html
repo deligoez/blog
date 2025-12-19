@@ -8,8 +8,10 @@
         <x-phosphor-clock-bold class="mr-1 w-6 h-6 text-gray-500 dark:text-gray-400" />
     {{ /unless }}
 
-    <span x-show="!open">{{ content | raw |  flatten | join | strip_tags | read_time }} {{ if locale == 'tr' }} dk {{ elseif locale == 'en' }} min {{ endif }}</span>
-    <span x-show="open">{{ content | raw | flatten | join | strip_tags | word_count }} {{ if locale == 'tr' }} kelime {{ elseif locale == 'en' }} words {{ endif }}</span>
+    <span class="grid [grid-template-areas:'text']">
+        <span class="[grid-area:text] transition-opacity duration-200" :class="open ? 'opacity-0' : 'opacity-100'">{{ content | raw | flatten | join | strip_tags | read_time }} {{ if locale == 'tr' }} dk {{ elseif locale == 'en' }} min {{ endif }}</span>
+        <span class="[grid-area:text] transition-opacity duration-200" :class="open ? 'opacity-100' : 'opacity-0'">{{ content | raw | flatten | join | strip_tags | word_count }} {{ if locale == 'tr' }} kelime {{ elseif locale == 'en' }} words {{ endif }}</span>
+    </span>
 
     {{ if icon_last }}
         <x-phosphor-clock-bold class="ml-1 w-6 h-6 text-gray-500 dark:text-gray-400" />

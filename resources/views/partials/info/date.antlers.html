@@ -8,13 +8,14 @@
         <x-phosphor-calendar-bold class="mr-1 w-6 h-6 text-gray-500 dark:text-gray-400" />
     {{ /unless }}
 
-    {{ if locale == 'tr' }}
-        <span x-show="!open">{{ date iso_format="d MMMM 'YY" }}</span>
-    {{ elseif locale == 'en' }}
-        <span x-show="!open">{{ date iso_format="MMMM Mo ʼYY" }}</span>
-    {{ endif }}
-
-    <span x-show="open">{{ date | ago }}</span>
+    <span class="grid [grid-template-areas:'text']">
+        {{ if locale == 'tr' }}
+            <span class="[grid-area:text] transition-opacity duration-200" :class="open ? 'opacity-0' : 'opacity-100'">{{ date iso_format="d MMMM 'YY" }}</span>
+        {{ elseif locale == 'en' }}
+            <span class="[grid-area:text] transition-opacity duration-200" :class="open ? 'opacity-0' : 'opacity-100'">{{ date iso_format="MMMM Mo ʼYY" }}</span>
+        {{ endif }}
+        <span class="[grid-area:text] transition-opacity duration-200" :class="open ? 'opacity-100' : 'opacity-0'">{{ date | ago }}</span>
+    </span>
 
     {{ if icon_last }}
         <x-phosphor-calendar-bold class="ml-1 w-6 h-6 text-gray-500 dark:text-gray-400" />

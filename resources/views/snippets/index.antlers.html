@@ -26,23 +26,16 @@
     </div>
 
     <!-- Snippets List -->
-    <div class="article-content flex flex-col text-center space-y-4 md:space-y-6 italic">
+    <div class="article-content flex flex-col text-center md:text-left space-y-4 md:space-y-6 italic">
         {{ collection from="snippets" sort="date:desc" }}
         <div class="flex flex-col">
             <a href="{{ url }}" class="pb-2 fluid-title leading-snug title-markdown">
                 {{ title | markdown }}
             </a>
-            <div class="flex flex-row justify-center">
-                <p
-                        x-data="{open: false}"
-                        @mouseenter.passive="open = true"
-                        @mouseleave.passive="open = false"
-                        class="text-gray-500 fluid-meta"
-                >
-                    <span x-show="!open">{{ updated_at | ago }}</span>
-                    <span x-show="open">{{ updated_at }}</span>
+            <div class="flex flex-row justify-center md:justify-start">
+                <p class="flex flex-wrap justify-center md:justify-start items-center fluid-meta text-gray-500 dark:text-gray-400">
+                    {{ partial:partials/info/date }}
                 </p>
-
             </div>
         </div>
         {{ /collection }}
