@@ -1,0 +1,16 @@
+{{ if show_toc }}
+{{ toc_auto :levels="toc_levels" }}
+{{ if items }}
+<nav class="toc-sidebar" aria-label="Table of Contents">
+    <div class="toc-sidebar-title">{{ if locale == 'tr' }}İçindekiler{{ elseif locale == 'en' }}Contents{{ /if }}</div>
+    <ul class="toc-sidebar-list">
+        {{ items }}
+        <li class="toc-sidebar-item toc-sidebar-level-{{ level }}">
+            <a href="#{{ slug }}">{{ text }}</a>
+        </li>
+        {{ /items }}
+    </ul>
+</nav>
+{{ /if }}
+{{ /toc_auto }}
+{{ /if }}

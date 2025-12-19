@@ -175,10 +175,16 @@ tabs:
                         -
                           handle: content
                           field:
-                            type: textarea
+                            type: bard
                             display: Content
                             instructions: 'The sidenote content'
                             localizable: false
+                            buttons:
+                              - bold
+                              - italic
+                              - code
+                              - anchor
+                            remove_empty_nodes: true
                         -
                           handle: style
                           field:
@@ -211,10 +217,16 @@ tabs:
                         -
                           handle: content
                           field:
-                            type: textarea
+                            type: bard
                             display: Content
                             instructions: 'Your inner thought'
                             localizable: false
+                            buttons:
+                              - bold
+                              - italic
+                              - code
+                              - anchor
+                            remove_empty_nodes: true
                         -
                           handle: position
                           field:
@@ -259,6 +271,34 @@ tabs:
               max_items: 1
               listable: false
               localizable: true
+          -
+            handle: show_toc
+            field:
+              type: toggle
+              display: 'Table of Contents'
+              instructions: 'Show a sticky table of contents in the left sidebar'
+              default: false
+              width: 50
+              localizable: false
+          -
+            handle: toc_levels
+            field:
+              type: checkboxes
+              display: 'TOC Heading Levels'
+              instructions: 'Which heading levels to include'
+              options:
+                1: H1
+                2: H2
+                3: H3
+                4: H4
+              default:
+                - '1'
+                - '2'
+              inline: true
+              width: 50
+              localizable: false
+              if:
+                show_toc: 'equals true'
   SEO:
     display: SEO
     sections:
