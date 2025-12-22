@@ -1,0 +1,16 @@
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8;"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># .github/workflows/test-organization.yml</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span><span style="color:#005CC5;--shiki-dark:#79B8FF">name</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">Check</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span><span style="color:#D73A49;--shiki-dark:#F97583">for</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span><span style="color:#005CC5;--shiki-dark:#79B8FF">loose</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span><span style="color:#005CC5;--shiki-dark:#79B8FF">test</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span><span style="color:#005CC5;--shiki-dark:#79B8FF">files</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">  </span><span style="color:#6F42C1;--shiki-dark:#B392F0">run</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: </span><span style="color:#D73A49;--shiki-dark:#F97583">|</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    </span><span style="color:#005CC5;--shiki-dark:#79B8FF">loose</span><span style="color:#D73A49;--shiki-dark:#F97583">=</span><span style="color:#24292E;--shiki-dark:#E1E4E8">$(</span><span style="color:#005CC5;--shiki-dark:#79B8FF">ls</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span><span style="color:#005CC5;--shiki-dark:#79B8FF">tests</span><span style="color:#D73A49;--shiki-dark:#F97583">/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Unit</span><span style="color:#6A737D;--shiki-dark:#6A737D">/*.php 2&gt;/dev/null | grep -v TestCase | grep -v AdminTestCase || true)</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">    if [ -n &quot;$loose&quot; ]; then</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">      echo &quot;Found loose test files in tests/Unit/:&quot;</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">      echo &quot;$loose&quot;</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">      exit 1</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">    fi</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">- name: Check for Models/ directory (should be Model/)</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">  run: |</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">    if [ -d &quot;tests/Unit/Models&quot; ]; then</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">      echo &quot;Error: tests/Unit/Models/ exists. Use tests/Unit/Model/ instead.&quot;</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">      exit 1</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">    fi</span></span></code></pre>

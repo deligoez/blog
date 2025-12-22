@@ -1,0 +1,18 @@
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8;"><code><span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">#!/bin/bash</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># Find loose model tests</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">echo</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span><span style="color:#032F62;--shiki-dark:#9ECBFF">&quot;Loose tests in Unit/:&quot;</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF">ls</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span><span style="color:#005CC5;--shiki-dark:#79B8FF">tests</span><span style="color:#D73A49;--shiki-dark:#F97583">/</span><span style="color:#005CC5;--shiki-dark:#79B8FF">Unit</span><span style="color:#6A737D;--shiki-dark:#6A737D">/*.php 2&gt;/dev/null | grep -v TestCase | grep -v AdminTestCase</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># Find singular/plural conflicts</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">echo -e &quot;\nModel vs Models conflict:&quot;</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">echo &quot;Model/ count: $(find tests/Unit/Model -name &#39;*.php&#39; 2&gt;/dev/null | wc -l)&quot;</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">echo &quot;Models/ count: $(find tests/Unit/Models -name &#39;*.php&#39; 2&gt;/dev/null | wc -l)&quot;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D"># Find ghost directories</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">echo -e &quot;\nPotential ghost directories:&quot;</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">for dir in Machines Services; do</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">    if [ -d &quot;tests/Unit/$dir&quot; ] &amp;&amp; [ -d &quot;tests/$dir&quot; ]; then</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">        echo &quot;Both tests/Unit/$dir and tests/$dir exist&quot;</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">    fi</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D">done</span></span></code></pre>

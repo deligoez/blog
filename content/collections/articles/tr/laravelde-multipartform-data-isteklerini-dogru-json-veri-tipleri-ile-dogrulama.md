@@ -3,7 +3,7 @@ id: 2c1a5d14-8986-402e-9ccb-abb5a79f213c
 origin: 4f5605b0-a174-4292-9baf-9a71c9d2abe1
 title: 'Laravel’de `multipart/form-data` İsteklerini doğru JSON Veri Tipleri ile Doğrulama'
 updated_by: b8f3533e-0fcf-42b9-a3d8-c8691deaf917
-updated_at: 1766432479
+updated_at: 1766440270
 og_generator_image: laravelde-multipartform-data-isteklerini-dogru-json-veri-tipleri-ile-dogrulama.jpg
 content:
   -
@@ -122,12 +122,13 @@ content:
         type: text
         text: 'Frontend Framework’lardan bağımsız olarak bunu yapmanın tipik bir örneği şöyle olabilir:'
   -
-    type: set
+    type: codeBlock
     attrs:
-      id: uMKugLIo
-      values:
-        type: code
-        code: |-
+      language: js
+    content:
+      -
+        type: text
+        text: |-
           ```js
           postMultipartFormData(form) {
           	let formData = new FormData()
@@ -202,15 +203,14 @@ content:
         type: text
         text: '’u da aşağı yukarı şuna benzer.'
   -
-    type: set
+    type: codeBlock
     attrs:
-      id: SnzCcOU8
-      values:
-        type: code
-        code: |-
+      language: php
+    content:
+      -
+        type: text
+        text: |-
           ```php
-          <?php
-
           namespace App\Http\Controllers;
 
           use App\Http\Controllers\Controller;
@@ -265,15 +265,14 @@ content:
         type: text
         text: "\_ile doğrulanır:"
   -
-    type: set
+    type: codeBlock
     attrs:
-      id: rztXvGmU
-      values:
-        type: code
-        code: |-
+      language: php
+    content:
+      -
+        type: text
+        text: |-
           ```php
-          <?php
-
           namespace App\Http\Requests;
 
           use App\Enums\PromissoryNoteReasonType;
@@ -328,12 +327,13 @@ content:
         type: image
         image: articles/validating-multipart-form-data-with-laravel-validation-rules-with-proper-json-data-types/1_Yf8rcRLy8drLI6jJnItvww.png
   -
-    type: set
+    type: codeBlock
     attrs:
-      id: MQ6xHJVT
-      values:
-        type: code
-        code: |-
+      language: php
+    content:
+      -
+        type: text
+        text: |-
           ```php
           array:8 [▼
             "file" => "file-content"
@@ -635,13 +635,14 @@ content:
             type: italic
         text: (IV.)
   -
-    type: set
+    type: codeBlock
     attrs:
-      id: YjeeQC32
-      values:
-        type: code
-        code: |-
-          ```php
+      language: php
+    content:
+      -
+        type: text
+        text: |-
+          ```js
           postMultipartFormData(form) {
             let formData = new FormData()
 
@@ -739,12 +740,13 @@ content:
         type: text
         text: "\_metodu da tam da bu iş için var."
   -
-    type: set
+    type: codeBlock
     attrs:
-      id: m8gg6Ah0
-      values:
-        type: code
-        code: |-
+      language: php
+    content:
+      -
+        type: text
+        text: |-
           ```php
             /**
              * Prepare the data for validation.
@@ -852,12 +854,13 @@ content:
         type: image
         image: articles/validating-multipart-form-data-with-laravel-validation-rules-with-proper-json-data-types/1_f9keavpm6xzvwbyyubr1lg.png
   -
-    type: set
+    type: codeBlock
     attrs:
-      id: xBQZy0F6
-      values:
-        type: code
-        code: |-
+      language: php
+    content:
+      -
+        type: text
+        text: |-
           ```php
           array:7 [▼
             "id" => 123

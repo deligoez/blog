@@ -9,8 +9,9 @@ use Illuminate\Support\ServiceProvider;
 use Statamic\Facades\Markdown;
 use Statamic\Statamic;
 use Statamic\Fieldtypes\Bard\Augmentor;
-use Tiptap\Nodes\CodeBlockHighlight;
+use App\Tiptap\Nodes\CodeBlockShiki;
 use App\Tags\OgGenerator;
+use Spatie\CommonMarkShikiHighlighter\HighlightCodeExtension;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -37,13 +38,16 @@ class AppServiceProvider extends ServiceProvider
         // Register custom Bard button for typographic quotes
         Statamic::script('app', 'cp');
 
-        // Server-side syntax highlighting for Bard codeBlock nodes (Tiptap)
-        Augmentor::replaceExtension('codeBlock', new CodeBlockHighlight());
+        // Server-side syntax highlighting for Bard codeBlock nodes using Shiki
+        Augmentor::replaceExtension('codeBlock', new CodeBlockShiki());
 
-        // Server-side syntax highlighting for Markdown fenced code blocks
-        // Add the highlight extension to the default parser
+        // Server-side syntax highlighting for Markdown fenced code blocks using Shiki
+        // Supports line highlighting with {1,2-5} syntax
         Markdown::addExtension(function () {
-            return new \App\Markdown\HighlightExtension();
+            return new HighlightCodeExtension([
+                'light' => 'github-light',
+                'dark' => 'github-dark',
+            ]);
         });
     }
 

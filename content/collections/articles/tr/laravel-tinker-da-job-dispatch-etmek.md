@@ -100,15 +100,13 @@ content:
         type: text
         text: ' eklemeniz yeterli.'
   -
-    type: set
+    type: codeBlock
     attrs:
-      id: j2uSq2rc
-      values:
-        type: code
-        code: |-
-          ```php
-          SendEmailJob::dispatch();1;
-          ```
+      language: php
+    content:
+      -
+        type: text
+        text: 'SendEmailJob::dispatch();1;'
   -
     type: heading
     attrs:
@@ -138,15 +136,13 @@ content:
         type: text
         text: " üzerinde kuyruğa bir Job göndermek istiyorsanız, Tinker'ı açıp şöyle yazarsınız:"
   -
-    type: set
+    type: codeBlock
     attrs:
-      id: VLfobx1j
-      values:
-        type: code
-        code: |-
-          ```php
-          SendEmailJob::dispatch();
-          ```
+      language: php
+    content:
+      -
+        type: text
+        text: 'SendEmailJob::dispatch();'
   -
     type: set
     attrs:
@@ -267,16 +263,15 @@ content:
         type: text
         text: ' sınıfı üzerinden gönderebilirsiniz:'
   -
-    type: set
+    type: codeBlock
     attrs:
-      id: tYPcDQtt
-      values:
-        type: code
-        code: |-
-          ```php
+      language: php
+    content:
+      -
+        type: text
+        text: |-
           app(\Illuminate\Contracts\Bus\Dispatcher::class)
             ->dispatch(new SendEmailJob());
-          ```
   -
     type: set
     attrs:
@@ -293,15 +288,13 @@ content:
         type: text
         text: 'Hızlıca çözmek içinse:'
   -
-    type: set
+    type: codeBlock
     attrs:
-      id: XZHUzDiU
-      values:
-        type: code
-        code: |-
-          ```php
-          SendEmailJob::dispatch();1
-          ```
+      language: php
+    content:
+      -
+        type: text
+        text: 'SendEmailJob::dispatch();1'
   -
     type: set
     attrs:
