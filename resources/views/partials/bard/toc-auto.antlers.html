@@ -24,7 +24,7 @@
             var text = h.textContent.trim();
             if (slugMap[text] && !h.id) {
                 h.id = slugMap[text];
-                h.classList.add('scroll-mt-4');
+                h.classList.add('scroll-mt-24');
                 var link = document.createElement('a');
                 link.href = '#toc';
                 link.className = 'ml-2 text-gray-400 hover:text-gray-600 transition';

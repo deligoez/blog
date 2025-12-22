@@ -368,6 +368,27 @@ html {
         @apply border-b-2 border-transparent hover:border-black dark:hover:border-white transition duration-200;
     }
 
+    /* Scroll to top button for article headings */
+    .scroll-to-top-btn {
+        @apply inline-flex items-center ml-2 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors cursor-pointer relative;
+        vertical-align: middle;
+    }
+
+    .scroll-to-top-btn svg {
+        width: 0.8em;
+        height: 0.8em;
+    }
+
+    /* Custom fast tooltip */
+    .scroll-to-top-btn::after {
+        content: attr(data-tooltip);
+        @apply absolute left-1/2 -translate-x-1/2 bottom-full mb-1 px-2 py-1 text-xs rounded bg-gray-800 dark:bg-gray-200 text-white dark:text-gray-800 whitespace-nowrap opacity-0 pointer-events-none transition-opacity duration-100;
+    }
+
+    .scroll-to-top-btn:hover::after {
+        @apply opacity-100;
+    }
+
     /* Heading anchor links - inherit heading style */
     .article-content h1 > a,
     .article-content h2 > a,
@@ -405,7 +426,7 @@ html {
             @apply text-center;
         }
 
-        .article-content p {git pull
+        .article-content p {
             @apply text-justify;
         }
     }
@@ -603,5 +624,80 @@ html {
     /* Fluid menu text - scales with viewport */
     .fluid-menu {
         font-size: clamp(1.25rem, 0.75rem + 1vw, 2rem);
+    }
+
+    /* Sticky Article Header - appears on scroll */
+    .sticky-article-header {
+        @apply fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm;
+        @apply border-b border-gray-200 dark:border-gray-700;
+        @apply py-3 px-4 md:px-8 lg:px-16;
+    }
+
+    .sticky-header-content {
+        @apply flex items-center justify-start max-w-screen-2xl mx-auto;
+    }
+
+    .sticky-header-logo {
+        @apply flex-shrink-0 mr-4;
+    }
+
+    .sticky-header-logo svg {
+        height: clamp(1.5rem, 2vw, 2rem);
+        width: auto;
+    }
+
+    .sticky-header-title {
+        @apply font-semibold truncate mr-4;
+        font-size: clamp(1.25rem, 0.9rem + 1vw, 1.75rem);
+        line-height: 1.2;
+    }
+
+    .sticky-header-title > p {
+        display: contents;
+    }
+
+    .sticky-header-toc {
+        @apply relative flex-shrink-0;
+    }
+
+    .sticky-header-toc-btn {
+        @apply flex items-center font-caps text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors;
+        font-size: clamp(0.875rem, 0.7rem + 0.35vw, 1rem);
+    }
+
+    .sticky-header-toc-dropdown {
+        @apply absolute right-0 top-full mt-2 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700;
+        @apply p-4 min-w-64 max-h-96 overflow-y-auto;
+    }
+
+    .sticky-header-toc-dropdown .toc-sidebar {
+        @apply mt-0 pt-0 border-t-0;
+    }
+
+    .sticky-header-toc-dropdown .toc-sidebar-title {
+        @apply text-left pr-0;
+    }
+
+    .sticky-header-toc-dropdown .toc-sidebar-item a {
+        @apply text-left pr-0;
+    }
+
+    .sticky-header-toc-dropdown .toc-sidebar-level-1::after {
+        @apply left-auto right-auto;
+        content: none;
+    }
+
+    /* Sidebar scroll behavior */
+    .article-sidebar-scrollable {
+        position: relative;
+        top: auto;
+        @apply transition-all duration-500 ease-out;
+    }
+
+    .sidebar-hidden {
+        @apply opacity-0 pointer-events-none;
+        width: 0 !important;
+        margin-right: 0 !important;
+        overflow: hidden;
     }
 }

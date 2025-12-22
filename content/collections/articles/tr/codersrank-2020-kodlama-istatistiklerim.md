@@ -4,7 +4,7 @@ origin: edc31b57-0146-4ec2-9565-e8b20fc5f244
 published: false
 title: 'CodersRank 2020 Kodlama İstatistiklerim'
 updated_by: b8f3533e-0fcf-42b9-a3d8-c8691deaf917
-updated_at: 1765917190
+updated_at: 1766431233
 og_generator_image: codersrank-2020-kodlama-istatistiklerim.jpg
 content:
   -
