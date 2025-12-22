@@ -232,10 +232,12 @@ tabs:
                           field:
                             type: button_group
                             display: Position
-                            instructions: 'Which side should the thought bubble appear on?'
+                            instructions: 'Position and alignment of the thought bubble.'
                             options:
-                              left: Left
-                              right: Right
+                              left: ← Left
+                              center-left: Left →
+                              center-right: ← Right
+                              right: Right →
                             default: left
                             localizable: false
   sidebar:

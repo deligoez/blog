@@ -1,3 +1,12 @@
 <aside class="sidenote sidenote-{{ position ?? 'right' }} sidenote-{{ style ?? 'note' }}">
+    {{ if style == 'info' }}
+        <x-phosphor-info class="sidenote-type-icon sidenote-type-icon-{{ position ?? 'right' }}" />
+    {{ elseif style == 'tip' }}
+        <x-phosphor-lightbulb class="sidenote-type-icon sidenote-type-icon-{{ position ?? 'right' }}" />
+    {{ elseif style == 'warning' }}
+        <x-phosphor-warning class="sidenote-type-icon sidenote-type-icon-{{ position ?? 'right' }}" />
+    {{ elseif style == 'danger' }}
+        <x-phosphor-warning-octagon class="sidenote-type-icon sidenote-type-icon-{{ position ?? 'right' }}" />
+    {{ /if }}
     <div class="sidenote-content">{{ content }}</div>
 </aside>
