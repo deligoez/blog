@@ -405,7 +405,7 @@ html {
             @apply text-center;
         }
 
-        .article-content p {
+        .article-content p {git pull
             @apply text-justify;
         }
     }
