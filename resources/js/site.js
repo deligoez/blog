@@ -73,31 +73,34 @@ document.addEventListener('DOMContentLoaded', () => {
             heading.scrollIntoView({ behavior: 'smooth' });
         });
 
-        // Add scroll-to-top button
-        const scrollToTop = document.createElement('a');
-        scrollToTop.href = '#top';
-        scrollToTop.className = 'scroll-to-top-btn';
-        scrollToTop.dataset.tooltip = document.documentElement.lang === 'tr' ? 'Başa dön' : 'Scroll to top';
-        scrollToTop.innerHTML = '<svg viewBox="0 0 256 256" fill="currentColor"><path d="M204.4,51.6a108,108,0,1,0,0,152.8A108.16,108.16,0,0,0,204.4,51.6Zm-17,135.82a84,84,0,1,1,0-118.84A84.12,84.12,0,0,1,187.42,187.42ZM168.5,159.53a12,12,0,0,1-17,17L128,153l-23.53,23.53a12,12,0,0,1-17-17l32-32a12,12,0,0,1,17,0Zm0-56a12,12,0,1,1-17,17L128,97l-23.53,23.52a12,12,0,1,1-17-17l32-32a12,12,0,0,1,17,0Z"/></svg>';
-        scrollToTop.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            // Fast scroll to top
-            const start = window.scrollY;
-            const duration = 200; // 200ms - very fast
-            const startTime = performance.now();
+        // Add scroll-to-top button only for h1 and h2
+        const tagName = heading.tagName.toLowerCase();
+        if (tagName === 'h1' || tagName === 'h2') {
+            const scrollToTop = document.createElement('a');
+            scrollToTop.href = '#top';
+            scrollToTop.className = 'scroll-to-top-btn';
+            scrollToTop.dataset.tooltip = document.documentElement.lang === 'tr' ? 'Başa dön' : 'Scroll to top';
+            scrollToTop.innerHTML = '<svg viewBox="0 0 256 256" fill="currentColor"><path d="M204.4,51.6a108,108,0,1,0,0,152.8A108.16,108.16,0,0,0,204.4,51.6Zm-17,135.82a84,84,0,1,1,0-118.84A84.12,84.12,0,0,1,187.42,187.42ZM168.5,159.53a12,12,0,0,1-17,17L128,153l-23.53,23.53a12,12,0,0,1-17-17l32-32a12,12,0,0,1,17,0Zm0-56a12,12,0,1,1-17,17L128,97l-23.53,23.52a12,12,0,1,1-17-17l32-32a12,12,0,0,1,17,0Z"/></svg>';
+            scrollToTop.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                // Fast scroll to top
+                const start = window.scrollY;
+                const duration = 200; // 200ms - very fast
+                const startTime = performance.now();
 
-            function scroll(currentTime) {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                // Ease out quad
-                const easeOut = 1 - (1 - progress) * (1 - progress);
-                window.scrollTo(0, start * (1 - easeOut));
-                if (progress < 1) requestAnimationFrame(scroll);
-            }
-            requestAnimationFrame(scroll);
-        });
-        heading.appendChild(scrollToTop);
+                function scroll(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    // Ease out quad
+                    const easeOut = 1 - (1 - progress) * (1 - progress);
+                    window.scrollTo(0, start * (1 - easeOut));
+                    if (progress < 1) requestAnimationFrame(scroll);
+                }
+                requestAnimationFrame(scroll);
+            });
+            heading.appendChild(scrollToTop);
+        }
     });
 });
 
