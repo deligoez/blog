@@ -256,8 +256,18 @@ html {
 
     /* Sidenote - Tufte-style margin notes */
     .sidenote {
-        @apply leading-relaxed my-4 py-3 px-4 rounded-lg border-l-2 relative;
+        @apply leading-relaxed my-4 py-3 px-4 rounded-lg border-l-2 relative block;
         font-size: 1em;
+        z-index: 1; /* Ensure sidenotes appear above subsequent content on narrow screens */
+    }
+
+    /* Narrow screens (below 1280px): inline sidenotes */
+    @media (max-width: 1279px) {
+        .sidenote {
+            position: static !important;
+            width: 100% !important;
+            transform: none !important;
+        }
     }
 
     .sidenote-icon {

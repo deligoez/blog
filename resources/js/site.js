@@ -129,11 +129,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Prevent sidenotes from overlapping
 function adjustSidenotes() {
-    // Only run on wide screens where sidenotes are in the margin
-    if (window.innerWidth < 1440) return;
-
     const articleContent = document.querySelector('.article-content');
     if (!articleContent) return;
+
+    const allSidenotes = Array.from(articleContent.querySelectorAll('.sidenote'));
+
+    // On narrow screens, reset all transforms and return
+    if (window.innerWidth < 1440) {
+        allSidenotes.forEach(note => {
+            note.style.transform = '';
+        });
+        return;
+    }
 
     const minGap = 16; // Minimum gap between sidenotes in pixels
 
