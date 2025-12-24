@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!articleContent) return;
 
     const headings = articleContent.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    const scrollToTopButtons = []; // Collect all buttons for scroll visibility
 
     headings.forEach(heading => {
         // Skip custom heading sets (numbered headings from bard)
@@ -78,7 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (tagName === 'h1' || tagName === 'h2') {
             const scrollToTop = document.createElement('a');
             scrollToTop.href = '#top';
-            scrollToTop.className = 'scroll-to-top-btn';
+            // Initially hidden until user scrolls
+            scrollToTop.className = 'scroll-to-top-btn scroll-to-top-hidden';
             scrollToTop.dataset.tooltip = document.documentElement.lang === 'tr' ? 'Başa dön' : 'Scroll to top';
             scrollToTop.innerHTML = '<svg viewBox="0 0 256 256" fill="currentColor"><path d="M204.4,51.6a108,108,0,1,0,0,152.8A108.16,108.16,0,0,0,204.4,51.6Zm-17,135.82a84,84,0,1,1,0-118.84A84.12,84.12,0,0,1,187.42,187.42ZM168.5,159.53a12,12,0,0,1-17,17L128,153l-23.53,23.53a12,12,0,0,1-17-17l32-32a12,12,0,0,1,17,0Zm0-56a12,12,0,1,1-17,17L128,97l-23.53,23.52a12,12,0,1,1-17-17l32-32a12,12,0,0,1,17,0Z"/></svg>';
             scrollToTop.addEventListener('click', (e) => {
@@ -100,8 +102,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 requestAnimationFrame(scroll);
             });
             heading.appendChild(scrollToTop);
+            scrollToTopButtons.push(scrollToTop);
         }
     });
+
+    // Show/hide scroll-to-top buttons based on scroll position
+    if (scrollToTopButtons.length > 0) {
+        let hasScrolled = false;
+
+        const updateButtonVisibility = () => {
+            const shouldShow = window.scrollY > 50;
+            if (shouldShow && !hasScrolled) {
+                hasScrolled = true;
+                scrollToTopButtons.forEach(btn => btn.classList.remove('scroll-to-top-hidden'));
+            } else if (!shouldShow && hasScrolled) {
+                hasScrolled = false;
+                scrollToTopButtons.forEach(btn => btn.classList.add('scroll-to-top-hidden'));
+            }
+        };
+
+        window.addEventListener('scroll', updateButtonVisibility, { passive: true });
+        // Check initial state
+        updateButtonVisibility();
+    }
 });
 
 // Prevent sidenotes from overlapping

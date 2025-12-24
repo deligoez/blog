@@ -389,6 +389,16 @@ html {
         @apply opacity-100;
     }
 
+    /* Hidden state for scroll-to-top buttons (before user scrolls) */
+    .scroll-to-top-hidden {
+        @apply opacity-0 pointer-events-none;
+        transition: opacity 0.2s ease-out;
+    }
+
+    .scroll-to-top-btn:not(.scroll-to-top-hidden) {
+        transition: opacity 0.2s ease-out;
+    }
+
     /* Heading anchor links - inherit heading style */
     .article-content h1 > a,
     .article-content h2 > a,
@@ -687,17 +697,45 @@ html {
         content: none;
     }
 
-    /* Sidebar scroll behavior */
+    /* Sidebar scroll-driven animation */
     .article-sidebar-scrollable {
+        --scroll-progress: 0;
         position: relative;
         top: auto;
-        @apply transition-all duration-500 ease-out;
+
+        /* Interpolate values based on scroll progress */
+        opacity: calc(1 - var(--scroll-progress));
+        width: calc(var(--sidebar-width) * (1 - var(--scroll-progress)));
+        margin-right: calc(var(--sidebar-gap) * (1 - var(--scroll-progress)));
+
+        /* Hide when fully scrolled, allow interaction when visible */
+        pointer-events: auto;
+        overflow: hidden;
+
+        /* Smooth out rapid scroll changes */
+        will-change: opacity, width, margin-right;
     }
 
-    .sidebar-hidden {
-        @apply opacity-0 pointer-events-none;
-        width: 0 !important;
-        margin-right: 0 !important;
-        overflow: hidden;
+
+    @supports (animation-timeline: scroll()) {
+        /* Native CSS scroll-driven animation for supported browsers */
+        .article-sidebar-scrollable {
+            animation: sidebar-fade-out linear both;
+            animation-timeline: scroll();
+            animation-range: 0px 400px;
+        }
+
+        @keyframes sidebar-fade-out {
+            from {
+                opacity: 1;
+                width: var(--sidebar-width);
+                margin-right: var(--sidebar-gap);
+            }
+            to {
+                opacity: 0;
+                width: 0;
+                margin-right: 0;
+            }
+        }
     }
 }
