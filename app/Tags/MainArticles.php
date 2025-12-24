@@ -2,6 +2,7 @@
 
 namespace App\Tags;
 
+use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Statamic\Facades\Entry;
 use Statamic\Tags\Tags;
@@ -13,18 +14,28 @@ class MainArticles extends Tags
      */
     public function index(): Collection
     {
-        $query = Entry::query()
+        $limit = $this->params->int('limit');
+
+        $entries = Entry::query()
                       ->where('collection', 'articles')
                       ->where('published', true)
                       ->where('locale', $this->context->get('locale'))
-                      ->orderBy('date', 'desc');
+                      ->get()
+                      ->filter(fn($entry) => $entry->parent() === null)
+                      ->sortByDesc(function ($entry) {
+                          $displayDate = $entry->get('display_date');
+                          if ($displayDate) {
+                              return $displayDate instanceof Carbon
+                                  ? $displayDate
+                                  : Carbon::parse($displayDate);
+                          }
+                          return $entry->date();
+                      });
 
-        if ($this->params->int('limit') !== 0) {
-            $query->limit($this->params->int('limit'));
+        if ($limit !== 0) {
+            $entries = $entries->take($limit);
         }
 
-        return $query
-            ->get()
-            ->filter(fn($value, $args) => $value->parent() === null);
+        return $entries;
     }
 }

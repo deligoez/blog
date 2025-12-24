@@ -8,13 +8,14 @@
         <x-phosphor-calendar-bold class="mr-1 w-6 h-6 text-gray-500 dark:text-gray-400" />
     {{ /unless }}
 
+    {{ article_date = display_date ?? date }}
     <span class="grid [grid-template-areas:'text']">
         {{ if locale == 'tr' }}
-            <span class="[grid-area:text] transition-opacity duration-200" :class="open ? 'opacity-0' : 'opacity-100'">{{ date iso_format="d MMMM 'YY" }}</span>
+            <span class="[grid-area:text] transition-opacity duration-200" :class="open ? 'opacity-0' : 'opacity-100'">{{ article_date iso_format="d MMMM 'YY" }}</span>
         {{ elseif locale == 'en' }}
-            <span class="[grid-area:text] transition-opacity duration-200" :class="open ? 'opacity-0' : 'opacity-100'">{{ date iso_format="MMMM Mo ʼYY" }}</span>
+            <span class="[grid-area:text] transition-opacity duration-200" :class="open ? 'opacity-0' : 'opacity-100'">{{ article_date iso_format="MMMM Do ʼYY" }}</span>
         {{ endif }}
-        <span class="[grid-area:text] transition-opacity duration-200" :class="open ? 'opacity-100' : 'opacity-0'">{{ date | ago }}</span>
+        <span class="[grid-area:text] transition-opacity duration-200" :class="open ? 'opacity-100' : 'opacity-0'">{{ article_date | ago }}</span>
     </span>
 
     {{ if icon_last }}

@@ -265,6 +265,16 @@ tabs:
               earliest_date: '1900-01-01'
               localizable: true
           -
+            handle: display_date
+            field:
+              type: date
+              display: 'Display Date'
+              instructions: 'The date shown on the article (overrides filename date for display)'
+              required: false
+              time_required: false
+              earliest_date: '1900-01-01'
+              localizable: true
+          -
             handle: parent
             field:
               type: entries
