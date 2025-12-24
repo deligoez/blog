@@ -354,8 +354,8 @@ html {
     }
 
     .article-content pre code {
-        /* Override for article content - scales from 0.95rem on mobile to 1.5rem on desktop */
-        font-size: clamp(0.95rem, 0.55rem + 0.75vw, 1.5rem);
+        /* Override for article content - scales from 0.9rem on mobile to 1.25rem on desktop */
+        font-size: clamp(0.9rem, 0.65rem + 0.45vw, 1.25rem);
     }
 
     /* Native markdown headings in article content - match custom heading set style */
