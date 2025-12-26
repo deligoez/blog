@@ -145,7 +145,7 @@ html {
     --sidebar-gap: clamp(1.5rem, 2vw, 3rem);
 
     /* Content max width */
-    --container-content: clamp(32rem, 50vw, 56rem);
+    --container-content: clamp(36rem, 55vw, 64rem);
 }
 
 @layer base {
@@ -175,12 +175,19 @@ html {
     ol > li:before {
         counter-increment: count;
         content: counter(count);
-        @apply font-index text-[1.625rem] absolute -ml-8 mt-1;
+        @apply font-index text-[1.625rem] absolute -ml-8 -mt-0.5;
     }
 
     ul > li:before {
-        content: "•";
-        @apply text-[1.625rem] absolute -ml-8;
+        content: "";
+        @apply absolute -ml-8 w-6 h-6 mt-1;
+        background-color: currentColor;
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M120,137,48,201A12,12,0,1,1,32,183l61.91-55L32,73A12,12,0,1,1,48,55l72,64A12,12,0,0,1,120,137Zm96,43H120a12,12,0,0,0,0,24h96a12,12,0,0,0,0-24Z'/%3E%3C/svg%3E");
+        mask-size: contain;
+        mask-repeat: no-repeat;
+        -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M120,137,48,201A12,12,0,1,1,32,183l61.91-55L32,73A12,12,0,1,1,48,55l72,64A12,12,0,0,1,120,137Zm96,43H120a12,12,0,0,0,0,24h96a12,12,0,0,0,0-24Z'/%3E%3C/svg%3E");
+        -webkit-mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
     }
 
     /* Blockquote - Article quotes/citations */
@@ -383,7 +390,7 @@ html {
     /* Narrow screens (below 1280px): inline sidenotes */
     @media (max-width: 1279px) {
         .sidenote {
-            position: static !important;
+            position: relative !important;
             width: 100% !important;
             transform: none !important;
         }
@@ -395,6 +402,14 @@ html {
 
     .sidenote-content {
         /* Italic only when explicitly marked */
+    }
+
+    /* Sidenote links - use Heliotrope 3 Caps, all-small-caps, tighter spacing */
+    .sidenote a {
+        font-family: var(--font-sidenote-caps);
+        letter-spacing: -0.02em;
+        font-variant-caps: all-small-caps;
+        @apply no-underline;
     }
 
     /* Sidenote styles - all use same minimal gray styling */
