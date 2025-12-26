@@ -1,11 +1,113 @@
 {
+  "resources/fonts/ConcourseIndexRegular.woff": {
+    "file": "assets/ConcourseIndexRegular-B-AEJLoB.woff",
+    "src": "resources/fonts/ConcourseIndexRegular.woff"
+  },
+  "resources/fonts/ConcourseIndexRegular.woff2": {
+    "file": "assets/ConcourseIndexRegular-DUEXemKb.woff2",
+    "src": "resources/fonts/ConcourseIndexRegular.woff2"
+  },
+  "resources/fonts/EquityABold.woff": {
+    "file": "assets/EquityABold-D63I5qZz.woff",
+    "src": "resources/fonts/EquityABold.woff"
+  },
+  "resources/fonts/EquityABold.woff2": {
+    "file": "assets/EquityABold-CRUjl91v.woff2",
+    "src": "resources/fonts/EquityABold.woff2"
+  },
+  "resources/fonts/EquityABoldItalic.woff": {
+    "file": "assets/EquityABoldItalic-D3HZym28.woff",
+    "src": "resources/fonts/EquityABoldItalic.woff"
+  },
+  "resources/fonts/EquityABoldItalic.woff2": {
+    "file": "assets/EquityABoldItalic-6HW9ONWh.woff2",
+    "src": "resources/fonts/EquityABoldItalic.woff2"
+  },
+  "resources/fonts/EquityACapsBold.woff": {
+    "file": "assets/EquityACapsBold-17R_M2uo.woff",
+    "src": "resources/fonts/EquityACapsBold.woff"
+  },
+  "resources/fonts/EquityACapsBold.woff2": {
+    "file": "assets/EquityACapsBold-HpbZG8Kb.woff2",
+    "src": "resources/fonts/EquityACapsBold.woff2"
+  },
+  "resources/fonts/EquityACapsRegular.woff": {
+    "file": "assets/EquityACapsRegular-CrAQgcNv.woff",
+    "src": "resources/fonts/EquityACapsRegular.woff"
+  },
+  "resources/fonts/EquityACapsRegular.woff2": {
+    "file": "assets/EquityACapsRegular-CXsy0Zmx.woff2",
+    "src": "resources/fonts/EquityACapsRegular.woff2"
+  },
+  "resources/fonts/EquityAItalic.woff": {
+    "file": "assets/EquityAItalic-CdtRnZ4X.woff",
+    "src": "resources/fonts/EquityAItalic.woff"
+  },
+  "resources/fonts/EquityAItalic.woff2": {
+    "file": "assets/EquityAItalic-Te77Rfxz.woff2",
+    "src": "resources/fonts/EquityAItalic.woff2"
+  },
+  "resources/fonts/EquityARegular.woff": {
+    "file": "assets/EquityARegular-Cefk8N0c.woff",
+    "src": "resources/fonts/EquityARegular.woff"
+  },
+  "resources/fonts/EquityARegular.woff2": {
+    "file": "assets/EquityARegular-ShWGejlE.woff2",
+    "src": "resources/fonts/EquityARegular.woff2"
+  },
+  "resources/fonts/Heliotrope3CapsRegular.woff": {
+    "file": "assets/Heliotrope3CapsRegular-Bn_egSNO.woff",
+    "src": "resources/fonts/Heliotrope3CapsRegular.woff"
+  },
+  "resources/fonts/Heliotrope3CapsRegular.woff2": {
+    "file": "assets/Heliotrope3CapsRegular-R3WJ9n9M.woff2",
+    "src": "resources/fonts/Heliotrope3CapsRegular.woff2"
+  },
+  "resources/fonts/Heliotrope3Italic.woff": {
+    "file": "assets/Heliotrope3Italic-b78HhjUj.woff",
+    "src": "resources/fonts/Heliotrope3Italic.woff"
+  },
+  "resources/fonts/Heliotrope3Italic.woff2": {
+    "file": "assets/Heliotrope3Italic-_oZGfuNU.woff2",
+    "src": "resources/fonts/Heliotrope3Italic.woff2"
+  },
+  "resources/fonts/Heliotrope3Regular.woff": {
+    "file": "assets/Heliotrope3Regular-BWOoPqHz.woff",
+    "src": "resources/fonts/Heliotrope3Regular.woff"
+  },
+  "resources/fonts/Heliotrope3Regular.woff2": {
+    "file": "assets/Heliotrope3Regular-BqNycx0D.woff2",
+    "src": "resources/fonts/Heliotrope3Regular.woff2"
+  },
   "resources/js/site.js": {
-    "file": "assets/site-eCCAkK34.js",
+    "file": "assets/site-BCO8gDgA.js",
     "name": "site",
     "src": "resources/js/site.js",
     "isEntry": true,
     "css": [
-      "assets/site-CNWcXOlT.css"
+      "assets/site-DaiIndRv.css"
+    ],
+    "assets": [
+      "assets/EquityARegular-ShWGejlE.woff2",
+      "assets/EquityARegular-Cefk8N0c.woff",
+      "assets/EquityABold-CRUjl91v.woff2",
+      "assets/EquityABold-D63I5qZz.woff",
+      "assets/EquityAItalic-Te77Rfxz.woff2",
+      "assets/EquityAItalic-CdtRnZ4X.woff",
+      "assets/EquityABoldItalic-6HW9ONWh.woff2",
+      "assets/EquityABoldItalic-D3HZym28.woff",
+      "assets/EquityACapsRegular-CXsy0Zmx.woff2",
+      "assets/EquityACapsRegular-CrAQgcNv.woff",
+      "assets/EquityACapsBold-HpbZG8Kb.woff2",
+      "assets/EquityACapsBold-17R_M2uo.woff",
+      "assets/ConcourseIndexRegular-DUEXemKb.woff2",
+      "assets/ConcourseIndexRegular-B-AEJLoB.woff",
+      "assets/Heliotrope3Regular-BqNycx0D.woff2",
+      "assets/Heliotrope3Regular-BWOoPqHz.woff",
+      "assets/Heliotrope3Italic-_oZGfuNU.woff2",
+      "assets/Heliotrope3Italic-b78HhjUj.woff",
+      "assets/Heliotrope3CapsRegular-R3WJ9n9M.woff2",
+      "assets/Heliotrope3CapsRegular-Bn_egSNO.woff"
     ]
   }
 }

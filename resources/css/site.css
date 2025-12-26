@@ -1,11 +1,108 @@
-@import './fonts/equity-text-a-normal.css';
-@import './fonts/equity-text-a-bold.css';
-@import './fonts/equity-text-a-italic.css';
-@import './fonts/equity-text-a-bold-italic.css';
-@import './fonts/equity-caps-a-normal.css';
-@import './fonts/equity-caps-a-bold.css';
-@import './fonts/concourse-t3-index.css';
-@import './fonts/iosevka.css';
+/* Equity Text A - Main serif font family */
+@font-face {
+    font-family: 'Equity Text A';
+    src: local('Equity A'), local('EquityARegular'),
+         url('../fonts/EquityARegular.woff2') format('woff2'),
+         url('../fonts/EquityARegular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Equity Text A';
+    src: local('Equity A Bold'), local('EquityABold'),
+         url('../fonts/EquityABold.woff2') format('woff2'),
+         url('../fonts/EquityABold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Equity Text A';
+    src: local('Equity A Italic'), local('EquityAItalic'),
+         url('../fonts/EquityAItalic.woff2') format('woff2'),
+         url('../fonts/EquityAItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Equity Text A';
+    src: local('Equity A Bold Italic'), local('EquityABoldItalic'),
+         url('../fonts/EquityABoldItalic.woff2') format('woff2'),
+         url('../fonts/EquityABoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Equity Caps A - Small caps font family */
+@font-face {
+    font-family: 'Equity Caps A';
+    src: local('Equity A Caps'), local('EquityACapsRegular'),
+         url('../fonts/EquityACapsRegular.woff2') format('woff2'),
+         url('../fonts/EquityACapsRegular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Equity Caps A';
+    src: local('Equity A Caps Bold'), local('EquityACapsBold'),
+         url('../fonts/EquityACapsBold.woff2') format('woff2'),
+         url('../fonts/EquityACapsBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* concourse-t3-index - Index/navigation font */
+@font-face {
+    font-family: 'concourse-t3-index';
+    src: local('Concourse Index'), local('ConcourseIndexRegular'),
+         url('../fonts/ConcourseIndexRegular.woff2') format('woff2'),
+         url('../fonts/ConcourseIndexRegular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Heliotrope 3 - Sidenote font family */
+@font-face {
+    font-family: 'Heliotrope 3';
+    src: local('Heliotrope 3'), local('Heliotrope3Regular'),
+         url('../fonts/Heliotrope3Regular.woff2') format('woff2'),
+         url('../fonts/Heliotrope3Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Heliotrope 3';
+    src: local('Heliotrope 3 Italic'), local('Heliotrope3Italic'),
+         url('../fonts/Heliotrope3Italic.woff2') format('woff2'),
+         url('../fonts/Heliotrope3Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Heliotrope 3 Caps */
+@font-face {
+    font-family: 'Heliotrope 3 Caps';
+    src: local('Heliotrope 3 Caps'), local('Heliotrope3CapsRegular'),
+         url('../fonts/Heliotrope3CapsRegular.woff2') format('woff2'),
+         url('../fonts/Heliotrope3CapsRegular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 @import './syntax-highlight.css';
 
 @import "tailwindcss";
@@ -28,7 +125,9 @@ html {
     --font-serif: 'Equity Text A', 'Times New Roman', Times, Georgia, Cambria, ui-serif, serif;
     --font-caps: 'Equity Caps A', serif;
     --font-index: 'concourse-t3-index', sans;
-    --font-mono: 'Iosevka', monospace;
+    --font-mono: 'Iosevka Web', monospace;
+    --font-sidenote: 'Heliotrope 3', Georgia, serif;
+    --font-sidenote-caps: 'Heliotrope 3 Caps', serif;
 
     /* Custom Animation: Wiggle */
     --animate-wiggle: wiggle 1s ease-in-out infinite;
@@ -273,8 +372,11 @@ html {
 
     /* Sidenote - Tufte-style margin notes */
     .sidenote {
-        @apply leading-relaxed my-4 py-3 px-4 rounded-lg border-l-2 relative block;
-        font-size: 1em;
+        @apply my-4 py-3 px-4 rounded-lg border-l-2 relative block;
+        font-family: var(--font-sidenote);
+        /* Fluid sizing: smaller on mobile, grows to match body text */
+        font-size: clamp(0.875em, 0.8em + 0.2vw, 1em);
+        line-height: clamp(1.5, 1.4 + 0.1vw, 1.65);
         z-index: 1; /* Ensure sidenotes appear above subsequent content on narrow screens */
     }
 
@@ -292,7 +394,7 @@ html {
     }
 
     .sidenote-content {
-        @apply italic;
+        /* Italic only when explicitly marked */
     }
 
     /* Sidenote styles - all use same minimal gray styling */
@@ -326,10 +428,11 @@ html {
         }
 
         .sidenote {
-            @apply absolute my-0 leading-snug;
-            /* Fluid width: wider sidenotes */
-            width: clamp(14rem, 17vw, 32rem);
+            @apply absolute my-0;
+            /* Fluid width: wider sidenotes to fill available space */
+            width: clamp(20rem, 28vw, 48rem);
             font-size: clamp(0.85em, 0.75em + 0.2vw, 1.05em);
+            line-height: 1.55;
         }
 
         /* All sidenote styles: minimal in margin */
@@ -343,12 +446,12 @@ html {
 
         .sidenote-right {
             /* Position scales with width */
-            right: clamp(-34rem, -18vw, -15rem);
+            right: clamp(-50rem, -29vw, -21rem);
             @apply border-l-2 border-r-0;
         }
 
         .sidenote-left {
-            left: clamp(-34rem, -18vw, -15rem);
+            left: clamp(-50rem, -29vw, -21rem);
             @apply text-right border-r-2 border-l-0;
         }
     }
@@ -381,8 +484,8 @@ html {
     }
 
     .article-content pre code {
-        /* Override for article content - scales from 0.9rem on mobile to 1.25rem on desktop */
-        font-size: clamp(0.9rem, 0.65rem + 0.45vw, 1.25rem);
+        /* Override for article content - scales from 0.9rem on mobile to 1.35rem on desktop */
+        font-size: clamp(0.9rem, 0.7rem + 0.5vw, 1.35rem);
     }
 
     /* Native markdown headings in article content - match custom heading set style */
@@ -606,7 +709,7 @@ html {
         .article-container {
             margin-right: 0; /* No right margin - sidenotes use all space */
             /* Padding scales with sidenote width */
-            padding-right: clamp(15rem, 18vw, 34rem);
+            padding-right: clamp(21rem, 29vw, 50rem);
         }
     }
 

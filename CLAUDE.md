@@ -18,15 +18,19 @@ A personal blog built with **Statamic 5.70** (flat-file CMS). Content is stored 
 - Syntax Highlighting: Shiki 3.20 (server-side, cached)
 - Node: 20.18.0
 
+## Development Workflow
+
+**Important:** `npm run dev` is typically running in the background during development. CSS/JS changes are automatically rebuilt and hot-reloaded. You don't need to run `npm run production` after every change - only run it before deployment or when specifically needed.
+
 ## Common Commands
 
 ```bash
 # Development
-npm run dev              # Vite dev server
+npm run dev              # Vite dev server (usually already running)
 php artisan serve        # Laravel server
 
 # Build
-npm run build            # Production build
+npm run build            # Production build (only before deploy)
 npm run production       # Alias
 
 # Statamic

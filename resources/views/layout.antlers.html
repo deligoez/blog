@@ -11,6 +11,9 @@
     {{ og_generator:og_image }}
     <meta property="og:logo" content="{{ config:app:url }}/android-chrome-512x512.png" />
 
+    <!-- Iosevka monospace font for code display -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Iosevka/11.1.1/iosevka/iosevka.min.css" integrity="sha512-3hU20586NsplKRzjf2jQN5vTRTI2EsXObrHDOBLGdkiRkneg699BlmBXWGHHFHADCF3TOk2BREsVy7qTkmvQqQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <script>
         // Prevent FOUC - apply dark mode before render
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
