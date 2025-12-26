@@ -138,7 +138,7 @@ html {
     }
 
     /* Left margin for left-anchored layout */
-    --layout-margin: clamp(1rem, 1.5vw, 1.5rem);
+    --layout-margin: clamp(0.25rem, 0.4vw, 0.5rem);
 
     /* Sidebar (A section) - grows with viewport, has max */
     --sidebar-width: clamp(12rem, 20vw, 20rem);
@@ -155,7 +155,8 @@ html {
     }
 
     p > a {
-        @apply font-caps font-bold text-[1.55rem] no-underline tracking-wide hover:bg-gray-200 dark:hover:bg-gray-700 py-1 px-2 transition duration-200 rounded-lg;
+        @apply font-caps font-bold text-[1.55rem] no-underline hover:bg-gray-200 dark:hover:bg-gray-700 py-1 px-2 transition duration-200 rounded-lg;
+        font-feature-settings: "c2sc";
         vertical-align: 0em;
     }
 
@@ -244,55 +245,55 @@ html {
     }
 
     .thought-bubble {
-        @apply relative bg-gray-100 dark:bg-gray-800 py-4 px-6 rounded-3xl max-w-[80%];
+        @apply relative bg-gray-100 dark:bg-gray-900 py-4 px-6 rounded-3xl max-w-[80%];
     }
 
     /* Left bubble tail */
     .thought-bubble-left::before {
         content: "";
-        @apply absolute -bottom-2 left-8 w-4 h-4 bg-gray-100 dark:bg-gray-800 rounded-full;
+        @apply absolute -bottom-2 left-8 w-4 h-4 bg-gray-100 dark:bg-gray-900 rounded-full;
     }
 
     .thought-bubble-left::after {
         content: "";
-        @apply absolute -bottom-5 left-5 w-2.5 h-2.5 bg-gray-100 dark:bg-gray-800 rounded-full;
+        @apply absolute -bottom-5 left-5 w-2.5 h-2.5 bg-gray-100 dark:bg-gray-900 rounded-full;
     }
 
     /* Right bubble tail */
     .thought-bubble-right::before {
         content: "";
-        @apply absolute -bottom-2 right-8 w-4 h-4 bg-gray-100 dark:bg-gray-800 rounded-full;
+        @apply absolute -bottom-2 right-8 w-4 h-4 bg-gray-100 dark:bg-gray-900 rounded-full;
     }
 
     .thought-bubble-right::after {
         content: "";
-        @apply absolute -bottom-5 right-5 w-2.5 h-2.5 bg-gray-100 dark:bg-gray-800 rounded-full;
+        @apply absolute -bottom-5 right-5 w-2.5 h-2.5 bg-gray-100 dark:bg-gray-900 rounded-full;
     }
 
     /* Center-left bubble tail (points left, towards edge) */
     .thought-bubble-center-left::before {
         content: "";
-        @apply absolute -bottom-2 left-8 w-4 h-4 bg-gray-100 dark:bg-gray-800 rounded-full;
+        @apply absolute -bottom-2 left-8 w-4 h-4 bg-gray-100 dark:bg-gray-900 rounded-full;
     }
 
     .thought-bubble-center-left::after {
         content: "";
-        @apply absolute -bottom-5 left-5 w-2.5 h-2.5 bg-gray-100 dark:bg-gray-800 rounded-full;
+        @apply absolute -bottom-5 left-5 w-2.5 h-2.5 bg-gray-100 dark:bg-gray-900 rounded-full;
     }
 
     /* Center-right bubble tail (points right, towards edge) */
     .thought-bubble-center-right::before {
         content: "";
-        @apply absolute -bottom-2 right-8 w-4 h-4 bg-gray-100 dark:bg-gray-800 rounded-full;
+        @apply absolute -bottom-2 right-8 w-4 h-4 bg-gray-100 dark:bg-gray-900 rounded-full;
     }
 
     .thought-bubble-center-right::after {
         content: "";
-        @apply absolute -bottom-5 right-5 w-2.5 h-2.5 bg-gray-100 dark:bg-gray-800 rounded-full;
+        @apply absolute -bottom-5 right-5 w-2.5 h-2.5 bg-gray-100 dark:bg-gray-900 rounded-full;
     }
 
     .thought-content {
-        @apply italic text-gray-500 dark:text-gray-400;
+        @apply italic text-gray-500 dark:text-gray-300;
     }
 
     .thought-bubble-left .thought-content {
@@ -334,14 +335,14 @@ html {
     }
 
     .article-content th {
-        @apply font-caps font-semibold text-gray-700 dark:text-gray-200 py-3 px-4;
+        @apply font-caps font-semibold text-gray-700 dark:text-gray-100 py-3 px-4;
         font-size: 0.9em;
         letter-spacing: 0.02em;
         white-space: nowrap;
     }
 
     .article-content td {
-        @apply py-3 px-4 text-gray-600 dark:text-gray-300;
+        @apply py-3 px-4 text-gray-600 dark:text-gray-200;
     }
 
     /* Mobile: tighter spacing */
@@ -364,12 +365,12 @@ html {
     /* Inner borders only - between columns */
     .article-content th:not(:last-child),
     .article-content td:not(:last-child) {
-        @apply border-r border-gray-200 dark:border-gray-700;
+        @apply border-r border-gray-200 dark:border-gray-800;
     }
 
     /* Inner borders only - between rows (not after header, not after last row) */
     .article-content tbody tr:not(:last-child) td {
-        @apply border-b border-gray-200 dark:border-gray-700;
+        @apply border-b border-gray-200 dark:border-gray-800;
     }
 
     /* Header bottom border - slightly stronger */
@@ -418,12 +419,12 @@ html {
     .sidenote-tip,
     .sidenote-warning,
     .sidenote-danger {
-        @apply text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-600;
+        @apply text-gray-500 dark:text-gray-300 bg-gray-50 dark:bg-gray-900 border-gray-300 dark:border-gray-800;
     }
 
     /* Sidenote type icons - centered on border */
     .sidenote-type-icon {
-        @apply w-6 h-6 absolute text-gray-400 dark:text-gray-500 pointer-events-none bg-gray-50 dark:bg-gray-800;
+        @apply w-6 h-6 absolute text-gray-400 dark:text-gray-300 pointer-events-none bg-gray-50 dark:bg-gray-950;
         top: 50%;
         transform: translateY(-50%);
     }
@@ -479,13 +480,13 @@ html {
     /* Inline code */
     p > code,
     li > code {
-        @apply py-0.5 px-2 rounded bg-gray-100 dark:bg-gray-800 text-[0.85em];
+        @apply py-0.5 px-2 rounded bg-gray-100 dark:bg-gray-900 text-[0.85em];
     }
 
     a > code,
     h1 > code,
     h2 > code {
-        @apply py-0.5 px-2 rounded bg-gray-200 dark:bg-gray-700 text-[0.80em];
+        @apply py-0.5 px-2 rounded bg-gray-200 dark:bg-gray-800 text-[0.80em];
     }
 
     /* Pre blocks (code blocks) */
@@ -509,14 +510,39 @@ html {
     .article-content h3,
     .article-content h4 {
         @apply font-caps;
-        @apply block pb-2.5 leading-snug font-serif cursor-pointer;
-        @apply border-b-2 border-transparent hover:border-black dark:hover:border-white transition duration-200;
+        @apply block leading-snug font-serif cursor-pointer relative;
+    }
+
+    .article-content h1::after,
+    .article-content h2::after,
+    .article-content h3::after,
+    .article-content h4::after {
+        content: '';
+        @apply absolute left-0 right-0;
+        bottom: -0.15em;
+        height: 2px;
+        background-color: transparent;
+        @apply transition duration-200;
+    }
+
+    .article-content h1:hover::after,
+    .article-content h2:hover::after,
+    .article-content h3:hover::after,
+    .article-content h4:hover::after {
+        @apply bg-black;
+    }
+
+    .dark .article-content h1:hover::after,
+    .dark .article-content h2:hover::after,
+    .dark .article-content h3:hover::after,
+    .dark .article-content h4:hover::after {
+        @apply bg-gray-100;
     }
 
     /* Scroll to top button for article headings */
     .scroll-to-top-btn {
-        @apply inline-flex items-center ml-2 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors cursor-pointer relative;
-        vertical-align: middle;
+        @apply inline-flex items-center ml-2 text-gray-400 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors cursor-pointer relative z-10;
+        vertical-align: baseline;
     }
 
     .scroll-to-top-btn svg {
@@ -527,7 +553,7 @@ html {
     /* Custom fast tooltip */
     .scroll-to-top-btn::after {
         content: attr(data-tooltip);
-        @apply absolute left-1/2 -translate-x-1/2 bottom-full mb-1 px-2 py-1 text-xs rounded bg-gray-800 dark:bg-gray-200 text-white dark:text-gray-800 whitespace-nowrap opacity-0 pointer-events-none transition-opacity duration-100;
+        @apply absolute left-1/2 -translate-x-1/2 bottom-full mb-1 px-2 py-1 text-xs rounded bg-gray-800 dark:bg-gray-100 text-white dark:text-gray-900 whitespace-nowrap opacity-0 pointer-events-none transition-opacity duration-100;
     }
 
     .scroll-to-top-btn:hover::after {
@@ -610,12 +636,16 @@ html {
 
     /* Sidebar TOC - Table of Contents */
     .toc-sidebar {
-        @apply mt-6 pt-4 border-t border-gray-200 dark:border-gray-700;
+        @apply mt-6 pt-4 border-t border-gray-200 dark:border-gray-800;
+        font-family: var(--font-sidenote);
     }
 
     .toc-sidebar-title {
-        @apply font-caps uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-2 text-right pr-6;
-        font-size: clamp(0.875rem, 0.7rem + 0.4vw, 1.125rem);
+        @apply text-gray-400 dark:text-gray-400 mb-2 text-right pr-6;
+        font-family: var(--font-sidenote-caps);
+        font-variant-caps: all-small-caps;
+        letter-spacing: 0.05em;
+        font-size: clamp(1.25rem, 1rem + 0.6vw, 1.6rem);
     }
 
     .toc-sidebar-list {
@@ -635,7 +665,7 @@ html {
     }
 
     .toc-sidebar-item a {
-        @apply text-gray-500 dark:text-gray-400 no-underline hover:text-black dark:hover:text-white transition-colors duration-200 block text-right;
+        @apply text-gray-500 dark:text-gray-300 no-underline hover:text-black dark:hover:text-gray-100 transition-colors duration-200 block text-right;
         font-size: inherit;
         font-weight: normal;
         padding-right: 1.25rem;
@@ -644,7 +674,7 @@ html {
     /* H1 items get a bullet on the right - fixed position */
     .toc-sidebar-level-1::after {
         content: "›";
-        @apply absolute right-0 top-0 text-gray-400 dark:text-gray-500;
+        @apply absolute right-0 top-0 text-gray-400 dark:text-gray-400;
     }
 
     /* Indentation for heading levels (right-aligned, so padding on right) */
@@ -693,10 +723,9 @@ html {
         overflow: visible; /* Allow logo to extend above */
     }
 
-    /* TOC section scrollable */
+    /* TOC section - no scroll, expands naturally */
     .toc-sidebar {
-        max-height: calc(100vh - 20rem);
-        overflow-y: auto;
+        overflow: visible;
     }
 
     /* Sidebar logo - positioned to align with header nav */
@@ -740,7 +769,7 @@ html {
     }
 
     .fluid-meta {
-        font-size: clamp(1rem, 0.75rem + 0.5vw, 1.25rem);
+        font-size: clamp(0.925rem, 0.7rem + 0.45vw, 1.15rem);
     }
 
     /* Mobile article header - larger sizes for top placement */
@@ -783,8 +812,8 @@ html {
 
     /* Sticky Article Header - appears on scroll */
     .sticky-article-header {
-        @apply fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm;
-        @apply border-b border-gray-200 dark:border-gray-700;
+        @apply fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-gray-950/95 backdrop-blur-sm;
+        @apply border-b border-gray-200 dark:border-gray-800;
         @apply py-3 px-4 md:px-8 lg:px-16;
     }
 
@@ -816,12 +845,12 @@ html {
     }
 
     .sticky-header-toc-btn {
-        @apply flex items-center font-caps text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors;
+        @apply flex items-center font-caps text-gray-500 dark:text-gray-300 hover:text-black dark:hover:text-gray-100 transition-colors;
         font-size: clamp(0.875rem, 0.7rem + 0.35vw, 1rem);
     }
 
     .sticky-header-toc-dropdown {
-        @apply absolute right-0 top-full mt-2 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700;
+        @apply absolute right-0 top-full mt-2 bg-white dark:bg-gray-900 rounded-lg shadow-lg border border-gray-200 dark:border-gray-800;
         @apply p-4 min-w-64 max-h-96 overflow-y-auto;
     }
 
@@ -845,12 +874,13 @@ html {
     /* Sidebar scroll-driven animation */
     .article-sidebar-scrollable {
         --scroll-progress: 0;
+        --min-left-space: 2rem;
         position: relative;
         top: auto;
 
-        /* Interpolate values based on scroll progress */
+        /* Interpolate values based on scroll progress - keep minimum spacing */
         opacity: calc(1 - var(--scroll-progress));
-        width: calc(var(--sidebar-width) * (1 - var(--scroll-progress)));
+        width: calc(var(--min-left-space) + (var(--sidebar-width) - var(--min-left-space)) * (1 - var(--scroll-progress)));
         margin-right: calc(var(--sidebar-gap) * (1 - var(--scroll-progress)));
 
         /* Allow interaction when visible, let logo extend above */
@@ -867,7 +897,7 @@ html {
         .article-sidebar-scrollable {
             animation: sidebar-fade-out linear both;
             animation-timeline: scroll();
-            animation-range: 0px 400px;
+            animation-range: 200px 600px;
         }
 
         @keyframes sidebar-fade-out {
@@ -878,7 +908,7 @@ html {
             }
             to {
                 opacity: 0;
-                width: 0;
+                width: 2rem;
                 margin-right: 0;
             }
         }

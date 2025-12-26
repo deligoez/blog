@@ -37,7 +37,7 @@ pre.shiki.highlighted .line.highlight {
 }
 
 .dark pre.shiki.highlighted .line.highlight {
-    background-color: #2a2a2a;
+    background-color: #1a1a1a;
 }
 
 /* Added lines (diff style) */
