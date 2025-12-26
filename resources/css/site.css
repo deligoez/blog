@@ -222,16 +222,33 @@ html {
     .article-content table {
         @apply w-full my-8 text-left;
         border-collapse: collapse;
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .article-content th {
         @apply font-caps font-semibold text-gray-700 dark:text-gray-200 py-3 px-4;
         font-size: 0.9em;
         letter-spacing: 0.02em;
+        white-space: nowrap;
     }
 
     .article-content td {
         @apply py-3 px-4 text-gray-600 dark:text-gray-300;
+    }
+
+    /* Mobile: tighter spacing */
+    @media (max-width: 640px) {
+        .article-content th,
+        .article-content td {
+            @apply py-2 px-3;
+            font-size: 0.85em;
+        }
+
+        .article-content th {
+            font-size: 0.8em;
+        }
     }
 
     .article-content td:first-child {
@@ -718,9 +735,9 @@ html {
         width: calc(var(--sidebar-width) * (1 - var(--scroll-progress)));
         margin-right: calc(var(--sidebar-gap) * (1 - var(--scroll-progress)));
 
-        /* Hide when fully scrolled, allow interaction when visible */
+        /* Allow interaction when visible, let logo extend above */
         pointer-events: auto;
-        overflow: hidden;
+        overflow: visible;
 
         /* Smooth out rapid scroll changes */
         will-change: opacity, width, margin-right;
