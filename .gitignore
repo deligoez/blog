@@ -18,8 +18,11 @@ composer.lock
 public/mix-manifest.json
 public/css
 public/js
-public/build!
+/public/build
 /storage/app/static/
 
 # Track Shiki cache (for faster Netlify builds)
 !/storage/shiki-cache/
+
+# Continuous Claude cache (local only)
+.claude/cache/
