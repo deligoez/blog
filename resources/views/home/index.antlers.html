@@ -56,35 +56,5 @@
             </div>
         </div>
         <!-- endregion -->
-
-        <!-- region Snippets -->
-        {{ if {collection:count in="snippets"} > 0}}
-        <div>
-            <p class="pb-2 mt-6 md:mt-10 mb-3 md:mb-4 font-caps fluid-section-title not-italic tracking-widest leading-snug uppercase border-b-2 border-black dark:border-white">
-                {{ if locale == 'tr' }}
-                    <a href="/kod-parcalari">Kod Parçaları</a>
-                {{ elseif locale == 'en' }}
-                    <a href="/snippers">Latest Snippets</a>
-                {{ endif }}
-
-            </p>
-
-            <div class="flex flex-col mx-auto text-center italic">
-                {{ collection:snippets limit="3" sort="date:desc" }}
-                <div class="flex flex-col">
-                    <a href="{{ url }}" class="mt-2 md:mt-3 fluid-article-title leading-snug title-markdown">
-                        {{ title | markdown }}
-                    </a>
-                    <div class="flex flex-row justify-center mt-1">
-                        <p class="flex flex-wrap justify-center items-center fluid-meta text-gray-500 dark:text-gray-400">
-                            {{ partial:partials/info/date }}
-                        </p>
-                    </div>
-                </div>
-                {{ /collection:snippets }}
-            </div>
-        </div>
-        {{ /if }}
-        <!-- endregion -->
     </div>
 </div>
