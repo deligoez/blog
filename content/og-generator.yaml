@@ -1,10 +1,10 @@
 background_option: image
 bg_image: deligoz-og-template.png
 bg_color: '#fafafa'
-font: equityacapsregular.ttf
-font_size: 150
+font: heliotrope4regular.ttf
+font_size: 100
 text_color: '#000000'
-width: 1920
+width: 2060
 height: 1080
 top: 250
 left: 150

@@ -271,6 +271,7 @@ tabs:
               display: 'Display Date'
               instructions: 'The date shown on the article (overrides filename date for display)'
               required: false
+              time_enabled: true
               time_required: false
               earliest_date: '1900-01-01'
               localizable: true
