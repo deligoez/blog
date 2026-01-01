@@ -34,9 +34,11 @@ class OgGenerator extends Tags
             return "";
         }
 
-        $url = asset("assets/{$filename}");
-
+        $filePath = public_path("assets/{$filename}");
         $this->makeImageIfNotExists($title, $filename);
+
+        $version = file_exists($filePath) ? filemtime($filePath) : time();
+        $url = asset("assets/{$filename}") . "?v={$version}";
 
         return "<meta property='og:image' content='{$url}' />\n" .
                "<meta property='og:image:width' content='1920' />\n" .
