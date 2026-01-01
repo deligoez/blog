@@ -1,0 +1,32 @@
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8;"><code><span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">## Flaky Test Review Guidelines</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">When reviewing or debugging Laravel/PHP tests, check for these common flakiness patterns:</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">### Time-Related Issues</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Is time frozen with Carbon::setTestNow() at test start?</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Are timestamps compared with appropriate tolerance?</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Are date boundaries (midnight, month-end) tested explicitly?</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">### Mock Issues</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Any Mockery alias:: or overload:: usage? (These persist between tests - use DI instead)</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Is MockeryPHPUnitIntegration trait used in base TestCase?</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Are fakes called BEFORE factory creation?</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Are partial fakes used where possible?</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">### Isolation Issues</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Does test depend on database ordering without ORDER BY?</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Are caches cleared before mocking cached values?</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Are observable events disabled for models that trigger side effects?</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Is static state (singletons, static properties) properly reset?</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">### tearDown Issues</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Are file handles closed before cleanup?</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Is cleanup order-dependent? (tearDown runs in reverse trait order)</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Are opt-in cleanup traits used for specific concerns?</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">### Common Fixes</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">1.</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> Freeze time: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`Carbon::setTestNow(now())`</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">2.</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> Disable events: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`Model::ignoreObservableEvents([&#39;created&#39;, &#39;updated&#39;])`</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">3.</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> Fake before factory: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`Notification::fake(); $model = Model::factory()-&gt;create();`</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">4.</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> Clear cache before mock: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`cache()-&gt;forget(&#39;key&#39;); Config::partialMock()`</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">5.</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> Use Storage::fake() instead of manual file operations</span></span></code></pre>
