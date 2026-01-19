@@ -2,14 +2,14 @@
 id: 2fd73b92-39c4-44ef-abc1-38a8f72fe4d7
 blueprint: projects
 title: 'Agentic Commits'
-subtitle: 'A commit format that AI agents and humans can read, understand, and act on'
+subtitle: 'A commit specification that AI agents and humans can read, understand, and act on'
 emoji: 🔀
 link: 'https://github.com/deligoez/agentic-commits'
 order: 1
 has_detail_page: true
 show_toc: true
 updated_by: b8f3533e-0fcf-42b9-a3d8-c8691deaf917
-updated_at: 1768806433
+updated_at: 1768818403
 toc_levels:
   - 1
 content:
