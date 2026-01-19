@@ -1,0 +1,13 @@
+<li>
+    {{ content }}
+        {{ if type == 'paragraph' }}
+            {{ partial src="partials/bard/paragraph" }}
+        {{ elseif type == 'bulletList' }}
+            {{ partial src="partials/bard/bulletList" }}
+        {{ elseif type == 'orderedList' }}
+            {{ partial src="partials/bard/orderedList" }}
+        {{ else }}
+            {{ partial src="partials/bard/{type}" }}
+        {{ /if }}
+    {{ /content }}
+</li>

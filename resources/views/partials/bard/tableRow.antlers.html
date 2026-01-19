@@ -1,0 +1,9 @@
+<tr class="border-b border-gray-200 dark:border-gray-700">
+    {{ content }}
+        {{ if type == 'tableHeader' }}
+            {{ partial src="partials/bard/tableHeader" }}
+        {{ else }}
+            {{ partial src="partials/bard/tableCell" }}
+        {{ /if }}
+    {{ /content }}
+</tr>

@@ -1,0 +1,79 @@
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8;"><code><span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">---</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">name: flaky-test-reviewer</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">description: Review PHP/Laravel tests for flakiness patterns. Use when writing tests, debugging CI failures, or reviewing test PRs.</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold"># Flaky Test Review</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">## Priority Order</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-light-font-weight:bold;--shiki-dark:#E1E4E8;--shiki-dark-font-weight:bold">**HIGH**</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> - Breaks parallel tests:</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] No </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`Mockery::mock(&#39;alias:...&#39;)`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> or </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`overload:`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> usage</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] No </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`Http::sequence()`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> in parallel tests</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-light-font-weight:bold;--shiki-dark:#E1E4E8;--shiki-dark-font-weight:bold">**MEDIUM**</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> - Intermittent failures:</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Time frozen with </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`travelTo(now()-&gt;startOfSecond())`</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Fakes called BEFORE factory creation</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Custom cleanup BEFORE </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`parent::tearDown()`</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Cache cleared BEFORE mocking cached values</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-light-font-weight:bold;--shiki-dark:#E1E4E8;--shiki-dark-font-weight:bold">**LOW**</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> - Silent bugs:</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Using </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`assertSame(true, ...)`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> not </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`assertTrue()`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> for booleans</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Using </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`$this-&gt;fail()`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> in try/catch blocks</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">## Quick Checks</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">### Time</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`travelTo(now()-&gt;startOfSecond())`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> for timestamp comparisons</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`travelBack()`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> or callback form after </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`travelTo()`</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] No </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`now()`</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`config()`</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, facades in DataProviders</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">### Mocks</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Use DI/container binding instead of alias/overload mocks</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`Http::fake()`</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: specific routes before wildcards</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Partial fakes: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`Bus::fake([Job::class])`</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`MockeryPHPUnitIntegration`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> trait in base TestCase</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">### Isolation</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] No implicit database ordering (use explicit ORDER BY)</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Observable events disabled for side-effect models</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Static state reset in tearDown</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">## Common Fixes</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">```php</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">// Freeze time</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">$this-&gt;travelTo(now()-&gt;startOfSecond());</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">// Fake before factory</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Notification::fake();</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">$model = Model::factory()-&gt;create();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">// Replace alias mock</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">$this-&gt;mock(PaymentProcessorFactory::class)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    -&gt;shouldReceive(&#39;create&#39;)-&gt;andReturn($mockProcessor);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">// tearDown order</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">protected function tearDown(): void</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    $this-&gt;resetPaymentGateway();  // FIRST</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">    parent::tearDown();             // LAST</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">// Disable observable events</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Model::ignoreObservableEvents([&#39;created&#39;, &#39;updated&#39;]);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">```</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">## Verification</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">```bash</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"># Run many times</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">for i in {1..100}; do php artisan test --filter=TestName || break; done</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"># Random order</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">./vendor/bin/phpunit --order-by=random</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8"># Parallel</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">php artisan test --parallel</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">```</span></span>
+<span class="line"></span></code></pre>

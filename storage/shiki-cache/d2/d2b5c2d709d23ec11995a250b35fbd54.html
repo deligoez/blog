@@ -1,0 +1,79 @@
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8;"><code><span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">---</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">name: flaky-test-reviewer</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">description: Review PHP/Laravel tests for flakiness patterns. Use when writing tests, debugging CI failures, or reviewing test PRs.</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold"># Flaky Test Review</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">## Priority Order</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-light-font-weight:bold;--shiki-dark:#E1E4E8;--shiki-dark-font-weight:bold">**HIGH**</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> - Breaks tests unpredictably:</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] No </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`alias:`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> or </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`overload:`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> mocks - use container binding</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] No </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`Http::sequence()`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> in parallel - responses consumed unpredictably</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Cache cleared BEFORE mocking - cache wins over mocks</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`createFromFormat()`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> chains </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`startOfDay()`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> - preserves wall clock otherwise</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Fakes BEFORE factory creation - afterCreating hooks run immediately</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`Passport::actingAs($user, [&#39;scope&#39;])`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> includes scopes - 403 often means missing scope</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-light-font-weight:bold;--shiki-dark:#E1E4E8;--shiki-dark-font-weight:bold">**MEDIUM**</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> - Intermittent failures:</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Time frozen with </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`startOfMinute()`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> - use </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`startOfSecond()`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> only when needed</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Custom cleanup BEFORE </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`parent::tearDown()`</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`partialMock()`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> before </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`shouldReceive()`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> on facades</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Partial fakes: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`Bus::fake([SpecificJob::class])`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> - let others run</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-light-font-weight:bold;--shiki-dark:#E1E4E8;--shiki-dark-font-weight:bold">**LOW**</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> - Silent bugs:</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`assertSame(true, ...)`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> not </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`assertTrue()`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> - catches missing boolean casts</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`Money-&gt;isEqualTo()`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> not </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`assertEquals`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> - float comparison issues</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`assertEqualsWithDelta()`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> for timestamps - millisecond precision</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">## Quick Checks</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">### Time</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`travelTo(now()-&gt;startOfMinute())`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> at test start</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Back-to-back records: pass explicit </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`created_at`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> to factory</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] No </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`now()`</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`config()`</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, facades in DataProviders - run before Laravel boots</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">### Mocks</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`partialMock()`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> then </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`shouldReceive()`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> on facades - never direct</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Container binding for external services, not alias mocks</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Partial fakes: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`Bus::fake([Job::class])`</span><span style="color:#24292E;--shiki-dark:#E1E4E8">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`Event::fake([Event::class])`</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">### Isolation</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`Storage::fake()`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> for file operations</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Observable events: </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`ignoreObservableEvents([&#39;created&#39;])`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> for surgical control</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Sushi models: use </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`RefreshesSushiModels`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> trait to reset static connections</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">## Common Fixes</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">```php</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">// Freeze time</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">$this-&gt;travelTo(now()-&gt;startOfMinute());</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">// createFromFormat trap</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Carbon::createFromFormat(&#39;Y-m-d&#39;, &#39;2024-01-15&#39;)-&gt;startOfDay();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">// Fake BEFORE factory</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Notification::fake();</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">$user = User::factory()-&gt;create();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">// Passport with scopes</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Passport::actingAs($user, [&#39;read-orders&#39;, &#39;write-orders&#39;]);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">// Partial fake - only fake specific jobs</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Bus::fake([SendWelcomeEmail::class]);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">// Surgical event control</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Model::ignoreObservableEvents([&#39;created&#39;, &#39;updated&#39;]);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">// Money comparison</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">$this-&gt;assertTrue($price-&gt;isEqualTo(Money::EUR(1000)));</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">```</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">## Observable Events Risk</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">| Risk | Examples | Action |</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">|------|----------|--------|</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">| HIGH | External API, notifications | Always disable |</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">| MEDIUM | DB side-effects, cache | Disable if not testing |</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">| LOW | UUID generation | Usually safe |</span></span>
+<span class="line"></span></code></pre>

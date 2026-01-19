@@ -1,0 +1,37 @@
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8;"><code><span class="line"><span style="">Convert [YOUR CONTENT] into a Claude Code skill.</span></span>
+<span class="line"><span style=""></span></span>
+<span class="line"><span style="">Read these files:</span></span>
+<span class="line"><span style="">- [path/to/file1]</span></span>
+<span class="line"><span style="">- [path/to/file2]</span></span>
+<span class="line"><span style=""></span></span>
+<span class="line"><span style="">Extract:</span></span>
+<span class="line"><span style="">1. Checklists with WHY (consequence, not just rule)</span></span>
+<span class="line"><span style="">2. Code examples (before/after)</span></span>
+<span class="line"><span style="">3. Priority order (HIGH/MEDIUM/LOW with impact description)</span></span>
+<span class="line"><span style=""></span></span>
+<span class="line"><span style="">Skip:</span></span>
+<span class="line"><span style="">- Stories and context</span></span>
+<span class="line"><span style="">- Generic documentation (link to it instead)</span></span>
+<span class="line"><span style="">- Explanations Claude already knows (what mocks are, how factories work)</span></span>
+<span class="line"><span style=""></span></span>
+<span class="line"><span style="">Output format:</span></span>
+<span class="line"><span style="">```markdown</span></span>
+<span class="line"><span style="">---</span></span>
+<span class="line"><span style="">name: reviewing-[domain]  # gerund form (verb-ing)</span></span>
+<span class="line"><span style="">description: Reviews [X] for [Y]. Use when [trigger].  # third-person!</span></span>
+<span class="line"><span style="">---</span></span>
+<span class="line"><span style=""></span></span>
+<span class="line"><span style="">## Priority Order</span></span>
+<span class="line"><span style="">**HIGH** - [Impact description]:</span></span>
+<span class="line"><span style="">- [ ] Pattern - consequence</span></span>
+<span class="line"><span style=""></span></span>
+<span class="line"><span style="">## Quick Checks</span></span>
+<span class="line"><span style="">[Categorized checklists]</span></span>
+<span class="line"><span style=""></span></span>
+<span class="line"><span style="">## Common Fixes</span></span>
+<span class="line"><span style="">[Code examples with comments explaining WHY]</span></span>
+<span class="line"><span style="">```</span></span>
+<span class="line"><span style=""></span></span>
+<span class="line"><span style="">Remember: Claude is smart. Only add what it doesn&#39;t know.</span></span>
+<span class="line"><span style="">Keep under 100 lines. Include consequences.</span></span>
+<span class="line"><span style=""></span></span></code></pre>

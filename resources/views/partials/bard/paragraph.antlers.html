@@ -1,0 +1,29 @@
+<p class="{{ if attrs:textAlign && attrs:textAlign != 'left' }}text-{{ attrs:textAlign }}{{ /if }}">
+    {{ content }}
+        {{ if marks }}
+            {{ marks }}
+                {{ if type == 'bold' }}<strong>{{ /if }}
+                {{ if type == 'italic' }}<em>{{ /if }}
+                {{ if type == 'code' }}<code class="inline-code">{{ /if }}
+                {{ if type == 'underline' }}<u>{{ /if }}
+                {{ if type == 'strikethrough' }}<s>{{ /if }}
+                {{ if type == 'superscript' }}<sup>{{ /if }}
+                {{ if type == 'subscript' }}<sub>{{ /if }}
+                {{ if type == 'link' }}<a href="{{ attrs:href }}" {{ if attrs:target }}target="{{ attrs:target }}"{{ /if }} {{ if attrs:rel }}rel="{{ attrs:rel }}"{{ /if }}>{{ /if }}
+            {{ /marks }}
+        {{ /if }}
+        {{ text | smartypants }}
+        {{ if marks }}
+            {{ marks | reverse }}
+                {{ if type == 'link' }}</a>{{ /if }}
+                {{ if type == 'subscript' }}</sub>{{ /if }}
+                {{ if type == 'superscript' }}</sup>{{ /if }}
+                {{ if type == 'strikethrough' }}</s>{{ /if }}
+                {{ if type == 'underline' }}</u>{{ /if }}
+                {{ if type == 'code' }}</code>{{ /if }}
+                {{ if type == 'italic' }}</em>{{ /if }}
+                {{ if type == 'bold' }}</strong>{{ /if }}
+            {{ /marks }}
+        {{ /if }}
+    {{ /content }}
+</p>

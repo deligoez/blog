@@ -1,0 +1,11 @@
+<th class="px-4 py-2 text-left font-semibold bg-gray-50 dark:bg-gray-800" {{ if attrs:colspan }}colspan="{{ attrs:colspan }}"{{ /if }} {{ if attrs:rowspan }}rowspan="{{ attrs:rowspan }}"{{ /if }}>
+    {{ content }}
+        {{ if type == 'paragraph' }}
+            {{ partial src="partials/bard/paragraph" }}
+        {{ elseif type == 'text' }}
+            {{ text | smartypants }}
+        {{ else }}
+            {{ partial src="partials/bard/{type}" }}
+        {{ /if }}
+    {{ /content }}
+</th>

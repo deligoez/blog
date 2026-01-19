@@ -25,19 +25,27 @@
         </h2>
     </div>
 
-    <div class="article-content flex flex-col text-[1.625em] text-center md:text-left space-y-12 italic">
-        {{ collection from="projects" }}
-        <div class="flex flex-col">
-            <a href="{{ link }}" target="_blank" class="text-7xl not-italic">
-                {{ emoji }}
-            </a>
-            <a href="{{ link }}" target="_blank" class="text-4xl leading-snug mt-2">
-                {{ title }}
-            </a>
-            <a href="{{ link }}" target="_blank" class="text-gray-500 text-3xl mt-2">
-                {{ subtitle }}
-            </a>
-        </div>
+    <div class="article-content flex flex-col text-center md:text-left space-y-4 md:space-y-6 italic">
+        {{ collection from="projects" sort="order:asc" }}
+            <div class="flex flex-col">
+                {{ if has_detail_page }}
+                    <a href="{{ url }}" class="fluid-title leading-snug flex items-baseline gap-3 justify-center md:justify-start">
+                        <span class="not-italic">{{ emoji }}</span>
+                        <span>{{ title }}</span>
+                    </a>
+                {{ else }}
+                    <a href="{{ link }}" target="_blank" rel="noopener noreferrer" class="fluid-title leading-snug flex items-baseline gap-3 justify-center md:justify-start group">
+                        <span class="not-italic">{{ emoji }}</span>
+                        <span>{{ title }}</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </a>
+                {{ /if }}
+                <p class="fluid-subtitle text-gray-500 dark:text-gray-400 mt-1">
+                    {{ subtitle }}
+                </p>
+            </div>
         {{ /collection }}
     </div>
 </div>

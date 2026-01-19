@@ -1,0 +1,16 @@
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8;"><code><span class="line"><span style="">User: &quot;Can you review this test PR?&quot;</span></span>
+<span class="line"><span style=""></span></span>
+<span class="line"><span style="">Claude: [runs validate.php, reads mock-patterns.md]</span></span>
+<span class="line"><span style=""></span></span>
+<span class="line"><span style="">&quot;Review complete. 1 issue, 1 suggestion:</span></span>
+<span class="line"><span style=""></span></span>
+<span class="line"><span style="">⚠️  MEDIUM (Line 67): `Bus::fake()` without specific jobs.</span></span>
+<span class="line"><span style="">   You&#39;re faking ALL jobs, but this test only cares about SendWelcomeEmail.</span></span>
+<span class="line"><span style="">   Other jobs that should run are now silent.</span></span>
+<span class="line"><span style="">   → Fix: `Bus::fake([SendWelcomeEmail::class])`</span></span>
+<span class="line"><span style=""></span></span>
+<span class="line"><span style="">💡 TIP (Line 34): `assertTrue($user-&gt;isActive())`</span></span>
+<span class="line"><span style="">   This passes even if isActive() returns 1 instead of true.</span></span>
+<span class="line"><span style="">   Consider: `assertSame(true, $user-&gt;isActive())`</span></span>
+<span class="line"><span style="">&quot;</span></span>
+<span class="line"><span style=""></span></span></code></pre>

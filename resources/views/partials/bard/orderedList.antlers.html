@@ -1,0 +1,5 @@
+<ol class="list-decimal list-outside ml-6 space-y-2" {{ if attrs:start }}start="{{ attrs:start }}"{{ /if }}>
+    {{ content }}
+        {{ partial src="partials/bard/listItem" }}
+    {{ /content }}
+</ol>

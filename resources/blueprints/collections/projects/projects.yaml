@@ -39,6 +39,210 @@ tabs:
               icon: link
               listable: hidden
               localizable: true
+          -
+            handle: order
+            field:
+              display: Order
+              type: integer
+              default: 100
+              instructions: 'Lower numbers appear first'
+              listable: true
+              width: 50
+          -
+            handle: has_detail_page
+            field:
+              display: 'Has Detail Page'
+              type: toggle
+              default: false
+              instructions: 'If enabled, clicking the project opens its detail page instead of external link'
+              width: 50
+  content:
+    display: Content
+    sections:
+      -
+        display: 'Detail Page Content'
+        instructions: 'Content shown on the project detail page (only used if "Has Detail Page" is enabled)'
+        fields:
+          -
+            handle: show_toc
+            field:
+              type: toggle
+              display: 'Table of Contents'
+              instructions: 'Show a sticky table of contents in the left sidebar'
+              default: false
+              width: 50
+              localizable: false
+          -
+            handle: toc_levels
+            field:
+              type: checkboxes
+              display: 'TOC Heading Levels'
+              instructions: 'Which heading levels to include'
+              options:
+                1: H1
+                2: H2
+                3: H3
+                4: H4
+              default:
+                - '1'
+                - '2'
+              width: 50
+              localizable: false
+              if:
+                show_toc: 'equals true'
+          -
+            handle: content
+            field:
+              display: Content
+              type: bard
+              localizable: true
+              always_save: false
+              remove_empty_nodes: false
+              buttons:
+                - h1
+                - h2
+                - h3
+                - h4
+                - h5
+                - h6
+                - bold
+                - italic
+                - unorderedlist
+                - orderedlist
+                - removeformat
+                - quote
+                - anchor
+                - image
+                - table
+                - codeblock
+                - horizontalrule
+                - underline
+                - strikethrough
+                - superscript
+                - subscript
+                - code
+                - small
+                - alignleft
+                - aligncenter
+                - alignright
+                - alignjustify
+                - typographic_quotes
+              sets:
+                main:
+                  display: Main
+                  sets:
+                    image:
+                      display: Image
+                      fields:
+                        -
+                          handle: image
+                          field:
+                            mode: grid
+                            container: assets
+                            max_files: 1
+                            display: image
+                            type: assets
+                            folder: projects
+                            localizable: false
+                    code:
+                      display: Code
+                      fields:
+                        -
+                          handle: code
+                          field:
+                            antlers: true
+                            display: code
+                            type: markdown
+                            localizable: false
+                            always_save: false
+                    heading:
+                      display: Heading
+                      fields:
+                        -
+                          handle: number
+                          field:
+                            display: Number
+                            type: integer
+                            localizable: false
+                        -
+                          handle: heading
+                          field:
+                            smartypants: true
+                            display: Heading
+                            type: markdown
+                            localizable: false
+                    sidenote:
+                      display: Sidenote
+                      instructions: 'Tufte-style sidenote that appears in the margin on wide screens.'
+                      fields:
+                        -
+                          handle: content
+                          field:
+                            type: bard
+                            display: Content
+                            instructions: 'The sidenote content'
+                            localizable: false
+                            buttons:
+                              - bold
+                              - italic
+                              - code
+                              - anchor
+                            remove_empty_nodes: true
+                        -
+                          handle: style
+                          field:
+                            type: button_group
+                            display: Style
+                            instructions: 'Visual style of the sidenote'
+                            options:
+                              note: Note
+                              info: Info
+                              tip: Tip
+                              warning: Warning
+                              danger: Danger
+                            default: note
+                            localizable: false
+                        -
+                          handle: position
+                          field:
+                            type: button_group
+                            display: Position
+                            instructions: 'Which side should the sidenote appear on?'
+                            options:
+                              left: Left
+                              right: Right
+                            default: right
+                            localizable: false
+                    thought:
+                      display: Thought
+                      instructions: 'Inner monologue or thought bubble - your internal voice speaking to the reader.'
+                      fields:
+                        -
+                          handle: content
+                          field:
+                            type: bard
+                            display: Content
+                            instructions: 'Your inner thought'
+                            localizable: false
+                            buttons:
+                              - bold
+                              - italic
+                              - code
+                              - anchor
+                            remove_empty_nodes: true
+                        -
+                          handle: position
+                          field:
+                            type: button_group
+                            display: Position
+                            instructions: 'Position and alignment of the thought bubble.'
+                            options:
+                              left: ← Left
+                              center-left: Left →
+                              center-right: ← Right
+                              right: Right →
+                            default: left
+                            localizable: false
   sidebar:
     display: Sidebar
     sections:

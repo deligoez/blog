@@ -1,0 +1,55 @@
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8;"><code><span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">---</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">name: flaky-test-reviewer</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">description: Review PHP/Laravel tests for flakiness patterns. Use when reviewing test code, debugging intermittent test failures, investigating CI failures, or writing new tests.</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold"># Flaky Test Review</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">## Priority Order</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Focus on high-impact issues first:</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">1.</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span><span style="color:#24292E;--shiki-light-font-weight:bold;--shiki-dark:#E1E4E8;--shiki-dark-font-weight:bold">**Critical**</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: alias/overload mocks, missing time freezing, fakes after factory</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">2.</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span><span style="color:#24292E;--shiki-light-font-weight:bold;--shiki-dark:#E1E4E8;--shiki-dark-font-weight:bold">**Important**</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: database ordering, tearDown order, cache before mock</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">3.</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span><span style="color:#24292E;--shiki-light-font-weight:bold;--shiki-dark:#E1E4E8;--shiki-dark-font-weight:bold">**Style**</span><span style="color:#24292E;--shiki-dark:#E1E4E8">: assertion patterns, exception handling style</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">## Quick Checks</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">### Time</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Time frozen at test start?</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`travelBack()`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> after </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`travelTo()`</span><span style="color:#24292E;--shiki-dark:#E1E4E8">?</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`startOfSecond()`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> for sequential records?</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] DataProviders avoid </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`now()`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> and facades?</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">### Mocks</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] No </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`alias::`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> or </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`overload::`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> mocks?</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Fakes BEFORE factory creation?</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`Http::fake()`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> specific routes before wildcards?</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] No </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`Http::sequence()`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> in parallel tests?</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">### Isolation</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Explicit </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`ORDER BY`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> for ordered assertions?</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Cache cleared before mocking?</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Observable events disabled for side-effect models?</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] Custom cleanup before </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`parent::tearDown()`</span><span style="color:#24292E;--shiki-dark:#E1E4E8">?</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">### Assertions</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`assertSame(true, ...)`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> for booleans?</span></span>
+<span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70">-</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> [ ] </span><span style="color:#005CC5;--shiki-dark:#79B8FF">`$this-&gt;fail()`</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> in try/catch?</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5;--shiki-light-font-weight:bold;--shiki-dark:#79B8FF;--shiki-dark-font-weight:bold">## Fixes</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">```php</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">// Freeze time</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">$this-&gt;travelTo(now()-&gt;startOfSecond());</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">// Disable events</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Model::ignoreObservableEvents([&#39;created&#39;, &#39;updated&#39;]);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">// Fake before factory</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Notification::fake();</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">$model = Model::factory()-&gt;create();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">// Clear cache before mock</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">cache()-&gt;forget(&#39;key&#39;);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">Config::partialMock()-&gt;shouldReceive(...);</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8">```</span></span></code></pre>

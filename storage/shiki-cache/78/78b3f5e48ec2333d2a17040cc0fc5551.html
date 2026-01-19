@@ -1,0 +1,30 @@
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8;"><code><span class="line"><span style="">User: &quot;Help me write a test for this payment flow&quot;</span></span>
+<span class="line"><span style=""></span></span>
+<span class="line"><span style="">Claude: [reads SKILL.md priority order]</span></span>
+<span class="line"><span style=""></span></span>
+<span class="line"><span style="">&quot;Before we start, here&#39;s my flaky test checklist for payment flows:</span></span>
+<span class="line"><span style=""></span></span>
+<span class="line"><span style="">✓ Time freezing (payments are time-sensitive)</span></span>
+<span class="line"><span style="">✓ Notification::fake() BEFORE creating orders</span></span>
+<span class="line"><span style="">✓ No alias mocks for the payment gateway</span></span>
+<span class="line"><span style="">✓ Passport scopes if using API authentication</span></span>
+<span class="line"><span style=""></span></span>
+<span class="line"><span style="">Let me write the test with these patterns built in:&quot;</span></span>
+<span class="line"><span style=""></span></span>
+<span class="line"><span style="">public function test_payment_processes_successfully(): void</span></span>
+<span class="line"><span style="">{</span></span>
+<span class="line"><span style="">    // Freeze time first</span></span>
+<span class="line"><span style="">    $this-&gt;travelTo(now()-&gt;startOfMinute());</span></span>
+<span class="line"><span style=""></span></span>
+<span class="line"><span style="">    // Fake notifications before factory</span></span>
+<span class="line"><span style="">    Notification::fake();</span></span>
+<span class="line"><span style=""></span></span>
+<span class="line"><span style="">    // Use container binding, not alias mock</span></span>
+<span class="line"><span style="">    $this-&gt;app-&gt;bind(PaymentGateway::class, FakeGateway::class);</span></span>
+<span class="line"><span style=""></span></span>
+<span class="line"><span style="">    // Include required scopes</span></span>
+<span class="line"><span style="">    Passport::actingAs($user, [&#39;process-payments&#39;]);</span></span>
+<span class="line"><span style=""></span></span>
+<span class="line"><span style="">    // ... test code</span></span>
+<span class="line"><span style="">}</span></span>
+<span class="line"><span style=""></span></span></code></pre>

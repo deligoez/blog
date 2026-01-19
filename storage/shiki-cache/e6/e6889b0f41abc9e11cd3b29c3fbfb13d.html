@@ -1,0 +1,24 @@
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8;"><code><span class="line"><span style="">User: &quot;This test passes locally but fails randomly in CI&quot;</span></span>
+<span class="line"><span style=""></span></span>
+<span class="line"><span style="">Claude: [runs validate.php, reads time-patterns.md]</span></span>
+<span class="line"><span style=""></span></span>
+<span class="line"><span style="">&quot;I found 2 HIGH priority issues:</span></span>
+<span class="line"><span style=""></span></span>
+<span class="line"><span style="">1. Line 23: `Carbon::createFromFormat(&#39;Y-m-d&#39;, $date)`</span></span>
+<span class="line"><span style="">   → This preserves the current wall clock time for components not in the format.</span></span>
+<span class="line"><span style="">   → Fix: Chain `.startOfDay()` to reset the time portion.</span></span>
+<span class="line"><span style=""></span></span>
+<span class="line"><span style="">2. Line 45: `Notification::fake()` is called AFTER the factory.</span></span>
+<span class="line"><span style="">   → The factory&#39;s afterCreating hook already sent the notification.</span></span>
+<span class="line"><span style="">   → Fix: Move `Notification::fake()` before the factory call.</span></span>
+<span class="line"><span style=""></span></span>
+<span class="line"><span style="">Here are the fixes:&quot;</span></span>
+<span class="line"><span style=""></span></span>
+<span class="line"><span style="">// Before</span></span>
+<span class="line"><span style="">$order = Order::factory()-&gt;create();</span></span>
+<span class="line"><span style="">Notification::fake();</span></span>
+<span class="line"><span style=""></span></span>
+<span class="line"><span style="">// After</span></span>
+<span class="line"><span style="">Notification::fake();</span></span>
+<span class="line"><span style="">$order = Order::factory()-&gt;create();</span></span>
+<span class="line"><span style=""></span></span></code></pre>
