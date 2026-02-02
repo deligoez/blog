@@ -9,7 +9,7 @@ order: 1
 has_detail_page: true
 show_toc: true
 updated_by: b8f3533e-0fcf-42b9-a3d8-c8691deaf917
-updated_at: 1768818403
+updated_at: 1769092868
 toc_levels:
   - 1
 content:
@@ -3257,7 +3257,7 @@ content:
         type: text
         text: |
           /plugin marketplace add deligoez/agentic-commits
-          /plugin install agentic-commit@agentic-commits
+          /plugin install agentic-commits@agentic-commits
   -
     type: paragraph
     attrs:
