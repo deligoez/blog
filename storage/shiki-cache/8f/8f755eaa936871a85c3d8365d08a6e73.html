@@ -1,0 +1,6 @@
+<pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8;"><code><span class="line"><span style="">| Inside Relationship              | Lazy Loading | Eager Loading      |</span></span>
+<span class="line"><span style="">|----------------------------------|:------------:|:------------------:|</span></span>
+<span class="line"><span style="">| -&gt;where(&#39;col&#39;, $this-&gt;attr)      |      ✓       |     ✗ (null)       |</span></span>
+<span class="line"><span style="">| -&gt;whereColumn(&#39;a.col&#39;, &#39;b.col&#39;)  |      ✓       | ✓ (not self-join)  |</span></span>
+<span class="line"><span style="">| -&gt;where(&#39;type&#39;, &#39;CONSTANT&#39;)      |      ✓       |        ✓           |</span></span>
+<span class="line"><span style="">| Callback in with()               |     n/a      |        ✓           |</span></span></code></pre>
